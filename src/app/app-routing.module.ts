@@ -9,7 +9,9 @@ const routes: Routes = [
      () => import('./dashboard/dashboard.module').then(m => m.DashboardModule) },
      { path: 'notifications', loadChildren: 
     () => import('./notifications/notifications.module').then(m => m.NotificationsModule) },
-    { path: 'skills-and-work', loadChildren: () => import('./courseslist/courseslist.module').then(m => m.CourseslistModule) }
+    { path: 'skills-and-work', loadChildren: () => import('./courseslist/courseslist.module')
+    .then(m => m.CourseslistModule) },
+    { path: 'watch', loadChildren: () => import('./watch/watch.module').then(m => m.WatchModule) }
   ]}, 
   { path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) },
   ];
