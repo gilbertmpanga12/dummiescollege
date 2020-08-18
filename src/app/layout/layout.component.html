@@ -1,4 +1,4 @@
-<nav class="bg-gray-800">
+<nav class="bg-transparent border border-gray-300 shadow-md" >
     <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
       <div class="relative flex items-center justify-between h-16">
         <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -44,27 +44,20 @@
           class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start"
         >
           <div class="flex-shrink-0">
-            <img
-              class="block lg:hidden h-8 w-auto"
-              src="https://tailwindui.com/img/logos/workflow-mark-on-dark.svg"
-              alt="Workflow logo"
-            />
-            <img
-              class="hidden lg:block h-8 w-auto"
-              src="https://tailwindui.com/img/logos/workflow-logo-on-dark.svg"
-              alt="Workflow logo"
-            />
+
+            <a href="#" class="bg-black text-white font-bold text-base p-2 block w-auto">DummiesCollege</a>
+
           </div>
           <div class="hidden sm:block sm:ml-6">
             <div class="flex">
               <a
               routerLink="/"
-                class="px-3 py-2 rounded-md text-sm font-medium leading-5 text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
+                class="ml-4 px-3 py-2 rounded-sm text-sm font-medium leading-5 text-black focus:bg-gray-900 focus:text-white transition duration-150 ease-in-out"
                 >Courses</a
               >
               <a
                 routerLink="/my-resume"
-                class="ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
+                class="ml-4 px-3 py-2 rounded-sm text-sm font-medium leading-5 text-black focus:bg-gray-900 focus:text-white transition duration-150 ease-in-out"
                 >My resume</a
               >
               
@@ -73,14 +66,14 @@
           <!-- custom search bar -->
           <div class="w-6/12 sm:ml-6 hidden sm:block">
             <div class="relative">
-              <input class="transition-colors duration-100 ease-in-out text-gray-600 py-1 pr-4 pl-4 
-              w-full appearance-none leading-normal border border-transparent rounded-lg 
+              <input class="transition-colors duration-100 ease-in-out text-black py-1 pr-4 pl-4 
+              w-full appearance-none leading-normal border-2 border-black 
               focus:outline-none text-left 
-              select-none truncate focus:bg-white focus:border-gray-300 bg-gray-900" 
+              select-none truncate focus:bg-white  bg-white" 
               aria-placeholder="Find skills for your next job" 
               placeholder="Find skills for your next job"/>
               <button type="submit" class="absolute mt-5 mr-4 normalize-search-icon">
-                <svg class="text-gray-600 h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg"
+                <svg class="text-black h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg"
                   xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px"
                   viewBox="0 0 56.966 56.966" style="enable-background:new 0 0 56.966 56.966;" xml:space="preserve"
                   width="512px" height="512px">
@@ -100,7 +93,8 @@
         >
           <button
           routerLink="/notifications"
-            class="p-1 border-2 border-transparent text-gray-400 rounded-full hover:text-white focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
+            class="p-1 border-2 border-transparent text-black rounded-full 
+            hover:text-black focus:outline-none focus:text-white focus:bg-gray-900 transition duration-150 ease-in-out"
             aria-label="Notifications"
           >
             <svg
