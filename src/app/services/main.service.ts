@@ -17,8 +17,7 @@ export class MainService {
   fullYear: number = this.year.getFullYear();
   isLoading: boolean = false;
   constructor(private auth: AngularFireAuth, 
-    private router: Router, private firestore: AngularFirestore,
-     private http: HttpClient) { 
+    private router: Router, private firestore: AngularFirestore) {
       this.auth.authState.subscribe(user => {
         if (user){
           this.user = user;
@@ -44,7 +43,7 @@ export class MainService {
   async sendEmailVerification() {
     await (await this.auth.currentUser).sendEmailVerification();
     this.router.navigate(['/']);
-  }
+}
 
 
   
