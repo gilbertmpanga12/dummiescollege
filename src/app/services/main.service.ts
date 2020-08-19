@@ -4,6 +4,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class MainService {
-
-  constructor() { }
+  year: Date = new Date();
+  fullYear: number = this.year.getFullYear();
+  constructor() { 
+   
+  }
 }
