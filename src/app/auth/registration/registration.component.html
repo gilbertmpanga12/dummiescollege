@@ -52,6 +52,11 @@
                     <button type="submit" 
                     class="bg-black text-white font-bold text-lg hover:bg-gray-700 p-2 mt-8 cursor-pointer">
                 <span *ngIf="!service.isLoading">Sign up</span>
+                <div class="spinner" *ngIf="service.isLoading">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                  </div>
                 </button>
                 </form>
                 <div class="text-center pt-12 pb-12">
