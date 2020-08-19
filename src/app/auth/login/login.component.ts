@@ -22,7 +22,9 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  login(): void{
+  login(): void {
     const payload = this.loginGroup.getRawValue();
+    this.service.isLoading = true;
+    this.service.login(payload['email'],payload['password']);
   }
 }

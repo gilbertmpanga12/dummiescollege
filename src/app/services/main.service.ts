@@ -3,6 +3,7 @@ import { User } from 'firebase';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { Student } from './models';
 // import { HttpClient } from '@angular/common/http';
 // import { firestore as ft } from 'firebase/app';
 // import { Observable, BehaviorSubject } from 'rxjs';
@@ -28,12 +29,20 @@ export class MainService {
 
   async login(email: string, password: string){
     await this.auth.signInWithEmailAndPassword(email,password);
+    this.isLoading = false;
     this.router.navigate(['/']);
   }
 
-  async registerAccount(email: string, password: string, accountType: string){
-    await this.auth.createUserWithEmailAndPassword(email,password);
+  async registerAccount(payload: Student){
+    await this.auth.createUserWithEmailAndPassword(payload.email,payload.password);
+    await this.storeProfile(payload.fullName, payload.email, payload.country);
+    this.isLoading = false;
     this.router.navigate(['/']);
+  }
+
+  async storeProfile(fullName: string, email: string, country: string){
+    let user = await this.auth.currentUser;
+    await this.firestore.collection('users').doc(user.uid).set({fullName, email, country});
   }
 
   async forgotPassword(email: string){

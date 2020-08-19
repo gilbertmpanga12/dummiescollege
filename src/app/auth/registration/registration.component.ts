@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MainService } from 'src/app/services/main.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import {Student} from '../../services/models';
 
 @Component({
   selector: 'app-registration',
@@ -20,7 +21,8 @@ export class RegistrationComponent implements OnInit {
   }
 
   signUp(): void{
-    const payload = this.registrationGroup.getRawValue();
+    const payload: Student = <Student>this.registrationGroup.getRawValue();
+    this.service.registerAccount(payload);
   }
  
   validator(controlName: string): boolean {
