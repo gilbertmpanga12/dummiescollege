@@ -15,12 +15,16 @@ export class RegistrationComponent implements OnInit {
     this.registrationGroup = this._fb.group({
       fullName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.maxLength(6)]]
+      password: ['', [Validators.required, Validators.minLength(6)]]
     });
   }
 
   signUp(): void{
     const payload = this.registrationGroup.getRawValue();
+  }
+ 
+  validator(controlName: string): boolean {
+    return this.registrationGroup.get(controlName).invalid && this.registrationGroup.get(controlName).touched;
   }
 
 }
