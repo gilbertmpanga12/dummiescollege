@@ -10,15 +10,18 @@ import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.compone
 const routes: Routes = [{ path: '', component: AuthComponent , children: [
   {
     path: '',
-    component: LoginComponent
+    component: LoginComponent,
+    data: {animation: 'LoginPage'}
   },
   {
     path: 'register',
-    component: RegistrationComponent
+    component: RegistrationComponent,
+    data: {animation: 'RegisterPage'}
   },
   {
     path: 'forgot-password',
-    component: ForgotpasswordComponent
+    component: ForgotpasswordComponent,
+    data: {animation: 'ForgotpasswordPage'}
   }
 ]}];
 
