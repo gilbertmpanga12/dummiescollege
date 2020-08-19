@@ -3,9 +3,9 @@ import { User } from 'firebase';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { HttpClient } from '@angular/common/http';
-import { firestore as ft } from 'firebase/app';
-import { Observable } from 'rxjs';
+// import { HttpClient } from '@angular/common/http';
+// import { firestore as ft } from 'firebase/app';
+// import { Observable, BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -44,6 +44,8 @@ export class MainService {
     await (await this.auth.currentUser).sendEmailVerification();
     this.router.navigate(['/']);
 }
+
+
 
 
   
