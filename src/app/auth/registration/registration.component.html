@@ -16,8 +16,8 @@
                         class="capitalize shadow 
                         appearance-none border rounded w-full 
                         py-2 px-3 text-gray-700 mt-1 
-                        leading-tight focus:outline-none 
-                        focus:shadow-outline" 
+                        leading-tight focus:outline-none
+                        focus:border-black" 
                         formControlName="fullName" required>
                         <p class="text-red-500 
                         text-xs italic" *ngIf="validator('fullName')">Please provide your full name</p>
@@ -27,10 +27,11 @@
                         <label for="email" class="text-lg">Email</label>
                         <input type="email" id="email" 
                         placeholder="your@email.com" 
-                        class="shadow appearance-none 
-                        border rounded w-full py-2 px-3 
-                        text-gray-700 mt-1 leading-tight 
-                        focus:outline-none focus:shadow-outline" formControlName="email" required>
+                        class="shadow 
+                        appearance-none border rounded w-full 
+                        py-2 px-3 text-gray-700 mt-1 
+                        leading-tight focus:outline-none
+                        focus:border-black" formControlName="email" required>
                         <p class="text-red-500 
                         text-xs italic" *ngIf="validator('email')">A valid email is required 
                         e.g craigmiller@example.com</p>
@@ -40,10 +41,11 @@
                         <label for="password" class="text-lg">Password</label>
                         <input type="password" id="password"
                         placeholder="Password" 
-                        class="shadow appearance-none 
-                        border rounded w-full py-2 px-3 
-                        text-gray-700 mt-1 leading-tight
-                        focus:outline-none focus:shadow-outline" 
+                        class="shadow 
+                        appearance-none border rounded w-full 
+                        py-2 px-3 text-gray-700 mt-1 
+                        leading-tight focus:outline-none
+                        focus:border-black" 
                         formControlName="password" required min="6">
                         <p class="text-red-500 
                         text-xs italic" *ngIf="validator('password')">A password is required & must be at least 6 characters</p>
