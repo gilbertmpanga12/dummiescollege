@@ -40,8 +40,21 @@
 
                     <div class="flex flex-col pt-4">
                         <label for="country" class="text-lg">Country</label>
-                        <input type="country" id="country"
-                        placeholder="country" 
+                        <select class="shadow 
+                        appearance-none border rounded w-full 
+                        py-2 px-3 text-gray-700 mt-1 
+                        leading-tight focus:outline-none
+                        focus:border-black" formControlName="country">
+                    <option *ngFor="let country of countries">{{country}}</option>
+                    </select>
+                        
+                    </div>
+
+
+                    <div class="flex flex-col pt-4">
+                        <label for="country" class="text-lg">Password</label>
+                        <input type="password"
+                        placeholder="Password ***" 
                         class="shadow 
                         appearance-none border rounded w-full 
                         py-2 px-3 text-gray-700 mt-1 
@@ -53,19 +66,7 @@
                     </div>
                     
 
-                    <div class="flex flex-col pt-4">
-                        <label for="password" class="text-lg">Password</label>
-                        <input type="password" id="password"
-                        placeholder="Password" 
-                        class="shadow 
-                        appearance-none border rounded w-full 
-                        py-2 px-3 text-gray-700 mt-1 
-                        leading-tight focus:outline-none
-                        focus:border-black" 
-                        formControlName="password" required min="6">
-                        <p class="text-red-500 
-                        text-xs italic" *ngIf="validator('password')">A password is required & must be at least 6 characters</p>
-                    </div>
+                    
     
                     <button type="submit" 
                     class="bg-black text-white font-bold text-lg hover:bg-gray-700 p-2 mt-8 cursor-pointer">

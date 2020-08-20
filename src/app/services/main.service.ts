@@ -36,15 +36,12 @@ export class MainService {
   }
 
   async registerAccount(payload: Student){
-    await this.auth.createUserWithEmailAndPassword(payload.email,payload.password);
-    await this.storeProfile(payload.fullName, payload.email, payload.country);
-    this.router.navigate(['/']);
+   let user =  await this.auth.createUserWithEmailAndPassword(payload.email,payload.password);
+   await this.firestore.collection('users').doc(user.user.uid).set({...payload});
+   this.router.navigate(['/']);
   }
 
-  async storeProfile(fullName: string, email: string, country: string){
-    let user = await this.auth.currentUser;
-    await this.firestore.collection('users').doc(user.uid).set({fullName, email, country});
-  }
+  
 
   async forgotPassword(email: string){
     return await this.auth.sendPasswordResetEmail(email);
@@ -55,14 +52,7 @@ export class MainService {
     this.router.navigate(['/']);
   }
 
-  async getCountry(){
-     await this.http.get('https://ip-api.io/json').subscribe(resp => {
-      console.log(resp);
-     },err => {
-       console.log(err);
-     });
-   
-  }
+ 
 
 
 
