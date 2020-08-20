@@ -11,6 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class RegistrationComponent implements OnInit {
   registrationGroup: FormGroup;
+  countries: string[] = [];
   constructor(public service: MainService, private _fb: FormBuilder, private toastr: ToastrService) { }
 
   ngOnInit(): void {
@@ -22,15 +23,17 @@ export class RegistrationComponent implements OnInit {
   }
 
   signUp(): void{
+    this.service.isLoading = true;
     const payload: Student = <Student>this.registrationGroup.getRawValue();
-    this.service.registerAccount(payload).then(resp => {
-    this.service.isLoading = false;
-    }).catch(err => {
-      this.service.isLoading = false;
-      this.toastr.error('Whoops!', err, {
-        timeOut: 4000,
-      });
-    });
+    this.service.getCountry();
+    // this.service.registerAccount(payload).then(resp => {
+    // this.service.isLoading = false;
+    // }).catch(err => {
+    //   this.service.isLoading = false;
+    //   this.toastr.error('Whoops!', err, {
+    //     timeOut: 4000,
+    //   });
+    // });
   }
  
   validator(controlName: string): boolean {

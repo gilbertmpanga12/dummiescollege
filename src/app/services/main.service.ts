@@ -4,7 +4,9 @@ import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Student } from './models';
-// import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+import { tap } from 'rxjs/operators';
 // import { firestore as ft } from 'firebase/app';
 // import { Observable, BehaviorSubject } from 'rxjs';
 
@@ -18,7 +20,8 @@ export class MainService {
   fullYear: number = this.year.getFullYear();
   isLoading: boolean = false;
   constructor(private auth: AngularFireAuth, 
-    private router: Router, private firestore: AngularFirestore) {
+    private router: Router, private firestore: AngularFirestore, 
+    private http: HttpClient) {
       this.auth.authState.subscribe(user => {
         if (user){
           this.user = user;
@@ -50,7 +53,16 @@ export class MainService {
   async sendEmailVerification() {
     await (await this.auth.currentUser).sendEmailVerification();
     this.router.navigate(['/']);
-}
+  }
+
+  async getCountry(){
+     await this.http.get('https://ip-api.io/json').subscribe(resp => {
+      console.log(resp);
+     },err => {
+       console.log(err);
+     });
+   
+  }
 
 
 

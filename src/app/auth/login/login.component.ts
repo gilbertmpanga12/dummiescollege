@@ -34,6 +34,7 @@ export class LoginComponent implements OnInit {
       this.service.isLoading = false;
       this.toastr.error('Whoops!', err, {
         timeOut: 4000,
+        
       });
     });
   }

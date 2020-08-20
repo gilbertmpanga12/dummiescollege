@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  countryKey: '2d145fc918345ee07f59e76e326c67825660c45380173dc553c20e6c',
   firebase: {
     apiKey: "AIzaSyD4pR0VWYdnLP4VUW_mXBKIleFK2mWFqvc",
     authDomain: "dummiescollege.firebaseapp.com",
