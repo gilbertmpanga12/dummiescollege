@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MainService } from 'src/app/services/main.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import {Student} from '../../services/models';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-registration',
@@ -10,7 +11,7 @@ import {Student} from '../../services/models';
 })
 export class RegistrationComponent implements OnInit {
   registrationGroup: FormGroup;
-  constructor(public service: MainService, private _fb: FormBuilder) { }
+  constructor(public service: MainService, private _fb: FormBuilder, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.registrationGroup = this._fb.group({
@@ -22,7 +23,14 @@ export class RegistrationComponent implements OnInit {
 
   signUp(): void{
     const payload: Student = <Student>this.registrationGroup.getRawValue();
-    this.service.registerAccount(payload);
+    this.service.registerAccount(payload).then(resp => {
+    this.service.isLoading = false;
+    }).catch(err => {
+      this.service.isLoading = false;
+      this.toastr.error('Whoops!', err, {
+        timeOut: 4000,
+      });
+    });
   }
  
   validator(controlName: string): boolean {

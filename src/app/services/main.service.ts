@@ -29,14 +29,12 @@ export class MainService {
 
   async login(email: string, password: string){
     await this.auth.signInWithEmailAndPassword(email,password);
-    this.isLoading = false;
     this.router.navigate(['/']);
   }
 
   async registerAccount(payload: Student){
     await this.auth.createUserWithEmailAndPassword(payload.email,payload.password);
     await this.storeProfile(payload.fullName, payload.email, payload.country);
-    this.isLoading = false;
     this.router.navigate(['/']);
   }
 

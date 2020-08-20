@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ThrowStmt } from '@angular/compiler';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,9 @@ import { ThrowStmt } from '@angular/compiler';
 })
 export class LoginComponent implements OnInit {
   loginGroup: FormGroup;
-  constructor(public service: MainService, private _fb: FormBuilder, private route: ActivatedRoute) { }
+  constructor(public service: MainService, private _fb: FormBuilder, 
+    private route: ActivatedRoute, 
+    private toastr: ToastrService) { }
 
   ngOnInit(): void {
     
@@ -25,6 +28,13 @@ export class LoginComponent implements OnInit {
   login(): void {
     const payload = this.loginGroup.getRawValue();
     this.service.isLoading = true;
-    this.service.login(payload['email'],payload['password']);
+    this.service.login(payload['email'],payload['password']).then(resp => {
+      this.service.isLoading = false;
+    }).catch(err => {
+      this.service.isLoading = false;
+      this.toastr.error('Whoops!', err, {
+        timeOut: 4000,
+      });
+    });
   }
 }

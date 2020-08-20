@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { LayoutComponent } from './layout/layout.component';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { environment } from 'src/environments/environment';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireModule.initializeApp(environment.firebase),
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
