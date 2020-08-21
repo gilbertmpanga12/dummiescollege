@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import { User } from 'firebase';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { AngularFirestore } from '@angular/fire/firestore';//AngularFirestoreDocument
 import { Student } from './models';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
+// import { HttpClient, HttpHeaders } from '@angular/common/http';
+// import { environment } from 'src/environments/environment';
 import { tap } from 'rxjs/operators';
 // import { firestore as ft } from 'firebase/app';
 // import { Observable, BehaviorSubject } from 'rxjs';
@@ -20,8 +20,7 @@ export class MainService {
   fullYear: number = this.year.getFullYear();
   isLoading: boolean = false;
   constructor(private auth: AngularFireAuth, 
-    private router: Router, private firestore: AngularFirestore, 
-    private http: HttpClient) {
+    private router: Router, private firestore: AngularFirestore) {
       this.auth.authState.subscribe(user => {
         if (user){
           this.user = user;
@@ -50,6 +49,10 @@ export class MainService {
   async sendEmailVerification() {
     await (await this.auth.currentUser).sendEmailVerification();
     this.router.navigate(['/']);
+  }
+
+   async resendEmailLink(){
+    await (await this.auth.currentUser).sendEmailVerification();
   }
 
  

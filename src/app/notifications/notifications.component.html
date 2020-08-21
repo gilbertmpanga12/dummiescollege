@@ -1,77 +1,75 @@
-<div class="container w-full">
-    <div class="max-w-sm sm:max-w-md md:max-w-lg
-     lg:max-w-xl xl:max-w-2xl mx-auto   mt-8 p-3">
-     <h1 class="text-base sm:text-lg md:text-xl 
-        lg:text-2xl xl:text-3xl font-medium text-justify">Notifications</h1>
-<br/>
-  
-        <div class="w-full   h-full flex flex-col">
-            <div class="bg-white text-sm text-gray-500 font-bold px-5 py-2 shadow border-b border-gray-300">
-                Tracking events
+<ng-container [ngSwitch]="(service.user?.emailVerified)">
+    <div class="container w-full" *ngSwitchCase="true">
+        <div class="max-w-sm sm:max-w-md md:max-w-lg
+         lg:max-w-xl xl:max-w-2xl mx-auto   mt-8 p-3">
+         <h1 class="text-base sm:text-lg md:text-xl 
+            lg:text-2xl xl:text-3xl font-medium text-justify">Notifications</h1>
+    <br/>
+      
+            <div class="w-full   h-full flex flex-col">
+                <div class="bg-white text-sm text-gray-500 font-bold px-5 py-2 shadow border-b border-gray-300">
+                    Tracking events
+                </div>
+                
+                <div class="w-full h-full overflow-auto shadow bg-white" id="journal-scroll">
+    
+                <table class="w-full">
+    
+    
+                    <tbody class="">
+                                                <tr class="relative transform scale-100
+                                    text-xs py-1 border-b-2 border-blue-100 cursor-default
+    
+                            bg-blue-500 bg-opacity-25">
+                            <td class="pl-5 pr-3 whitespace-no-wrap">
+                                <div class="text-gray-400">Today</div>
+                                <div>07:45</div>
+                            </td>
+    
+                            <td class="px-2 py-2 whitespace-no-wrap">
+                                <div class="leading-5 text-gray-500 font-medium">Taylor Otwel</div>
+                                <div class="leading-5 text-gray-900">Create pull request #1213
+                                    <a class="text-blue-500 hover:underline" href="#">#231231</a></div>
+                                <div class="leading-5 text-gray-800">Hello message</div>
+                            </td>
+    
+                        </tr>
+                                              
+                                                <tr class="relative transform scale-100
+                                    text-xs py-1 border-b-2 border-blue-100 cursor-default
+    
+                            ">
+                            <td class="pl-5 pr-3 whitespace-no-wrap">
+                                <div class="text-gray-400">24 jule</div>
+                                <div>07:45</div>
+                            </td>
+    
+                            <td class="px-2 py-2 whitespace-no-wrap">
+                                <div class="leading-5 text-gray-500 font-medium">Taylor Otwel</div>
+                                <div class="leading-5 text-gray-900">Create pull request #1213
+                                    <a class="text-blue-500 hover:underline" href="#">#231231</a></div>
+                                <div class="leading-5 text-gray-800">Hello message</div>
+                            </td>
+    
+                        </tr>
+                                            </tbody>
+                </table>
+                </div>
+                
+          
             </div>
-            
-            <div class="w-full h-full overflow-auto shadow bg-white" id="journal-scroll">
-
-            <table class="w-full">
-
-
-                <tbody class="">
-                                            <tr class="relative transform scale-100
-                                text-xs py-1 border-b-2 border-blue-100 cursor-default
-
-                        bg-blue-500 bg-opacity-25">
-                        <td class="pl-5 pr-3 whitespace-no-wrap">
-                            <div class="text-gray-400">Today</div>
-                            <div>07:45</div>
-                        </td>
-
-                        <td class="px-2 py-2 whitespace-no-wrap">
-                            <div class="leading-5 text-gray-500 font-medium">Taylor Otwel</div>
-                            <div class="leading-5 text-gray-900">Create pull request #1213
-                                <a class="text-blue-500 hover:underline" href="#">#231231</a></div>
-                            <div class="leading-5 text-gray-800">Hello message</div>
-                        </td>
-
-                    </tr>
-                                          
-                                            <tr class="relative transform scale-100
-                                text-xs py-1 border-b-2 border-blue-100 cursor-default
-
-                        ">
-                        <td class="pl-5 pr-3 whitespace-no-wrap">
-                            <div class="text-gray-400">24 jule</div>
-                            <div>07:45</div>
-                        </td>
-
-                        <td class="px-2 py-2 whitespace-no-wrap">
-                            <div class="leading-5 text-gray-500 font-medium">Taylor Otwel</div>
-                            <div class="leading-5 text-gray-900">Create pull request #1213
-                                <a class="text-blue-500 hover:underline" href="#">#231231</a></div>
-                            <div class="leading-5 text-gray-800">Hello message</div>
-                        </td>
-
-                    </tr>
-                                        </tbody>
-            </table>
-            </div>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-
         </div>
+    
     </div>
-
-</div>
+    <app-emailactivation *ngSwitchCase="false"></app-emailactivation>
+    <div class="flex-container-column" *ngSwitchDefault>
+      <div class="height-block2"></div>
+        <div class="sk-chase">
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+          </div>
+    </div>
