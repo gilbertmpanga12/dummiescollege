@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
 import {AuthGuard} from './services/main.guard';
+import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
   {path: '',component: LayoutComponent,children: [
@@ -15,9 +16,10 @@ const routes: Routes = [
     .then(m => m.CourseslistModule) },
 
     { path: 'watch', loadChildren: () => import('./watch/watch.module').then(m => m.WatchModule),
-    canActivate:[AuthGuard]}
+    canActivate:[AuthGuard]},
   ]}, 
   { path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) },
+  {path: 'search', component: SearchComponent}
   ];
 
 @NgModule({

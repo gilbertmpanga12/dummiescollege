@@ -8,11 +8,13 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LayoutComponent
+    LayoutComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
