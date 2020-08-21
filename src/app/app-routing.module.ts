@@ -13,9 +13,7 @@ const routes: Routes = [
     () => import('./notifications/notifications.module').then(m => m.NotificationsModule), canActivate:[AuthGuard] },
     { path: 'skills-and-work', loadChildren: () => import('./courseslist/courseslist.module')
     .then(m => m.CourseslistModule) },
-
-    { path: 'watch', loadChildren: () => import('./watch/watch.module').then(m => m.WatchModule),
-    canActivate:[AuthGuard]}
+    { path: 'watch', loadChildren: () => import('./watch/watch.module').then(m => m.WatchModule)}
   ]}, 
   { path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) },
   ];
