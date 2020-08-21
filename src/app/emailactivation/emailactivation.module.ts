@@ -8,6 +8,7 @@ import { EmailactivationComponent } from './emailactivation/emailactivation.comp
   declarations: [EmailactivationComponent],
   imports: [
     CommonModule
-  ]
+  ],
+  exports: [EmailactivationComponent]
 })
 export class EmailactivationModule { }
