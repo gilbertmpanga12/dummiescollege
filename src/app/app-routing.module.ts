@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
 import {AuthGuard} from './services/main.guard';
 import { SearchComponent } from './search/search.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 const routes: Routes = [
   {path: '',component: LayoutComponent,children: [
@@ -15,11 +16,12 @@ const routes: Routes = [
     { path: 'skills-and-work', loadChildren: () => import('./courseslist/courseslist.module')
     .then(m => m.CourseslistModule) },
 
-    { path: 'watch', loadChildren: () => import('./watch/watch.module').then(m => m.WatchModule),
-    canActivate:[AuthGuard]},
+    { path: 'watch', loadChildren: () => import('./watch/watch.module').then(m => m.WatchModule)
+    },// canActivate:[AuthGuard]
   ]}, 
   { path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) },
-  {path: 'search', component: SearchComponent}
+  {path: 'search', component: SearchComponent},
+  {path: '**', component: PagenotfoundComponent, pathMatch: 'full'}
   ];
 
 @NgModule({

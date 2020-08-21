@@ -9,12 +9,14 @@ import { environment } from 'src/environments/environment';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
 import { SearchComponent } from './search/search.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LayoutComponent,
-    SearchComponent
+    SearchComponent,
+    PagenotfoundComponent
   ],
   imports: [
     BrowserModule,
