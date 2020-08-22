@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { trigger, transition, style, query, animateChild, group, animate } from '@angular/animations';
+import { trigger, transition, style, animate } from '@angular/animations';
 
 const slideInAnimation = trigger('routeAnimations', [ 
   transition('LoginPage <=> RegisterPage', [

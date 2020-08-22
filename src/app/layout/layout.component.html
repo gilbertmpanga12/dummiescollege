@@ -172,7 +172,9 @@ role="alert">
   </nav>
  
   <div class="pt-12">
-    <router-outlet></router-outlet>
+    <div [@routeAnimations]="prepareRoute(outlet)">
+      <router-outlet #outlet="outlet"></router-outlet>
+    </div>
   </div>
 
   <div class="flex flex-row items-center 
