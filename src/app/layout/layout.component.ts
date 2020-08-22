@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MainService } from '../services/main.service';
 import { ToastrService } from 'ngx-toastr';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-layout',
@@ -15,6 +16,8 @@ export class LayoutComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  
   
   showMenu(){
     this.service.showMobileMenu = true;
