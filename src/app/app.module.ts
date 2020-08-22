@@ -10,13 +10,15 @@ import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
 import { SearchComponent } from './search/search.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import {DropDownMenu} from './directives/dropdown.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     LayoutComponent,
     SearchComponent,
-    PagenotfoundComponent
+    PagenotfoundComponent,
+    DropDownMenu
   ],
   imports: [
     BrowserModule,

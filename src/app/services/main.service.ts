@@ -14,6 +14,7 @@ import { tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class MainService {
+  showMobileMenu: boolean = false;
   user: User;
   year: Date = new Date();
   userVerified: boolean = false;
@@ -53,6 +54,10 @@ export class MainService {
 
    async resendEmailLink(){
     await (await this.auth.currentUser).sendEmailVerification();
+  }
+
+  async logout(){
+    await this.auth.signOut();
   }
 
  

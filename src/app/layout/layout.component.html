@@ -107,7 +107,7 @@ role="alert">
           <!-- Profile dropdown -->
           <div class="ml-3 relative">
             <div>
-              <button  routerLink="/auth"
+              <button  (click)="showMenu()"
                 class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-white transition duration-150 ease-in-out"
                 id="user-menu"
                 aria-label="User menu"
@@ -130,13 +130,27 @@ role="alert">
                   From: "transform opacity-100 scale-100"
                   To: "transform opacity-0 scale-95"
               -->
-            <!-- <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg">
+            <div *ngIf="service.showMobileMenu" 
+            class="origin-top-right absolute right-0 
+            mt-2 w-48 rounded-md shadow-lg transition ease-out duration-100  
+            transform opacity-100 scale-100 transition ease-out duration-100" appDropDownMenu>
                 <div class="py-1 rounded-md bg-white shadow-xs" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
-                  <a href="#" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out" role="menuitem">Your Profile</a>
-                  <a href="#" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out" role="menuitem">Settings</a>
-                  <a href="#" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out" role="menuitem">Sign out</a>
+                  <a routerLink="/my-resume" class="block px-4 py-2 text-sm leading-5 
+                  text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 
+                  transition duration-150 ease-in-out" role="menuitem">Settings</a>
+                  <a 
+                  (click)="logout()"
+                  class="block px-4 
+                  py-2 text-sm leading-5 
+                  text-gray-700 
+                  hover:bg-gray-100 
+                  focus:outline-none 
+                  focus:bg-gray-100 
+                  transition 
+                  duration-150 ease-in-out cursor-pointer" role="menuitem">Sign out</a>
                 </div>
-              </div> -->
+              </div>
+
           </div>
         </div>
       </div>
