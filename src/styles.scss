@@ -2,6 +2,9 @@
 // regular style toast 
 @import '~ngx-toastr/toastr';
 
+$primary-color: #50C878;
+$secondary-color: #226C3B;
+
 body,html{
     font-family: 'Poppins', sans-serif !important;
 }
@@ -46,4 +49,11 @@ body,html{
       -webkit-transform: scale(1.0);
       transform: scale(1.0);
     }
+  }
+
+  .bg-primary{
+    background-color: $primary-color;
+  }
+  .bg-secondary{
+    background-color: $secondary-color;
   }
