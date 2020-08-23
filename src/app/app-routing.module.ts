@@ -22,6 +22,7 @@ const routes: Routes = [
   ]}, 
   { path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) },
   {path: 'search', component: SearchComponent},
+  { path: 'categories', loadChildren: () => import('./categories/categories.module').then(m => m.CategoriesModule) },
   {path: '**', component: PagenotfoundComponent, pathMatch: 'full'}
   ];
 
