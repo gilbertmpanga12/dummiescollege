@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MainService } from '../services/main.service';
 import { ToastrService } from 'ngx-toastr';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, Router } from '@angular/router';
 import { trigger, transition, style, animate } from '@angular/animations';
 
 
@@ -33,7 +33,7 @@ const slideInAnimation = trigger('routeAnimations', [
 })
 export class LayoutComponent implements OnInit {
   
-  constructor(public service: MainService, private toastr: ToastrService) { 
+  constructor(public service: MainService, private toastr: ToastrService, public router: Router) { 
     
   }
 
