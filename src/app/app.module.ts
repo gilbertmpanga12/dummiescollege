@@ -12,6 +12,7 @@ import { SearchComponent } from './search/search.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import {DropDownMenu} from './directives/dropdown.directive';
 
+
 @NgModule({
   declarations: [
     AppComponent,
