@@ -56,17 +56,19 @@
         <button class="p-1 border-2 border-transparent text-gray-800 rounded-full 
         hover:text-white focus:outline-none focus:text-white 
         focus:bg-gray-700 transition duration-150 ease-in-out" aria-label="Notifications">
-          <svg class="h-6 w-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
           </svg></button>
 
         </div>
 
-    <div class="flex text-gray-600  pt-1 sm:hidden" routerLink="/notifications">
-      <button class="p-1 border-2 border-transparent text-gray-800 rounded-full hover:text-white focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out" aria-label="Notifications">
+    <div class="flex text-gray-600  pt-1 sm:hidden" routerLink="/notifications" >
+      <button class="p-1 border-2 border-transparent text-gray-800 rounded-full 
+      hover:text-white focus:outline-none focus:text-white 
+      focus:bg-gray-700 transition duration-150 ease-in-out" aria-label="Notifications">
       
 
-        <svg class=" h-6 w-6 bi bi-pencil text-gray-800" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg class=" h-6 w-6 bi bi-pencil" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
         </svg>
 
@@ -127,7 +129,7 @@ justify-around mt-4 bg-white p-4 sm:hidden bottom-0 w-full fixed z-50 shadow-inn
 border-gray-200">
   <div routerLink="/"  
   style="outline: none;"
-  [ngClass]="router.url == '/' ? 'flex text-green-600  cursor-pointer transition duration-150 ease-in-out' : 'flex text-gray-600  cursor-pointer transition duration-150 ease-in-out'">
+  [ngClass]="router.url == '/' ? 'flex text-green-400  cursor-pointer transition duration-150 ease-in-out' : 'flex text-gray-600  cursor-pointer transition duration-150 ease-in-out'">
      
       <svg class="h-8 w-8 bi bi-house-door-fill fill-current"  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
@@ -135,7 +137,7 @@ border-gray-200">
   </div>
 
   <div 
-  [ngClass]="router.url == '/my-resume' ? 'flex text-green-600  cursor-pointer transition duration-150 ease-in-out' : 'flex text-gray-600  cursor-pointer transition duration-150 ease-in-out'"
+  [ngClass]="router.url == '/my-resume' ? 'flex text-green-400  cursor-pointer transition duration-150 ease-in-out' : 'flex text-gray-600  cursor-pointer transition duration-150 ease-in-out'"
   class="flex text-gray-600 active:bg-green-600 cursor-pointer" routerLink="/my-resume" style="outline: none;">
     <svg class="h-8 w-8 bi bi-house-door-fill"  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path fill="#fff" d="M12 14l9-5-9-5-9 5 9 5z" />
