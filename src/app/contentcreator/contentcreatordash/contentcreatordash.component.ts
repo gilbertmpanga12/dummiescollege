@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MainService } from 'src/app/services/main.service';
 
 @Component({
   selector: 'app-contentcreatordash',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContentcreatordashComponent implements OnInit {
 
-  constructor() { }
+  constructor(public service: MainService) { }
 
   ngOnInit(): void {
+  }
+
+  logout(): void{
+
+  }
+
+  showMenu(): void{
+    
   }
 
 }
