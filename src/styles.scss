@@ -57,3 +57,9 @@ body,html{
   .bg-secondary{
     background-color: $secondary-color;
   }
+
+  @media only screen and (max-width: 600px) {
+    div.logo-txt {
+      display: none;
+    }
+  }
