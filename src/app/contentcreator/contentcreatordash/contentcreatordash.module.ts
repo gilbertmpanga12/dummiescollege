@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import {NavModule} from '../../sharables/nav/nav.module';
 import { ContentcreatordashRoutingModule } from './contentcreatordash-routing.module';
 import { ContentcreatordashComponent } from './contentcreatordash.component';
 
@@ -9,7 +9,8 @@ import { ContentcreatordashComponent } from './contentcreatordash.component';
   declarations: [ContentcreatordashComponent],
   imports: [
     CommonModule,
-    ContentcreatordashRoutingModule
+    ContentcreatordashRoutingModule,
+    NavModule
   ]
 })
 export class ContentcreatordashModule { }
