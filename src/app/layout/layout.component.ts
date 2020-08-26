@@ -60,4 +60,8 @@ export class LayoutComponent implements OnInit {
     console.log('called')
     this.router.navigate(['/']);
   }
+
+  checkUrl(url: string): boolean {
+    return this.router.url == url;
+  }
 }
