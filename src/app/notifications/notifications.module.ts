@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import {EmailactivationModule} from '../emailactivation/emailactivation.module';
 import { NotificationsRoutingModule } from './notifications-routing.module';
 import { NotificationsComponent } from './notifications.component';
+import { FloatingbuttonModule } from '../sharables/floatingbutton/floatingbutton.module';
 
 
 @NgModule({
@@ -10,7 +11,8 @@ import { NotificationsComponent } from './notifications.component';
   imports: [
     CommonModule,
     NotificationsRoutingModule,
-    EmailactivationModule
+    EmailactivationModule,
+    FloatingbuttonModule
   ]
 })
 export class NotificationsModule { }

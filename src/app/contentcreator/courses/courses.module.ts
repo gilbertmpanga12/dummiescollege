@@ -5,6 +5,7 @@ import { CoursesRoutingModule } from './courses-routing.module';
 import { CoursesComponent } from './courses.component';
 import { NavModule } from 'src/app/sharables/nav/nav.module';
 import { BottomnavModule } from 'src/app/sharables/bottomnav/bottomnav.module';
+import { FloatingbuttonModule } from 'src/app/sharables/floatingbutton/floatingbutton.module';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { BottomnavModule } from 'src/app/sharables/bottomnav/bottomnav.module';
     CommonModule,
     CoursesRoutingModule,
     NavModule,
-    BottomnavModule
+    BottomnavModule,
+    FloatingbuttonModule
   ]
 })
 export class CoursesModule { }

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import {EmailactivationModule} from '../emailactivation/emailactivation.module';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
+import { FloatingbuttonModule } from '../sharables/floatingbutton/floatingbutton.module';
 
 
 @NgModule({
@@ -10,7 +11,8 @@ import { DashboardComponent } from './dashboard.component';
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    EmailactivationModule
+    EmailactivationModule,
+    FloatingbuttonModule
   ]
 })
 export class DashboardModule { }
