@@ -1,117 +1,4 @@
-<nav class="bg-white w-full fixed shadow-md border-gray-300 z-50">
-  <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-
-    <div class="relative flex content-between h-16 py-3 px-1 ">
-      <div class="flex-shrink-0">
-
-        <a (click)="navigate()" style="background-color: #50C878;" 
-        class="logo-txt cursor-pointer  text-white font-bold text-base p-2 block w-auto">DummiesCollege</a>
-
-      </div> 
-
-      <div class="relative ml-2 md:ml-6 mr-1 flex-1">
-        <input  class="duration-100 ease-in-out text-gray-800 font-bold py-2 pr-4 pl-10 text-left  
-        appearance-none leading-normal  w-full   md:w-11/12
-         text-left rounded-md
-        select-none truncate  bg-gray-200 rounded-lg border  border-transparent  
-         focus:bg-white focus:border-gray-300 
-        placeholder-gray-700 transition-colors duration-100 ease-in-out focus:outline-none" 
-        aria-placeholder="Find skills for your next job " 
-        placeholder="Search for course"/>
-        <button type="submit" class="absolute normalize-search-icon">
-          <svg class="text-gray-800 font-bold h-4 w-4 fill-gray-800" xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px"
-            viewBox="0 0 56.966 56.966" style="enable-background:new 0 0 56.966 56.966;" xml:space="preserve"
-            width="512px" height="512px" fill="#2d3748">
-            <path
-              d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23  s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92  c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17  s-17-7.626-17-17S14.61,6,23.984,6z" />
-          </svg>
-        </button>
-      </div>
-
-      <div class="mr-6 cta-section">
-        <div class="flex">
-          <button 
-           routerLink="/my-resume"
-          style="outline: none;" class="text-gray-800 font-bold py-2 px-4  inline-flex items-center outline-none mr-2">
-            <span>My resume</span>
-          </button> 
-
-        <button style="background-color: #e11d74;" class="outline-none hover:bg-gray-400 text-white font-bold py-2 px-4 rounded inline-flex items-center">
-            <svg  class="fill-current text-white w-4 h-4 mr-2 bi bi-pencil" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-            </svg>
-            <span>Create course</span>
-          </button>
-        </div>
-      </div>
-
-      <div class="flex content-around">
-        
-
-      <div class="flex text-gray-600 pr-3 pt-1" routerLink="/notifications">
-      
-        <button class="p-1 border-2 border-transparent text-gray-800 rounded-full 
-        hover:text-white focus:outline-none focus:text-white 
-        focus:bg-gray-700 transition duration-150 ease-in-out" aria-label="Notifications">
-          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-          </svg></button>
-
-        </div>
-
-    <div class="flex text-gray-600  pt-1 sm:hidden" routerLink="/notifications" >
-      <button class="p-1 border-2 border-transparent text-gray-800 rounded-full 
-      hover:text-white focus:outline-none focus:text-white 
-      focus:bg-gray-700 transition duration-150 ease-in-out" aria-label="Notifications">
-        <svg class=" h-6 w-6 bi bi-pencil" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-        </svg>
-
-      </button>
-
-      
-      </div>
-
-      <div class="flex text-gray-600  ml-3 profile-picture">
-        <button 
-        (click)="showMenu()"
-        class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-white transition duration-150 ease-in-out" id="user-menu" aria-label="User menu" aria-haspopup="true">
-          <img class="h-8 w-8 rounded-full border-2 border-gray-800" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-        </button>
-      </div>
-
-      
-      
-      </div>
-    
-      <div  *ngIf="service.showMobileMenu" 
-      class="origin-top-right absolute right-0 
-      mt-2 w-48 rounded-md shadow-lg transition ease-out duration-100  
-      transform opacity-100 scale-100 transition ease-out duration-100" appDropDownMenu>
-          <div class="py-1 rounded-md bg-white shadow-xs" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
-            <a routerLink="/my-resume" class="block px-4 py-2 text-sm leading-5 
-            text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 
-            transition duration-150 ease-in-out" role="menuitem">Settings</a>
-            <a 
-            (click)="logout()"
-            class="block px-4 
-            py-2 text-sm leading-5 
-            text-gray-700 
-            hover:bg-gray-100 
-            focus:outline-none 
-            focus:bg-gray-100 
-            transition 
-            duration-150 ease-in-out cursor-pointer" role="menuitem">Sign out</a>
-          </div>
-        </div> 
-
-    </div>
-    
-  </div>
-</nav>
-
-
+<app-nav></app-nav>
 
 
 <div class="pt-12">
@@ -119,22 +6,22 @@
     <router-outlet #outlet="outlet"></router-outlet>
   </div>
 </div>
-
+<div class="pt-6"></div>
 <div class="flex flex-row items-center 
-justify-around mt-4 bg-white pt-2 sm:hidden bottom-0 w-full fixed z-50 shadow-inner border 
+justify-around mt-4 bg-white  sm:hidden bottom-0 w-full fixed z-50 shadow-inner border 
 border-gray-200">
   <div routerLink="/"  
-  style="outline: none;"
+style="outline: none;background-color: transparent !important;"
   [ngClass]="checkUrl('/') ? 'flex flex-col items-center text-green-400  cursor-pointer transition duration-150 ease-in-out' : 'flex flex-col items-center  text-gray-600  cursor-pointer transition duration-150 ease-in-out'">
      
       <svg class="h-8 w-8 bi bi-house-door-fill"  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
       </svg>
-      <p class="block" [ngClass]="checkUrl('/') ? 'block text-green-400 bold' : 'text-gray-600 '">Home</p>
+      <p class="block" [ngClass]="checkUrl('/') ? 'block text-green-400 font-bold' : 'text-gray-600 block'">Home</p>
   </div>
 
   <div 
-  style="outline: none;"
+  style="outline: none;background-color: transparent !important;"
   [ngClass]="checkUrl('/my-resume') ? 'flex flex-col items-center  text-green-400  cursor-pointer transition duration-150 ease-in-out' : 'flex flex-col items-center  text-gray-600  cursor-pointer transition duration-150 ease-in-out'"
    routerLink="/my-resume" >
     <svg class=" h-8 w-8 bi bi-house-door-fill"  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -142,12 +29,8 @@ border-gray-200">
       <path fill="#fff" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
     </svg>
-    <p class="block" [ngClass]="checkUrl('/my-resume') ? 'block text-green-400 bold' : 'text-gray-600 '">Me</p>
+    <p class="block" [ngClass]="checkUrl('/my-resume') ? 'block text-green-400 font-bold' : 'text-gray-600 block'">Me</p>
   </div>
  </div>
-<!-- 
-   [ngClass]="router.url == '/my-resume' ? 
-   'flex text-green-400  cursor-pointer transition duration-150 
-   ease-in-out' : 'flex text-gray-600  cursor-pointer transition duration-150 ease-in-out'"
- -->
+
  

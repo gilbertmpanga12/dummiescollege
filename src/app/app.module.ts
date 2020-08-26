@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SearchComponent } from './search/search.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import {DropDownMenu} from './directives/dropdown.directive';
+import { NavModule } from './sharables/nav/nav.module';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import {DropDownMenu} from './directives/dropdown.directive';
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
     ToastrModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    NavModule
   ],
   providers: [],
   bootstrap: [AppComponent]

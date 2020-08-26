@@ -33,4 +33,10 @@ export class NavComponent implements OnInit {
     this.toastr.info('You\'ve been signed out','');
   }
 
+  navigate(url: string): void{
+    console.log('am clicked');
+    this.router.navigate([url]);
+
+  }
+
 }
