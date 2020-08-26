@@ -56,4 +56,8 @@ export class LayoutComponent implements OnInit {
     this.toastr.info('You\'ve been signed out','');
   }
 
+  navigate(): void{
+    console.log('called')
+    this.router.navigate(['/']);
+  }
 }
