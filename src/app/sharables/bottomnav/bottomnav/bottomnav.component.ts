@@ -3,11 +3,11 @@ import { MainService } from 'src/app/services/main.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-contentcreatordash',
-  templateUrl: './contentcreatordash.component.html',
-  styleUrls: ['./contentcreatordash.component.scss']
+  selector: 'app-bottomnav',
+  templateUrl: './bottomnav.component.html',
+  styleUrls: ['./bottomnav.component.scss']
 })
-export class ContentcreatordashComponent implements OnInit {
+export class BottomnavComponent implements OnInit {
 
   constructor(public service: MainService, private router: Router) { }
 
@@ -18,5 +18,6 @@ export class ContentcreatordashComponent implements OnInit {
   checkUrl(url: string): boolean {
     return this.router.url == url;
   }
+
 
 }
