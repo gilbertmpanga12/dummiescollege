@@ -46,6 +46,10 @@ export class RegistrationComponent implements OnInit {
       this.registrationGroup.get(controlName).touched
     );
   }
+
+  isSelected(controlName: string): boolean{
+    return this.registrationGroup.get(controlName).dirty;
+  }
 }
 
 const nations =  [

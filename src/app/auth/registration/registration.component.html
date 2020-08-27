@@ -47,9 +47,13 @@
                         focus:border-green-400 focus:bg-transparent bg-transparent" formControlName="country">
                     <option *ngFor="let country of countries">{{country}}</option>
                     </select>
-                    <svg height="1.2em" width="1.2em" class="absolute position-con text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                      </svg>
+                    <button [className]="isSelected('country') ? 'absolute position-con text-green-400' : 'absolute position-con text-gray-600'">
+                        <svg height="1.2em" width="1.2em" 
+                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                         </svg>
+                    </button>
+                   
                         
                     </div>
 
