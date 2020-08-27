@@ -13,6 +13,8 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class LoginComponent implements OnInit {
   loginGroup: FormGroup;
+  type: string = 'password';
+  isFocused: boolean = false;
   constructor(public service: MainService, private _fb: FormBuilder, 
     private route: ActivatedRoute, 
     private toastr: ToastrService) { }
@@ -37,5 +39,24 @@ export class LoginComponent implements OnInit {
         
       });
     });
+  }
+
+  isSelected(controlName: string): boolean{
+    return this.loginGroup.get(controlName).dirty;
+  }
+  
+  unfocus(): void{
+    this.isFocused = false;
+  }
+
+  focus(): void{
+    this.isFocused = true;
+  }
+  
+  showPassword(): void{
+    this.type = 'text';
+  }
+  Hidepassword(): void{
+    this.type = 'password';
   }
 }

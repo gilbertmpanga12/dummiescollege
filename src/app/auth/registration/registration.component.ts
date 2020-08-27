@@ -12,6 +12,8 @@ import { ToastrService } from 'ngx-toastr';
 export class RegistrationComponent implements OnInit {
   registrationGroup: FormGroup;
   countries: string[] = nations;
+  type: string = 'password';
+  isFocused: boolean = false;
   constructor(
     public service: MainService,
     private _fb: FormBuilder,
@@ -47,8 +49,21 @@ export class RegistrationComponent implements OnInit {
     );
   }
 
+  unfocus(): void{
+    this.isFocused = false;
+  }
+
+  focus(): void{
+    this.isFocused = true;
+  }
   isSelected(controlName: string): boolean{
     return this.registrationGroup.get(controlName).dirty;
+  }
+  showPassword(): void{
+    this.type = 'text';
+  }
+  Hidepassword(): void{
+    this.type = 'password';
   }
 }
 
