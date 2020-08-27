@@ -18,7 +18,7 @@
                         appearance-none border rounded w-full 
                         py-2 px-3 text-gray-700 mt-1 
                         leading-tight focus:outline-none
-                        focus:border-black" 
+                        focus:border-green-400" 
                         formControlName="fullName" required>
                         <p class="text-red-500 
                         text-xs italic" *ngIf="validator('fullName')">Please provide your full name</p>
@@ -32,21 +32,24 @@
                         appearance-none border rounded w-full 
                         py-2 px-3 text-gray-700 mt-1 
                         leading-tight focus:outline-none
-                        focus:border-black" formControlName="email" required>
+                        focus:border-green-400 bg-transparent" formControlName="email" required>
                         <p class="text-red-500 
                         text-xs italic" *ngIf="validator('email')">A valid email is required 
                         e.g craigmiller@example.com</p>
                     </div>
 
-                    <div class="flex flex-col pt-4">
+                    <div class="flex flex-col pt-4 relative">
                         <label for="country" class="text-lg">Country</label>
                         <select class="shadow 
                         appearance-none border rounded w-full 
                         py-2 px-3 text-gray-700 mt-1 
                         leading-tight focus:outline-none
-                        focus:border-black" formControlName="country">
+                        focus:border-green-400 focus:bg-transparent bg-transparent" formControlName="country">
                     <option *ngFor="let country of countries">{{country}}</option>
                     </select>
+                    <svg height="1.2em" width="1.2em" class="absolute position-con text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                      </svg>
                         
                     </div>
 
@@ -59,7 +62,7 @@
                         appearance-none border rounded w-full 
                         py-2 px-3 text-gray-700 mt-1 
                         leading-tight focus:outline-none
-                        focus:border-black" 
+                        focus:border-green-400" 
                         formControlName="password" required min="6">
                         <p class="text-red-500 
                         text-xs italic" *ngIf="validator('password')">A password is required & must be at least 6 characters</p>
@@ -69,7 +72,7 @@
                     
     
                     <button type="submit" 
-                    class="bg-primary text-white font-bold text-lg hover:bg-gray-700 p-2 mt-8 cursor-pointer">
+                    class="bg-secondary text-white font-bold text-lg hover:bg-gray-700 p-2 mt-8 cursor-pointer">
                 <span *ngIf="!service.isLoading">Join DummiesCollege</span>
                 <div class="spinner" *ngIf="service.isLoading">
                     <div class="bounce1"></div>
