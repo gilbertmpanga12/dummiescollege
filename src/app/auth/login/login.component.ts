@@ -15,6 +15,8 @@ export class LoginComponent implements OnInit {
   loginGroup: FormGroup;
   type: string = 'password';
   isFocused: boolean = false;
+  
+  invalidFields: boolean = false;
   constructor(public service: MainService, private _fb: FormBuilder, 
     private route: ActivatedRoute, 
     private toastr: ToastrService) { }
@@ -29,6 +31,11 @@ export class LoginComponent implements OnInit {
 
   login(): void {
     const payload = this.loginGroup.getRawValue();
+    if(this.loginGroup.invalid){
+      this.invalidFields = true;
+     return;
+    }
+    this.invalidFields = false;
     this.service.isLoading = true;
     this.service.login(payload['email'],payload['password']).then(resp => {
       this.service.isLoading = false;
@@ -40,6 +47,10 @@ export class LoginComponent implements OnInit {
       });
     });
   }
+
+ validator(controlName: string): boolean{
+    return this.loginGroup.get(controlName).touched && this.loginGroup.get(controlName).invalid;
+ } 
 
   isSelected(controlName: string): boolean{
     return this.loginGroup.get(controlName).dirty;

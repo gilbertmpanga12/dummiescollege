@@ -14,6 +14,7 @@ export class RegistrationComponent implements OnInit {
   countries: string[] = nations;
   type: string = 'password';
   isFocused: boolean = false;
+  invalidFields: boolean = false;
   constructor(
     public service: MainService,
     private _fb: FormBuilder,
@@ -30,6 +31,12 @@ export class RegistrationComponent implements OnInit {
   }
 
   signUp(): void {
+    
+    if(this.registrationGroup.invalid){
+      this.invalidFields = true;
+     return;
+    }
+    this.invalidFields = false;
     this.service.isLoading = true;
     const payload: Student = <Student>this.registrationGroup.getRawValue();
     this.service.registerAccount(payload).then(resp => {

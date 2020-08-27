@@ -1,4 +1,4 @@
-<div class="bg-white font-family-karla h-screen">
+<div class="bg-white font-family-karla h-screen h-full">
 
     <div class="w-full flex flex-wrap">
 
@@ -14,22 +14,32 @@
                         <label for="email" class="text-lg">Email</label>
                         <input type="email" id="email"  formControlName="email"
                         placeholder="your@email.com" 
-                        class="shadow 
-                        appearance-none border rounded w-full 
-                        py-2 px-3 text-gray-700 mt-1 
-                        leading-tight focus:outline-none
-                        focus:border-green-400">
+                         [className]="invalidFields ? 'shadow 
+                         appearance-none border rounded w-full 
+                         py-2 px-3 text-gray-700 mt-1 
+                         leading-tight focus:outline-none
+                         focus:border-red-400': 'shadow 
+                         appearance-none border rounded w-full 
+                         py-2 px-3 text-gray-700 mt-1 
+                         leading-tight focus:outline-none
+                         focus:border-green-400'">
                     </div>
     
                     <div class="flex flex-col pt-4 relative">
                         <label for="password" class="text-lg">Password</label>
                         <input [type]="type" 
                          formControlName="password" 
-                        id="password" placeholder="Password" class="shadow 
+                        id="password" placeholder="Password" [className]="invalidFields ? 'shadow 
                         appearance-none border rounded w-full 
                         py-2 px-3 text-gray-700 mt-1 
                         leading-tight focus:outline-none
-                        focus:border-green-400" (focus)="focus()" (blur)="unfocus()" minlength="6">
+                        focus:border-red-400' : 'shadow 
+                        appearance-none border rounded w-full 
+                        py-2 px-3 text-gray-700 mt-1 
+                        leading-tight focus:outline-none
+                        focus:border-green-400'" 
+                        
+                        (focus)="focus()" (blur)="unfocus()" minlength="6">
 
                         <button style="outline: none;"
                         (click)="type == 'password'   ? showPassword(): Hidepassword()"
@@ -55,7 +65,8 @@
                         <div class="bounce3"></div>
                       </div>
                 </button>
-
+<p *ngIf="invalidFields" class="block text-md font-medium text-red-500">Whoops! make
+     sure you entered correct email and password</p>
                 </form>
                 <div class="pt-12 pb-12 flex justify-evenly">
                     <p>Don't have an account?<a routerLink="/auth/register" class="underline font-semibold">Register here.</a></p>

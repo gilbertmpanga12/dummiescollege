@@ -1,4 +1,4 @@
-<div class="bg-white font-family-karla h-screen">
+<div class="bg-white font-family-karla h-screen ">
 
     <div class="w-full flex flex-wrap">
 
@@ -85,7 +85,8 @@
                     </div>
                     
 
-                    
+                    <p *ngIf="invalidFields" class="block text-md font-medium text-red-500">Whoops! make
+                        sure you entered all required fields</p>
     
                     <button (click)="signUp()"
                     class="bg-secondary text-white font-bold text-lg hover:bg-green-400 p-2 mt-8 cursor-pointer" 
@@ -97,6 +98,7 @@
                     <div class="bounce3"></div>
                   </div>
                 </button>
+
                 </form>
                 <div class="text-center pt-12 pb-12">
                     <p>Don't have an account? <a routerLink="/auth" class="underline font-semibold">Log in here.</a></p>
