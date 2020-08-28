@@ -7,10 +7,11 @@
   *ngSwitchCase="true"
   >
     <div class="relative h-40">
-      <img class="absolute h-full w-full object-cover" src="https://images.unsplash.com/photo-1448932133140-b4045783ed9e?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80">
+      <div class="absolute h-full w-full object-cover" 
+      id="backgroundinfo"></div>
     </div>
     <div class="relative shadow mx-auto h-24 w-24 -my-12 border-white rounded-full overflow-hidden border-4">
-      <img class="object-cover w-full h-full" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&q=80">
+      <img class="object-cover w-full h-full" src="assets/placeholder.png">
     </div>
     <div class="mt-16">
       <h1 class="text-lg text-center font-semibold">
@@ -40,8 +41,8 @@
     <br/>
     <p class="text-center">
       <input type="submit" 
-      value="Show certicates" style="background-color: #50C878;" class="w-64 
-      cursor-pointer  text-white font-bold text-lg hover:bg-gray-700 p-2 mt-8">
+      value="Show certicates"  class="w-64 
+      cursor-pointer  text-white font-bold text-lg hover:bg-gray-700 p-2 mt-8 bg-secondary">
     </p>
     <app-floatingbutton></app-floatingbutton>
   </div>

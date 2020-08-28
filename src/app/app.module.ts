@@ -10,7 +10,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
 import { SearchComponent } from './search/search.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
-import {DropDownMenu} from './directives/dropdown.directive';
+
 import { NavModule } from './sharables/nav/nav.module';
 
 
@@ -19,8 +19,7 @@ import { NavModule } from './sharables/nav/nav.module';
     AppComponent,
     LayoutComponent,
     SearchComponent,
-    PagenotfoundComponent,
-    DropDownMenu
+    PagenotfoundComponent
   ],
   imports: [
     BrowserModule,
