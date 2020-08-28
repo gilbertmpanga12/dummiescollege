@@ -17,3 +17,8 @@ export interface Skills{
     title: string;
     grade: string;
 }
+
+export interface Course{
+    title: string;
+    description: string;
+}
