@@ -41,7 +41,9 @@ export class MainService {
    this.router.navigate(['/']);
   }
 
-  
+  async userSignedIn() {
+    await this.auth.currentUser;
+  }
 
   async forgotPassword(email: string){
     return await this.auth.sendPasswordResetEmail(email);

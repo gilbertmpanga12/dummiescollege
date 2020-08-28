@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MainService } from '../services/main.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,9 +9,16 @@ import { MainService } from '../services/main.service';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(public service: MainService) { }
+  constructor(public service: MainService,  private toastr: ToastrService) { }
 
   ngOnInit(): void {
+  }
+
+  logout(): void{
+    this.service.showMobileMenu = false;
+    this.service.logout();
+    this.toastr.info('You\'ve been signed out','');
+    window.location.reload();
   }
 
 }

@@ -11,38 +11,62 @@
       id="backgroundinfo"></div>
     </div>
     <div class="relative shadow mx-auto h-24 w-24 -my-12 border-white rounded-full overflow-hidden border-4">
-      <img class="object-cover w-full h-full" src="assets/placeholder.png">
+      <img class="object-cover w-full h-full" src="assets/placeholder.svg">
     </div>
     <div class="mt-16">
       <h1 class="text-lg text-center font-semibold">
         Cassie 
       </h1>
-      <p class="text-sm text-gray-600 text-center">
-        Specialist in 13 skills
-      </p>
+      <div class="text-sm text-gray-600 text-center">
+        Specialist in 13 skills & 2 grade 
+        <div style="background-color: #50C878;" class="rounded-full h-5 w-5 text-white shadow-2xl inline-block">A</div> certificates
+      </div>
     </div>
-    <div class="mt-6 pt-3 flex flex-wrap mx-6 border-t">
-      <div class="text-xs mr-2 my-1 uppercase tracking-wider border px-2 text-indigo-600 border-indigo-600 hover:bg-indigo-600 hover:text-indigo-100 cursor-default">
+    <div class="mt-6 pt-3 flex flex-wrap mx-6 border-b">
+      <div class="text-xs mr-2 my-1 uppercase tracking-wider border px-2 text-green-600 border-green-600 hover:bg-green-600 hover:text-green-100 cursor-default">
         User experience
       </div>
-      <div class="text-xs mr-2 my-1 uppercase tracking-wider border px-2 text-indigo-600 border-indigo-600 hover:bg-indigo-600 hover:text-indigo-100 cursor-default">
+      <div class="text-xs mr-2 my-1 uppercase tracking-wider border px-2 text-green-600 border-green-600 hover:bg-green-600 hover:text-green-100 cursor-default">
         VueJS
       </div>
-      <div class="text-xs mr-2 my-1 uppercase tracking-wider border px-2 text-indigo-600 border-indigo-600 hover:bg-indigo-600 hover:text-indigo-100 cursor-default">
+      <div class="text-xs mr-2 my-1 uppercase tracking-wider border px-2 text-green-600 border-green-600 hover:bg-green-600 hover:text-green-100 cursor-default">
         TailwindCSS
       </div>
-      <div class="text-xs mr-2 my-1 uppercase tracking-wider border px-2 text-indigo-600 border-indigo-600 hover:bg-indigo-600 hover:text-indigo-100 cursor-default">
+      <div class="text-xs mr-2 my-1 uppercase tracking-wider border px-2 text-green-600 border-green-600 hover:bg-green-600 hover:text-green-100 cursor-default">
         React
       </div>
-      <div class="text-xs mr-2 my-1 uppercase tracking-wider border px-2 text-indigo-600 border-indigo-600 hover:bg-indigo-600 hover:text-indigo-100 cursor-default">
+      <div class="text-xs mr-2 my-1 uppercase tracking-wider border px-2 text-green-600 border-green-600 hover:bg-green-600 hover:text-green-100 cursor-default">
         Painting
       </div>
     </div>
+<br/>
+    <h3 class="text-gray-800 text-xl ml-6">Certificates</h3>
+    <div class="mt-3 pt-3 flex flex-wrap mx-6 border-b">
+      <div class="text-xs mr-2 my-1 uppercase tracking-wider border px-2 text-green-600 border-green-600 hover:bg-green-600 hover:text-green-100 cursor-default">
+        User experience
+      </div>
+      <div class="text-xs mr-2 my-1 uppercase tracking-wider border px-2 text-green-600 border-green-600 hover:bg-green-600 hover:text-green-100 cursor-default">
+        VueJS
+      </div>
+      <div class="text-xs mr-2 my-1 uppercase tracking-wider border px-2 text-green-600 border-green-600 hover:bg-green-600 hover:text-green-100 cursor-default">
+        TailwindCSS
+      </div>
+      <div class="text-xs mr-2 my-1 uppercase tracking-wider border px-2 text-green-600 border-green-600 hover:bg-green-600 hover:text-green-100 cursor-default">
+        React
+      </div>
+      <div class="text-xs mr-2 my-1 uppercase tracking-wider border px-2 text-green-600 border-green-600 hover:bg-green-600 hover:text-green-100 cursor-default">
+        Painting
+      </div>
+    </div>
+   
+
     <br/>
-    <p class="text-center">
-      <input type="submit" 
+    <p class="text-center sm:hidden">
+      <button (click)="logout()"
       value="Show certicates"  class="w-64 
       cursor-pointer  text-white font-bold text-lg hover:bg-gray-700 p-2 mt-8 bg-secondary">
+      {{service.user != null ? 'Log out': 'Log in'}}
+    </button>
     </p>
     <app-floatingbutton></app-floatingbutton>
   </div>
