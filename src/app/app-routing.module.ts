@@ -20,13 +20,14 @@ const routes: Routes = [
     },// canActivate:[AuthGuard]
   ]}, 
   { path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) },
-  { path: 'categories', loadChildren: () => import('./categories/categories.module').then(m => m.CategoriesModule) },
-  { path: 'interviews', loadChildren: () => import('./interviews/interviews.module').then(m => m.InterviewsModule) },
-  { path: 'dashboard', loadChildren: () => import('./contentcreator/contentcreatordash/contentcreatordash.module').then(m => m.ContentcreatordashModule) },
-  { path: 'courses', loadChildren: 
+  { path: 'categories',data: {animation: 'CategoriesPage'}, 
+  loadChildren: () => import('./categories/categories.module').then(m => m.CategoriesModule) },
+  { path: 'interviews',data:{animation: 'InterviewsPage'}, loadChildren: () => import('./interviews/interviews.module').then(m => m.InterviewsModule) },
+  { path: 'dashboard',data: {animation: 'DashboardPage'}, loadChildren: () => import('./contentcreator/contentcreatordash/contentcreatordash.module').then(m => m.ContentcreatordashModule) },
+  { path: 'courses',data: {animation: 'CoursesPage'}, loadChildren: 
   () => import('./contentcreator/courses/courses.module') // canActivate:[AuthGuard],
   .then(m => m.CoursesModule) , canActivate:[AuthGuard]},
-  { path: 'createcourse', 
+  { path: 'createcourse',  data: {animation: 'CreateCoursePage'},
   loadChildren: () => import('./contentcreator/createcourse/createcourse.module')
   .then(m => m.CreatecourseModule)},// ,canActivate:[AuthGuard] 
   {path: '**', component: PagenotfoundComponent, pathMatch: 'full'}
