@@ -24,9 +24,13 @@ const routes: Routes = [
   {path: 'search', component: SearchComponent},
   { path: 'categories', loadChildren: () => import('./categories/categories.module').then(m => m.CategoriesModule) },
   { path: 'interviews', loadChildren: () => import('./interviews/interviews.module').then(m => m.InterviewsModule) },
-  { path: 'dashboard', loadChildren: () => import('./contentcreator/contentcreatordash/contentcreatordash.module').then(m => m.ContentcreatordashModule) },
-  { path: 'courses', loadChildren: () => import('./contentcreator/courses/courses.module').then(m => m.CoursesModule) },
-  { path: 'createcourse', loadChildren: () => import('./contentcreator/createcourse/createcourse.module').then(m => m.CreatecourseModule) },
+  { path: 'dashboard',canActivate:[AuthGuard], loadChildren: () => import('./contentcreator/contentcreatordash/contentcreatordash.module').then(m => m.ContentcreatordashModule) },
+  { path: 'courses', loadChildren: 
+  () => import('./contentcreator/courses/courses.module')
+  .then(m => m.CoursesModule) , canActivate:[AuthGuard]},
+  { path: 'createcourse', 
+  loadChildren: () => import('./contentcreator/createcourse/createcourse.module')
+  .then(m => m.CreatecourseModule),canActivate:[AuthGuard] },
   {path: '**', component: PagenotfoundComponent, pathMatch: 'full'}
   ];
 
