@@ -38,7 +38,10 @@
   *ngIf="courses.length === 0">
     <img src="assets/missing.svg" class="w-64 mx-auto h-48">
    
-    <h1 class="text-gray-800 font-bold text-xl my-2">Upload a course to get started. </h1>
+    <h1 class="text-gray-800 font-bold text-xl my-1">Upload a course to get started. </h1>
+    <p class="text-center py-1 font-thin italic" id="info-message"><small class="text-sm">Tap record button or 
+      <b routerLink="/createcourse" 
+      style="color:#e11d74;outline: none;" class="cursor-pointer">create-course-button</b> to start*</small></p>
 </div>
 </div>
 
