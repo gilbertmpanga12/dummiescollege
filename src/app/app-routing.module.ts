@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
 import {AuthGuard} from './services/main.guard';
-import { SearchComponent } from './search/search.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 const routes: Routes = [
@@ -21,7 +20,6 @@ const routes: Routes = [
     },// canActivate:[AuthGuard]
   ]}, 
   { path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) },
-  {path: 'search', component: SearchComponent},
   { path: 'categories', loadChildren: () => import('./categories/categories.module').then(m => m.CategoriesModule) },
   { path: 'interviews', loadChildren: () => import('./interviews/interviews.module').then(m => m.InterviewsModule) },
   { path: 'dashboard',canActivate:[AuthGuard], loadChildren: () => import('./contentcreator/contentcreatordash/contentcreatordash.module').then(m => m.ContentcreatordashModule) },
