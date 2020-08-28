@@ -38,6 +38,7 @@ export class MainService {
 
   async registerAccount(payload: Student){
    let user =  await this.auth.createUserWithEmailAndPassword(payload.email,payload.password);
+   user.user.updateProfile({displayName: payload.fullName});
    await this.firestore.collection('users').doc(user.user.uid).set({...payload});
    this.router.navigate(['/']);
   }
@@ -67,17 +68,12 @@ export class MainService {
     return localStorage.getItem('userId');
   }
 
- 
-//  async getSkills(){
-//   let user = await this.auth.currentUser;
-//   return await this.firestore.collection('users').doc(user.uid).collection<Skills>('skills').valueChanges();
-//  }
+ async updateUserProfilePicture(url: string){
 
-//  async getCertificates(){
-//   let user = await this.auth.currentUser;
-//   await this.firestore.collection('users').doc(user.uid).collection<Certificates>('certificates').valueChanges();
-//  }
-
+  let user = await this.auth.currentUser;
+  user.updateProfile({photoURL: url});
+   await this.firestore.doc('users' + '/' + user.uid).set({profilePicture: url}, {merge: true});
+ }
 
 
   

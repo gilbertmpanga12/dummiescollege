@@ -8,7 +8,7 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
-
+import { AngularFireStorageModule } from '@angular/fire/storage';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 import { NavModule } from './sharables/nav/nav.module';
@@ -28,7 +28,8 @@ import { NavModule } from './sharables/nav/nav.module';
     AngularFireModule.initializeApp(environment.firebase),
     ToastrModule.forRoot(),
     HttpClientModule,
-    NavModule
+    NavModule,
+    AngularFireStorageModule
   ],
   providers: [],
   bootstrap: [AppComponent]

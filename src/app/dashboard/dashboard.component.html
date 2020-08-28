@@ -11,14 +11,22 @@
       id="backgroundinfo"></div>
     </div>
     <div class="relative w-full">
+      <input style="display: none;" type="file" 
+            #uploadform
+            (change)="startUpload($event.target.files)" accept="image/*"/>
       <div class="relative shadow mx-auto h-24 w-24 -my-12 border-white rounded-full overflow-hidden border-4">
-        <img class="object-cover w-full h-full" src="assets/placeholder.svg">
+        <img *ngIf="service.user?.photoURL; else default" 
         
+        class="object-cover w-full h-full" [src]="service.user.photoURL">
         
+        <ng-template #default>
+          <img
+          class="object-cover w-full h-full" src="assets/placeholder.svg">
+        </ng-template>
        
         
       </div>
-      <div class="rounded-full h-10 w-10 absolute bg-secondary shadow-2xl  position-icon-uploader">
+      <div (click)="uploadform.click()" class="rounded-full h-10 w-10 absolute bg-secondary shadow-2xl cursor-pointer position-icon-uploader">
         <svg height="1.5em" width="1.5em" class="text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -28,15 +36,32 @@
     
     
     <div class="mt-16">
-      <h1 class="text-lg text-center font-semibold">
-        Cassie 
-      </h1>
-      <div class="text-sm text-gray-600 text-center">
-        Specialist in 13 skills & 6 certificates
-        <!-- <div style="background-color: #50C878;" class="rounded-full h-5 w-5 text-white shadow-2xl inline-block">A</div> certificates -->
-      
+
+      <div *ngIf="userDetail$ | async as userdetail;else loading">
+        <h1 class="text-lg text-center font-semibold">
+         {{userdetail?.fullName}}
+        </h1>
+        <div class="text-sm text-gray-600 text-center">
+          {{userdetail?.skillsCount && 
+            userdetail?.certificateCount == 0 ? "You haven\'t learned anything yet'": 'Specialist in ' + userdetail?.skillsCount + ' skills ' + ' & ' + userdetail?.certificateCount + ' ' + 'certificates'}}
+          <!-- Specialist in {{userdetail?.skillsCount}} skills & {{ userdetail?.certificateCount }} certificates -->
+          <!-- <div style="background-color: #50C878;" class="rounded-full h-5 w-5 text-white shadow-2xl inline-block">A</div> certificates -->
+        
+        </div>
       </div>
+
+      
+
+
+      <!-- *ngIf="percentage | async as pct;" -->
+      <ng-container  *ngIf="percentage | async as pct;">
+        <p class="text-center text-green-400 font-bold" *ngIf="pct < 100">
+          Uploading picture {{randomUp(pct)}}%</p>
+      </ng-container>
+    
     </div>
+
+  
     
     <ng-template #loading>
       <div class="mx-auto  w-64">
