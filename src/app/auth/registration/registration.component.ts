@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MainService } from 'src/app/services/main.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Student } from '../../services/models';
+import { Student} from '../../services/models';
 import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-registration',
@@ -15,11 +16,14 @@ export class RegistrationComponent implements OnInit {
   type: string = 'password';
   isFocused: boolean = false;
   invalidFields: boolean = false;
+  
   constructor(
     public service: MainService,
     private _fb: FormBuilder,
     private toastr: ToastrService
-  ) {}
+  ) {
+    
+  }
 
   ngOnInit(): void {
     this.registrationGroup = this._fb.group({
@@ -39,6 +43,9 @@ export class RegistrationComponent implements OnInit {
     this.invalidFields = false;
     this.service.isLoading = true;
     const payload: Student = <Student>this.registrationGroup.getRawValue();
+    payload['profilePicture'] = '';
+    payload['skillsCount'] = 0;
+    payload['certificateCount'] = 0;
     this.service.registerAccount(payload).then(resp => {
     this.service.isLoading = false;
     }).catch(err => {

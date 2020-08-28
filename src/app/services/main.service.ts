@@ -3,7 +3,7 @@ import { User } from 'firebase';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';//AngularFirestoreDocument
-import { Student } from './models';
+import { Student, Certificates, Skills } from './models';
 // import { HttpClient, HttpHeaders } from '@angular/common/http';
 // import { environment } from 'src/environments/environment';
 import { tap } from 'rxjs/operators';
@@ -26,6 +26,7 @@ export class MainService {
         if (user){
           this.user = user;
           this.userVerified = user.emailVerified;
+          localStorage.setItem('userId',user.uid);
         }
       });
   }
@@ -62,8 +63,20 @@ export class MainService {
     await this.auth.signOut();
   }
 
- 
+  get userId(): string {
+    return localStorage.getItem('userId');
+  }
 
+ 
+//  async getSkills(){
+//   let user = await this.auth.currentUser;
+//   return await this.firestore.collection('users').doc(user.uid).collection<Skills>('skills').valueChanges();
+//  }
+
+//  async getCertificates(){
+//   let user = await this.auth.currentUser;
+//   await this.firestore.collection('users').doc(user.uid).collection<Certificates>('certificates').valueChanges();
+//  }
 
 
 

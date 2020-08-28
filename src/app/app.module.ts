@@ -8,7 +8,7 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
-import { SearchComponent } from './search/search.component';
+
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 import { NavModule } from './sharables/nav/nav.module';
@@ -18,7 +18,7 @@ import { NavModule } from './sharables/nav/nav.module';
   declarations: [
     AppComponent,
     LayoutComponent,
-    SearchComponent,
+
     PagenotfoundComponent
   ],
   imports: [
