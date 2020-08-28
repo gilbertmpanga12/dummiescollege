@@ -1,23 +1,20 @@
 <app-nav></app-nav>
 
-<div class="w-full container pt-8">
+<div class="w-full container pt-8 md:pt-16 md:w-8/12 md:mx-auto md:h-8/12">
   <div class="bg-white 
-  border border-gray-300 shadow-2xl md:ml-6 h-64 my-8 p-6 relative ml-1 mr-1 h-auto">
+  border border-gray-300 shadow-2xl md:ml-6 h-64 my-8 p-6 relative ml-1 mr-1 h-auto w-full">
 
-<img src="assets/add.svg" class="w-64 h-64">
+<img src="assets/add.svg" class="h-auto w-full md:w-8/12 md:h-64 md:mx-auto">
 
-<h1 class="font-bold text-4xl text-gray-800 text-center">You have uploaded 6/15</h1>
+<h1 class="font-bold text-3xl text-gray-800 text-center py-8">You have uploaded 6/15</h1>
 
-<p class="text-center my-8"  style="width: 287px;">
-  <button [routerLink]="'/createcourse'" style="background-color: #226C3B;outline: none;" class="outline-none hover:bg-gray-400 text-white font-bold py-2 px-4 rounded 
-  inline-flex items-center">
-    <svg  class="fill-current text-white w-4 h-4 mr-2 bi bi-pencil" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-    </svg>
-    <span>Continue uploading</span>
-  </button>
+<p class="text-center">
+  <button 
+  value="Show certicates"  class="w-64 
+  cursor-pointer  text-white font-bold text-lg hover:bg-green-400 p-2 mt-8 bg-secondary">
+  Contine uploading
+</button>
 </p>
-
 
 
    

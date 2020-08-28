@@ -28,7 +28,7 @@ const routes: Routes = [
   .then(m => m.CoursesModule) , canActivate:[AuthGuard]},
   { path: 'createcourse', 
   loadChildren: () => import('./contentcreator/createcourse/createcourse.module')
-  .then(m => m.CreatecourseModule),canActivate:[AuthGuard] },
+  .then(m => m.CreatecourseModule)},// ,canActivate:[AuthGuard] 
   {path: '**', component: PagenotfoundComponent, pathMatch: 'full'}
   ];
 
