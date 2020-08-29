@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MainService } from 'src/app/services/main.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-createcourse',
@@ -8,10 +9,12 @@ import { MainService } from 'src/app/services/main.service';
 })
 export class CreatecourseComponent implements OnInit {
   
-  constructor(public service: MainService) { }
+  constructor(public service: MainService, private router: Router) { }
 
   ngOnInit(): void {
   }
-
+  checkUrl(url: string): boolean {
+    return this.router.url == url;
+  }
 
 }

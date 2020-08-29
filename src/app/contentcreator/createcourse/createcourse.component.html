@@ -12,14 +12,44 @@
 
 <h1 class="font-bold text-3xl text-gray-800 text-center py-8">You have uploaded 6/15</h1>
 
-<p class="text-center">
-  <button routerLink="/interviews"
-  value="Show certicates"  class="w-64 
-  cursor-pointer  text-white font-bold text-lg hover:bg-green-400 p-2 mt-8 bg-secondary">
-  Contine uploading
-</button>
-</p>
+<div class="flex flex-row items-center 
+justify-around md:mt-8">
+  <div routerLink="/"  
+style="outline: none;"
+class="flex flex-col items-center  text-red-400  rounded-full cursor-pointer transition duration-150 ease-in-out ">
+  
 
+      <svg  height="1.7em" width="1.7em" class="bi-house-door-fill"  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+ <span>Cancel</span>
+  </div>
+
+  <div routerLink="/dashboard"  
+  style="outline: none;background-color: transparent !important;"
+    class="flex flex-col items-center text-green-400  cursor-pointer transition duration-150 ease-in-out">
+     
+
+        <svg  height="1.7em" width="1.7em" class="bi bi-house-door-fill fill-current text-green-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+        </svg>
+        <p class="block text-base antialiased" class="text-green-600">Upload More</p>
+    </div>
+
+
+  <div 
+  style="outline: none;"
+  class="flex flex-col items-center  text-green-400 bg-transparenr rounded-full cursor-pointer transition duration-150 ease-in-out "
+  routerLink="/courses" >
+
+
+  <svg height="1.7em" width="1.7em" class="bi bi-house-door-fill" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+  </svg>
+ <span class="block">Done</span>
+  </div>
+  <!-- < -->
+ </div>
 
    
 
