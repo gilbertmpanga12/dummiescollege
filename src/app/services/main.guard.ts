@@ -21,6 +21,7 @@ export class AuthGuard implements CanActivate {
         return !!user;
       }), tap(loggedIn => {
         if (!loggedIn) {
+          localStorage.setItem('lastUrl', `${next.url[0].path}`);
           this.router.navigate(['/auth']);
         }
     }));

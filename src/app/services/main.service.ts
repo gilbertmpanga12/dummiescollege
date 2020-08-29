@@ -33,6 +33,13 @@ export class MainService {
 
   async login(email: string, password: string){
     await this.auth.signInWithEmailAndPassword(email,password);
+    const lastUrl = localStorage.getItem('lastUrl');
+    if(lastUrl != null){
+      this.router.navigate(['/' + lastUrl]);
+      localStorage.removeItem('lastUrl');
+      return;
+    }
+
     this.router.navigate(['/']);
   }
 
