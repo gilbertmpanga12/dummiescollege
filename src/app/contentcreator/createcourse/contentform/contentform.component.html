@@ -21,11 +21,11 @@
         </label>
         <input class="appearance-none block w-full bg-gray-200 text-gray-700 border 
         border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none 
-        focus:bg-white focus:border-gray-500" id="nick" type="text" maxlength="31" formControlName="title">
+        focus:bg-white focus:border-gray-500" id="nick" type="text" maxlength="51" formControlName="title">
           
-        <p [ngClass]="courseGroup.get('title').value.length > 30 ? 'text-red-600 text-xs italic' : 'text-gray-600 text-xs italic'">Title must not exceed 
-            30 characters</p>
-            <p [ngClass]="courseGroup.get('title').value.length > 30 ? 
+        <p [ngClass]="courseGroup.get('title').value.length > 50 ? 'text-red-600 text-xs italic' : 'text-gray-600 text-xs italic'">Title must not exceed 
+            50 characters</p>
+            <p [ngClass]="courseGroup.get('title').value.length > 50 ? 
                 'text-red-600 text-xs italic absolute position-right' : 
                 'text-gray-600 text-xs italic absolute position-right'">{{courseGroup.get('title').value.length}}</p>
     
