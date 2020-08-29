@@ -20,5 +20,5 @@ export interface Skills{
 
 export interface Course{
     title: string;
-    description: string;
+    caption: string;
 }

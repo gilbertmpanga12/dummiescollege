@@ -1,6 +1,10 @@
 <app-nav></app-nav>
 
-<div class="w-full container pt-8 md:pt-16 md:w-8/12 md:mx-auto md:h-8/12">
+<app-contentform *ngIf="!service.hasCreatedTitle">
+
+</app-contentform>
+
+<div class="w-full container pt-8 md:pt-16 md:w-6/12 md:mx-auto md:h-8/12" *ngIf="service.hasCreatedTitle">
   <div class="bg-white 
   border border-gray-300 shadow-2xl md:ml-6 h-64 my-8 p-6 relative ml-1 mr-1 h-auto w-full">
 

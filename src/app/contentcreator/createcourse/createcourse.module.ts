@@ -8,6 +8,7 @@ import { FinishupComponent } from './finishup/finishup.component';
 import { NavModule } from 'src/app/sharables/nav/nav.module';
 import { BottomnavModule } from 'src/app/sharables/bottomnav/bottomnav.module';
 import { ContentformComponent } from './contentform/contentform.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { ContentformComponent } from './contentform/contentform.component';
     CommonModule,
     CreatecourseRoutingModule,
     NavModule,
-    BottomnavModule
+    BottomnavModule,
+    ReactiveFormsModule
   ]
 })
 export class CreatecourseModule { }
