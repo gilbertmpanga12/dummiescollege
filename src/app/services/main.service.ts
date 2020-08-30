@@ -84,15 +84,17 @@ export class MainService {
  }
 
  async createCourse(payload: Course){
-   this.isLoading = true;
+  this.isLoading = true;
+  const randomId = `${Math.ceil(Math.random() * 100000000000)}`;
   let user = await this.auth.currentUser;
-  let result = await this.firestore.collection('courses')
-  .add({title:payload.title, caption: payload.caption, uid: user.uid, docId: "", 
-  grade: 0, size: 0});
-   await this.firestore.doc('courses' + '/' + result.id).update({docId: result.id});
+  await this.firestore.collection('courses')
+  .doc(randomId).set({title:payload.title, 
+  caption: payload.caption, uid: user.uid, docId: randomId, 
+  grade: 0, size: 0}, {merge: true});
    this.isLoading = false;
    localStorage.setItem('hasTitle', 'true');
    localStorage.setItem('uploadCount', '0');
+   localStorage.setItem('uploadId', randomId);
  }
 
 get hasCreatedTitle(): boolean{
@@ -106,6 +108,17 @@ get uploadsCount(): number{
 }
 
 async saveMediaUrl(path: string){
+  let firebaseUser = await this.auth.currentUser;
+  let user = localStorage.getItem('uploadId');
+  await this.firestore.collection('courses').doc(user)
+  .collection('videos').doc(user).set({
+    videoUrl: path,
+    questions: [],
+    docId: user,
+    uid: firebaseUser
+  }, 
+  {merge: true});
+  this.isLoading = false;
 
 }
 

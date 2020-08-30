@@ -25,9 +25,9 @@
   </ng-container> 
 
  
-
+<br/>
 <div class="flex flex-row items-center 
-justify-around md:mt-8">
+justify-around mt-8  md:mt-8">
   <div 
 style="outline: none;"
 class="flex flex-col items-center   text-gray-800 font-bold  rounded-full cursor-pointer transition duration-150 ease-in-out ">
@@ -36,19 +36,21 @@ class="flex flex-col items-center   text-gray-800 font-bold  rounded-full cursor
       <svg  height="1.7em" width="1.7em" class="bi-house-door-fill"  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
- <span>Cancel</span>
+ <span class="text-sm md:text-base">Cancel</span>
   </div>
 
   <div 
   style="outline: none;"
-    class="flex flex-col md:flex-row items-center   cursor-pointer transition duration-150 ease-in-out 
-    border border-transparent md:py-2 md:px-4 bg-transparent rounded-full md:text-white md:bg-pink-500 text-gray-800">
-     
-
-        <svg  classs="text-white fill-current bg-white " height="1.7em" width="1.7em" xmlns="http://www.w3.org/2000/svg" fill="none"  viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-        </svg>
-        <p class="block text-base antialiased  font-bold" > Upload video</p>
+    class="flex  flex-row items-center   cursor-pointer transition duration-150 ease-in-out 
+    border border-transparent py-2 px-4  rounded-full text-white bg-pink-500 mx-2 md:mx-0">
+    
+        
+        <p class="block text-base antialiased  font-bold" > 
+          <span *ngIf="!service.isLoading">Upload video</span><span *ngIf="service.isLoading"><svg class="animate-spin w-6 h-6 text-gray-900" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4335 4335"
+            width="1.5em" height="1.5em">
+             <path fill="#fff" d="M3346 1077c41,0 75,34 75,75 0,41 -34,75 -75,75 -41,0 -75,-34 -75,-75 0,-41 34,-75 75,-75zm-1198 -824c193,0 349,156 349,349 0,193 -156,349 -349,349 -193,0 -349,-156 -349,-349 0,-193 156,-349 349,-349zm-1116 546c151,0 274,123 274,274 0,151 -123,274 -274,274 -151,0 -274,-123 -274,-274 0,-151 123,-274 274,-274zm-500 1189c134,0 243,109 243,243 0,134 -109,243 -243,243 -134,0 -243,-109 -243,-243 0,-134 109,-243 243,-243zm500 1223c121,0 218,98 218,218 0,121 -98,218 -218,218 -121,0 -218,-98 -218,-218 0,-121 98,-218 218,-218zm1116 434c110,0 200,89 200,200 0,110 -89,200 -200,200 -110,0 -200,-89 -200,-200 0,-110 89,-200 200,-200zm1145 -434c81,0 147,66 147,147 0,81 -66,147 -147,147 -81,0 -147,-66 -147,-147 0,-81 66,-147 147,-147zm459 -1098c65,0 119,53 119,119 0,65 -53,119 -119,119 -65,0 -119,-53 -119,-119 0,-65 53,-119 119,-119z"
+             />
+           </svg></span></p>
     </div>
 
 
@@ -61,7 +63,7 @@ class="flex flex-col items-center   text-gray-800 font-bold  rounded-full cursor
   <svg height="1.7em" width="1.7em" class="bi bi-house-door-fill" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
   </svg>
- <span class="block">Done</span>
+ <span class="block text-sm md:text-base">Done</span>
   </div>
   <!-- < -->
  </div>
