@@ -15,13 +15,13 @@ export class QuestionsComponent implements OnInit {
 
   ngOnInit(): void {
     this.questionsGroup = this._fb.group({
-      question1: ['', Validators.required],
-      answers1: new FormArray([new FormControl(), new FormControl(), new FormControl(), new FormControl()])
+      question: ['', Validators.required],
+      answers: new FormArray([new FormControl(), new FormControl(), new FormControl(), new FormControl()])
     });
     
   }
-  get answers1(){
-    return this.questionsGroup.get('answers1') as FormArray;
+  get answers(){
+    return this.questionsGroup.get('answers') as FormArray;
   }
 
   nextQuestion(): void{

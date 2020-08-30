@@ -7,6 +7,7 @@ import { Student, Certificates, Skills, Course } from './models';
 // import { HttpClient, HttpHeaders } from '@angular/common/http';
 // import { environment } from 'src/environments/environment';
 import { tap } from 'rxjs/operators';
+import { ToastrService } from 'ngx-toastr';
 // import { firestore as ft } from 'firebase/app';
 // import { Observable, BehaviorSubject } from 'rxjs';
 
@@ -22,7 +23,7 @@ export class MainService {
   fullYear: number = this.year.getFullYear();
   isLoading: boolean = false;
   constructor(private auth: AngularFireAuth, 
-    private router: Router, private firestore: AngularFirestore) {
+    private router: Router, private firestore: AngularFirestore, private toastr: ToastrService) {
       this.auth.authState.subscribe(user => {
         if (user){
           this.user = user;
@@ -110,6 +111,7 @@ get uploadsCount(): number{
 async saveMediaUrl(path: string){
   let firebaseUser = await this.auth.currentUser;
   let user = localStorage.getItem('uploadId');
+  try{
   await this.firestore.collection('courses').doc(user)
   .collection('videos').doc(user).set({
     videoUrl: path,
@@ -119,12 +121,43 @@ async saveMediaUrl(path: string){
   }, 
   {merge: true});
   this.isLoading = false;
+  
   this.router.navigate(['/questions']);
 
+ }catch(e){
+  this.isLoading = false;
+
+ }
+
+}
+
+async saveQuestions(payload:any){
+  try{
+    this.isLoading = true;
+    let firebaseUser = await this.auth.currentUser;
+    let user = localStorage.getItem('uploadId');
+    await this.firestore.collection('courses').doc(user)
+    .collection('videos').doc(user).update(payload);
+    this.isLoading = false;
+    this.router.navigate(['/createcourse']);
+    this.toastr.info('Questions set successfully');
+  }catch(e){
+    this.showError('something went wrong');
+    this.isLoading = false;
+  }
 }
 
 randomUp(number: number): number{
   return Math.ceil(Math.floor(number));
+}
+
+
+
+showError(message:string): void{
+  this.toastr.error('Whoops!', message, {
+    timeOut: 4000,
+    
+  });
 }
 
 async cancelUpload() {

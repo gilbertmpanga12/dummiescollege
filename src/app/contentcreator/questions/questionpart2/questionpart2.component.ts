@@ -10,21 +10,26 @@ import { FormGroup, FormBuilder, Validators, FormArray, FormControl } from '@ang
 export class Questionpart2Component implements OnInit {
   questionsGroup2: FormGroup;
   markers: string[] = ['A', 'B', 'C', 'D'];
+  payload: any[] = [];
   constructor(public service: MainService, private _fb: FormBuilder) {
    }
 
   ngOnInit(): void {
     this.questionsGroup2 = this._fb.group({
-      question2: ['', Validators.required],
-      answers2: new FormArray([new FormControl(), new FormControl(), new FormControl(), new FormControl()])
+      question: ['', Validators.required],
+      answers: new FormArray([new FormControl(), new FormControl(), new FormControl(), new FormControl()])
     });
     
   }
-  get answers1(){
-    return this.questionsGroup2.get('answers1') as FormArray;
+  get answers(){
+    return this.questionsGroup2.get('answers') as FormArray;
   }
 
-  log(){
-    console.log(this.questionsGroup2.getRawValue())
+  submitQuestions(){
+    const findQuestion1 = localStorage.getItem('question1');
+    const question1 = JSON.parse(findQuestion1);
+    const question2 = this.questionsGroup2.getRawValue();
+    this.payload.push(question1,question2);
+    this.service.saveQuestions(this.payload);
   }
 }
