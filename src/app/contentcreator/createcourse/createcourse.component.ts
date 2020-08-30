@@ -22,9 +22,7 @@ export class CreatecourseComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  checkUrl(url: string): boolean {
-    return this.router.url == url;
-  }
+ 
 
   startUpload(event: FileList): void {
     this.service.isLoading = true;
@@ -50,6 +48,28 @@ export class CreatecourseComponent implements OnInit {
    )
   .subscribe();
 
+  }
+
+  cancelCoursecreation():void {
+  this.service.cancelUpload().then(res => {
+   localStorage.removeItem('hasTitle');
+   localStorage.removeItem('uploadCount');
+   localStorage.removeItem('uploadId');
+   this.toastr.success('Cancelled creating course');
+   this.router.navigate(['/dashboard']);
+    }).catch(err => {
+      this.toastr.error('Whoops!', err, {
+        timeOut: 4000,
+        
+      });
+    });
+  }
+
+  doneCourseUpload(): void{
+   localStorage.removeItem('hasTitle');
+   localStorage.removeItem('uploadCount');
+   localStorage.removeItem('uploadId');
+   this.router.navigate(['/dashboard']);
   }
 
 }

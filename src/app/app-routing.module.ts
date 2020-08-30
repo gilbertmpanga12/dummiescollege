@@ -29,7 +29,8 @@ const routes: Routes = [
   .then(m => m.CoursesModule) , canActivate:[AuthGuard]},
   { path: 'createcourse',  data: {animation: 'CreateCoursePage'},
   loadChildren: () => import('./contentcreator/createcourse/createcourse.module')
-  .then(m => m.CreatecourseModule)},// ,canActivate:[AuthGuard] 
+  .then(m => m.CreatecourseModule)},
+  { path: 'questions', loadChildren: () => import('./contentcreator/questions/questions.module').then(m => m.QuestionsModule) },// ,canActivate:[AuthGuard] 
   {path: '**', component: PagenotfoundComponent, pathMatch: 'full'}
   ];
 

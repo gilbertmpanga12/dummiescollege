@@ -119,12 +119,21 @@ async saveMediaUrl(path: string){
   }, 
   {merge: true});
   this.isLoading = false;
+  this.router.navigate(['/questions']);
 
 }
 
 randomUp(number: number): number{
   return Math.ceil(Math.floor(number));
 }
+
+async cancelUpload() {
+const user = localStorage.getItem('uploadId');
+ await this.firestore.collection('courses')
+  .doc(user).delete();
+}
+
+
   
 
 }
