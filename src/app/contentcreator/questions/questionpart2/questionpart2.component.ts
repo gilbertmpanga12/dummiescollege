@@ -17,7 +17,8 @@ export class Questionpart2Component implements OnInit {
   ngOnInit(): void {
     this.questionsGroup2 = this._fb.group({
       question: ['', Validators.required],
-      answers: new FormArray([new FormControl(), new FormControl(), new FormControl(), new FormControl()])
+      answers: new FormArray([new FormControl(), new FormControl(), new FormControl(), new FormControl()]),
+      correctAnswer: ['', Validators.required]
     });
     
   }
@@ -26,10 +27,12 @@ export class Questionpart2Component implements OnInit {
   }
 
   submitQuestions(){
+    const correctAnswerA = localStorage.getItem('correctAnswerA');
+    const correctAnswerB = this.answers.controls[parseInt(this.questionsGroup2.get('correctAnswer').value)];
     const findQuestion1 = localStorage.getItem('question1');
     const question1 = JSON.parse(findQuestion1);
     const question2 = this.questionsGroup2.getRawValue();
     this.payload.push(question1,question2);
-    this.service.saveQuestions(this.payload);
+    this.service.saveQuestions(this.payload, correctAnswerA, correctAnswerB);
   }
 }

@@ -16,7 +16,8 @@ export class QuestionsComponent implements OnInit {
   ngOnInit(): void {
     this.questionsGroup = this._fb.group({
       question: ['', Validators.required],
-      answers: new FormArray([new FormControl(), new FormControl(), new FormControl(), new FormControl()])
+      answers: new FormArray([new FormControl(), new FormControl(), new FormControl(), new FormControl()]),
+      correctAnswer: ['', Validators.required]
     });
     
   }
@@ -25,8 +26,10 @@ export class QuestionsComponent implements OnInit {
   }
 
   nextQuestion(): void{
+    const correctAnswerA = this.answers.controls[parseInt(this.questionsGroup.get('correctAnswer').value)];
     localStorage.setItem('question1Filled', 'true');
-    localStorage.setItem('question1',JSON.stringify(this.questionsGroup));
+    localStorage.setItem('question1',JSON.stringify(this.questionsGroup.getRawValue()));
+    localStorage.setItem('correctAnswerA', `${correctAnswerA}`);
   }
 
 }
