@@ -133,6 +133,11 @@ const user = localStorage.getItem('uploadId');
   .doc(user).delete();
 }
 
+get filledInquestion1(): boolean {
+  const hasFilled = localStorage.getItem('question1Filled');
+  return hasFilled == 'true';
+}
+
 
   
 

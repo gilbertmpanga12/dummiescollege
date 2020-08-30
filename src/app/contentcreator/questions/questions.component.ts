@@ -24,8 +24,9 @@ export class QuestionsComponent implements OnInit {
     return this.questionsGroup.get('answers1') as FormArray;
   }
 
-  log(){
-    console.log(this.questionsGroup.getRawValue())
+  nextQuestion(): void{
+    localStorage.setItem('question1Filled', 'true');
+    localStorage.setItem('question1',JSON.stringify(this.questionsGroup));
   }
 
 }
