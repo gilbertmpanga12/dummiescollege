@@ -11,7 +11,7 @@
       id="backgroundinfo"></div>
     </div>
     <div class="relative w-full">
-      <input style="display: none;" type="file" 
+      <input class="hidden" type="file" 
             #uploadform
             (change)="startUpload($event.target.files)" accept="image/*"/>
       <div class="relative shadow mx-auto h-24 w-24 -my-12 border-white rounded-full overflow-hidden border-4">

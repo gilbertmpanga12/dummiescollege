@@ -21,7 +21,7 @@
         </label>
         <input class="appearance-none block w-full bg-gray-200 text-gray-700 border 
         border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none 
-        focus:bg-white focus:border-gray-500" id="nick" type="text" maxlength="51" formControlName="title">
+        focus:bg-white focus:border-green-400" id="nick" type="text" maxlength="51" formControlName="title">
           
         <p [ngClass]="courseGroup.get('title').value.length > 50 ? 'text-red-600 text-xs italic' : 'text-gray-600 text-xs italic'">Title must not exceed 
             50 characters</p>
@@ -41,7 +41,7 @@
         <textarea formControlName="caption" maxlength="51"
         class=" no-resize appearance-none block w-full bg-gray-200 
         text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3
-         leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-48 resize-none" id="message"></textarea>
+         leading-tight focus:outline-none focus:bg-white focus:border-green-400 h-48 resize-none" id="message"></textarea>
          <p [ngClass]="courseGroup.get('caption').value.length > 50 ? 'text-red-600 text-xs italic' : 'text-gray-600 text-xs italic'">Caption must not exceed 
             50 characters</p>
             <p [ngClass]="courseGroup.get('caption').value.length > 50? 'text-red-600 text-xs italic absolute position-right2' : 'text-gray-600 text-xs italic absolute position-right2'">{{courseGroup.get('caption').value.length}}</p>
@@ -52,7 +52,7 @@
       <div class="w-full">
         <button 
         (click)="createCourse()"
-        class="shadow bg-secondary hover:bg-teal-400 focus:shadow-outline 
+        class="shadow bg-secondary hover:bg-green-400 focus:shadow-outline 
         focus:outline-none text-white font-bold py-2 px-4 rounded w-full md:w-48" type="button">
         <span *ngIf="!service.isLoading">Next</span>
         <div class="spinner" *ngIf="service.isLoading">

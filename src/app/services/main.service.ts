@@ -92,11 +92,21 @@ export class MainService {
    await this.firestore.doc('courses' + '/' + result.id).update({docId: result.id});
    this.isLoading = false;
    localStorage.setItem('hasTitle', 'true');
+   localStorage.setItem('uploadCount', '0');
  }
 
 get hasCreatedTitle(): boolean{
   let hasTitle = localStorage.getItem('hasTitle');
   return hasTitle == 'true';
+}
+
+get uploadsCount(): number{
+  let count = localStorage.getItem('uploadCount');
+  return parseInt(count);
+}
+
+async saveMediaUrl(path: string){
+
 }
   
 
