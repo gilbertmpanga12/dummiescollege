@@ -16,11 +16,19 @@
 <h1 class="font-bold text-xl md:text-3xl text-gray-800 text-center pt-8">{{service.uploadsCount > 0 
   ? 'You have uploaded ' + service.uploadsCount + '/15': 'Upload your first course'}}</h1>
 
-  <p class="text-center text-green-600 text-base  md:text-2xl font-bold mb-8">Uploading 100% done</p>
+  <ng-container  *ngIf="percentage | async as pct;">
+      <p 
+  
+      class="text-center text-green-600 text-base  md:text-2xl font-bold mb-8">
+      {{service.randomUp(pct) < 100 ? 'Uploading ' + service.randomUp(pct) + '%': 'Upload completed'}}%
+    </p>
+  </ng-container> 
+
+ 
 
 <div class="flex flex-row items-center 
 justify-around md:mt-8">
-  <div routerLink="/"  
+  <div 
 style="outline: none;"
 class="flex flex-col items-center   text-gray-800 font-bold  rounded-full cursor-pointer transition duration-150 ease-in-out ">
   
@@ -32,21 +40,22 @@ class="flex flex-col items-center   text-gray-800 font-bold  rounded-full cursor
   </div>
 
   <div 
-  style="outline: none;background-color: transparent !important;"
-    class="flex flex-col items-center   cursor-pointer transition duration-150 ease-in-out">
+  style="outline: none;"
+    class="flex flex-col md:flex-row items-center   cursor-pointer transition duration-150 ease-in-out 
+    border border-transparent md:py-2 md:px-4 bg-transparent rounded-full md:text-white md:bg-pink-500 text-gray-800">
      
 
-        <svg  classs="border-transparent text-transparent" height="1.7em" width="1.7em" xmlns="http://www.w3.org/2000/svg" fill="#e11d74" viewBox="0 0 24 24" stroke="currentColor">
+        <svg  classs="text-white fill-current bg-white " height="1.7em" width="1.7em" xmlns="http://www.w3.org/2000/svg" fill="none"  viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
         </svg>
-        <p class="block text-base antialiased text-gray-800 font-bold" >Upload More</p>
+        <p class="block text-base antialiased  font-bold" > Upload video</p>
     </div>
 
 
   <div 
   style="outline: none;"
   class="flex flex-col items-center  text-gray-800 font-bold bg-transparenr rounded-full cursor-pointer transition duration-150 ease-in-out "
-  routerLink="/courses" >
+   >
 
 
   <svg height="1.7em" width="1.7em" class="bi bi-house-door-fill" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">

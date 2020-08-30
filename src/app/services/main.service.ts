@@ -108,6 +108,10 @@ get uploadsCount(): number{
 async saveMediaUrl(path: string){
 
 }
+
+randomUp(number: number): number{
+  return Math.ceil(Math.floor(number));
+}
   
 
 }

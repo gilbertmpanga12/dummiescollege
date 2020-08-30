@@ -68,8 +68,6 @@ export class DashboardComponent implements OnInit {
 
   }
 
-  randomUp(number: number): number{
-    return Math.ceil(Math.floor(number));
-  }
+  
 
 }
