@@ -21,11 +21,9 @@ export class ContentformComponent implements OnInit {
   }
 
   createCourse(): void {
-    localStorage.setItem('hasTitle', 'true');
+    
     const payload = <Course>this.courseGroup.getRawValue();
     this.service.createCourse(payload);
-    window.location.reload();
-    
   }
 
 }

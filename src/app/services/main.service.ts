@@ -87,9 +87,11 @@ export class MainService {
    this.isLoading = true;
   let user = await this.auth.currentUser;
   let result = await this.firestore.collection('courses')
-  .add({title:payload.title, caption: payload.title, uid: user.uid, docId: ""});
+  .add({title:payload.title, caption: payload.caption, uid: user.uid, docId: "", 
+  grade: 0, size: 0});
    await this.firestore.doc('courses' + '/' + result.id).update({docId: result.id});
    this.isLoading = false;
+   localStorage.setItem('hasTitle', 'true');
  }
 
 get hasCreatedTitle(): boolean{
