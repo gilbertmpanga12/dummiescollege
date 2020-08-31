@@ -10,6 +10,7 @@ import { tap } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
 // import { firestore as ft } from 'firebase/app';
 // import { Observable, BehaviorSubject } from 'rxjs';
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root'
@@ -98,6 +99,8 @@ export class MainService {
    localStorage.setItem('uploadId', randomId);
  }
 
+
+
 get hasCreatedTitle(): boolean{
   let hasTitle = localStorage.getItem('hasTitle');
   return hasTitle == 'true';
@@ -172,10 +175,36 @@ showError(message:string): void{
   });
 }
 
+async deleteCourse(docId: string) {
+  try{
+    this.isLoading = true;
+    
+    await this.firestore.collection('courses')
+    .doc(docId).delete();
+    this.isLoading = false;
+    // this.toastr.warning('Deleted course successfully');
+  
+  }catch(e){
+    this.isLoading = false;
+    console.log(e);
+    this.showError('something went wrong');
+  }
+  }
+
+
 async cancelUpload() {
-const user = localStorage.getItem('uploadId');
- await this.firestore.collection('courses')
+try{
+  this.isLoading = true;
+  const user = localStorage.getItem('uploadId');
+  await this.firestore.collection('courses')
   .doc(user).delete();
+  this.isLoading = false;
+  this.toastr.warning('Discarded course');
+
+}catch(e){
+  this.isLoading = false;
+  this.showError('Whoops! something went wrong');
+}
 }
 
 get filledInquestion1(): boolean {
@@ -185,6 +214,25 @@ get filledInquestion1(): boolean {
 
  currentUrl(path: string): boolean{
   return this.router.url == path;
+}
+
+toast(message:any , operation: any){
+  const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 4000,
+    timerProgressBar: true,
+    onOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+  });
+  
+  Toast.fire({
+    icon: operation,
+    title: message
+  });
 }
 
   

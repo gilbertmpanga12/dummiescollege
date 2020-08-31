@@ -21,4 +21,5 @@ export interface Skills{
 export interface Course{
     title: string;
     caption: string;
+    docId?:string;
 }
