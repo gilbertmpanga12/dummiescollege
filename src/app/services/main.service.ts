@@ -135,11 +135,10 @@ async saveMediaUrl(path: string){
 
 async saveQuestions(payload:any, correctAnswerA: string, correctAnswerB){
   try{
-    console.log(correctAnswerB, 'B');
-    console.log(correctAnswerA, 'A')
-    this.isLoading = true;
+       this.isLoading = true;
     let firebaseUser = await this.auth.currentUser;
     let user = localStorage.getItem('uploadId');
+    let uploadCount = this.uploadsCount + 1;
     await this.firestore.collection('courses').doc(user)
     .collection('videos').doc(user).set({
       questions: payload,
@@ -147,15 +146,16 @@ async saveQuestions(payload:any, correctAnswerA: string, correctAnswerB){
       correctAnswerB: correctAnswerB
     }, {merge: true});
     this.isLoading = false;
+    localStorage.setItem('uploadCount', `${uploadCount}`);
     this.router.navigate(['/createcourse']);
     this.toastr.info('Questions set successfully');
     localStorage.removeItem('question1Filled');
     localStorage.removeItem('correctAnswerA');
     localStorage.removeItem('question1');
+    
   }catch(e){
     this.showError('something went wrong');
     this.isLoading = false;
-    console.log(e);
   }
 }
 
