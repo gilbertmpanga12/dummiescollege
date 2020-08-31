@@ -12,7 +12,7 @@
 
 <input class="hidden" type="file" 
             #uploadform
-            (change)="startUpload($event.target.files)" accept="image/*"/>
+            (change)="startUpload($event.target.files)" accept="video/*"/>
 <h1 class="font-bold text-xl md:text-3xl text-gray-800 text-center pt-8">{{service.uploadsCount > 0 
   ? 'You have uploaded ' + service.uploadsCount + '/15': 'Upload your first course'}}</h1>
 
@@ -20,7 +20,7 @@
       <p 
   
       class="text-center text-green-600 text-base  md:text-2xl font-bold mb-8">
-      {{service.randomUp(pct) < 100 ? 'Uploading ' + service.randomUp(pct) + '%': 'Upload completed'}}%
+      {{service.randomUp(pct) < 100 ? 'Uploading ' + service.randomUp(pct) + '%': 'Upload completed'}}
     </p>
   </ng-container> 
 

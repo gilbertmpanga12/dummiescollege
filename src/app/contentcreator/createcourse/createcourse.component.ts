@@ -27,7 +27,8 @@ export class CreatecourseComponent implements OnInit {
   startUpload(event: FileList): void {
     this.service.isLoading = true;
     const file = event.item(0);
-    if (file.type.split('/')[0] !== 'image') { 
+    if (file.type.split('/')[0] !== 'video') { 
+      this.service.isLoading = false;
       this.toastr.error('Whoops!', 'Upload images only', {
         timeOut: 4000,
         progressBar: true
