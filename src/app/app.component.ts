@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { trigger, transition, style, animate } from '@angular/animations';
+import { trigger, transition, style, animate, query, stagger } from '@angular/animations';
 
 const slideInAnimation = trigger('routeAnimations', [ 
   transition('* <=> CreateCoursePage', [
@@ -10,7 +10,11 @@ const slideInAnimation = trigger('routeAnimations', [
     style({ opacity: 0 }), 
     animate(300, style({opacity: 1})),
   ]),
-  
+ 
+  transition('* <=> QuestionsPage', [
+    style({ opacity: 0 }), 
+    animate(300, style({opacity: 1})),
+  ]),
   transition('* <=> DashboardPage', [
     style({ opacity: 0 }), 
     animate(300, style({opacity: 1})),
