@@ -16,21 +16,21 @@ const routes: Routes = [
     { path: 'skills-and-work', loadChildren: () => import('./courseslist/courseslist.module')
     .then(m => m.CourseslistModule) },
 
-    {data: {animation: 'WatchPage'}, path: 'watch', loadChildren: () => import('./watch/watch.module').then(m => m.WatchModule)
-    },// canActivate:[AuthGuard]
+    {data: {animation: 'WatchPage'}, path: 'watch', loadChildren: () => import('./watch/watch.module').then(m => m.WatchModule),canActivate:[AuthGuard]
+    },
   ]}, 
   { path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) },
   { path: 'categories',data: {animation: 'CategoriesPage'}, 
   loadChildren: () => import('./categories/categories.module').then(m => m.CategoriesModule) },
-  { path: 'interviews',data:{animation: 'InterviewsPage'}, loadChildren: () => import('./interviews/interviews.module').then(m => m.InterviewsModule) },
-  { path: 'dashboard',data: {animation: 'DashboardPage'}, loadChildren: () => import('./contentcreator/contentcreatordash/contentcreatordash.module').then(m => m.ContentcreatordashModule) },
+  { path: 'interviews',data:{animation: 'InterviewsPage'}, loadChildren: () => import('./interviews/interviews.module').then(m => m.InterviewsModule),canActivate:[AuthGuard] },
+  { path: 'dashboard',data: {animation: 'DashboardPage'}, loadChildren: () => import('./contentcreator/contentcreatordash/contentcreatordash.module').then(m => m.ContentcreatordashModule), canActivate:[AuthGuard] },
   { path: 'courses',data: {animation: 'CoursesPage'}, loadChildren: 
-  () => import('./contentcreator/courses/courses.module') // canActivate:[AuthGuard],
+  () => import('./contentcreator/courses/courses.module')
   .then(m => m.CoursesModule) , canActivate:[AuthGuard]},
-  { path: 'createcourse',  data: {animation: 'CreateCoursePage'},
+  { path: 'createcourse',  data: {animation: 'CreateCoursePage', canActivate:[AuthGuard]},
   loadChildren: () => import('./contentcreator/createcourse/createcourse.module')
   .then(m => m.CreatecourseModule)},
-  { path: 'questions',data: {animation: 'QuestionsPage'}, loadChildren: () => import('./contentcreator/questions/questions.module').then(m => m.QuestionsModule) },// ,canActivate:[AuthGuard] 
+  { path: 'questions',data: {animation: 'QuestionsPage'},canActivate:[AuthGuard], loadChildren: () => import('./contentcreator/questions/questions.module').then(m => m.QuestionsModule) },// ,canActivate:[AuthGuard] 
   {path: '**', component: PagenotfoundComponent, pathMatch: 'full'}
   ];
 
