@@ -111,28 +111,32 @@ get uploadsCount(): number{
 async saveMediaUrl(path: string){
   let firebaseUser = await this.auth.currentUser;
   let user = localStorage.getItem('uploadId');
+  
   try{
   await this.firestore.collection('courses').doc(user)
   .collection('videos').doc(user).set({
     videoUrl: path,
     questions: [],
     docId: user,
-    uid: firebaseUser
+    uid: firebaseUser.uid
   }, 
   {merge: true});
   this.isLoading = false;
-  
   this.router.navigate(['/questions']);
-
+  this.toastr.info('Great! Now attach interview questions', '',{
+    timeOut: 5000
+  });
  }catch(e){
   this.isLoading = false;
-
+  this.showError(e);
  }
 
 }
 
 async saveQuestions(payload:any, correctAnswerA: string, correctAnswerB){
   try{
+    console.log(correctAnswerB, 'B');
+    console.log(correctAnswerA, 'A')
     this.isLoading = true;
     let firebaseUser = await this.auth.currentUser;
     let user = localStorage.getItem('uploadId');
@@ -151,6 +155,7 @@ async saveQuestions(payload:any, correctAnswerA: string, correctAnswerB){
   }catch(e){
     this.showError('something went wrong');
     this.isLoading = false;
+    console.log(e);
   }
 }
 

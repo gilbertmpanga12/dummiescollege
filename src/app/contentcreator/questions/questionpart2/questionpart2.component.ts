@@ -28,7 +28,7 @@ export class Questionpart2Component implements OnInit {
 
   submitQuestions(){
     const correctAnswerA = localStorage.getItem('correctAnswerA');
-    const correctAnswerB = this.answers.controls[parseInt(this.questionsGroup2.get('correctAnswer').value)];
+    const correctAnswerB = this.answers.controls[parseInt(this.questionsGroup2.get('correctAnswer').value)].value;
     const findQuestion1 = localStorage.getItem('question1');
     const question1 = JSON.parse(findQuestion1);
     const question2 = this.questionsGroup2.getRawValue();

@@ -26,28 +26,29 @@ export class CreatecourseComponent implements OnInit {
 
   startUpload(event: FileList): void {
     this.service.isLoading = true;
-    const file = event.item(0);
-    if (file.type.split('/')[0] !== 'video') { 
-      this.service.isLoading = false;
-      this.toastr.error('Whoops!', 'Upload images only', {
-        timeOut: 4000,
-        progressBar: true
-      });
-      return;
-    }
-    const filePath = `courses/${new Date().getTime()}_${file.name}`;
-    const fileRef = this.storage.ref(filePath);
-    const task = this.storage.upload(filePath, file);
-    this.percentage = task.percentageChanges();
-    task.snapshotChanges().pipe(
-      finalize(() => {
-        this.downloadURL = fileRef.getDownloadURL();
-        // this.percentage = null;
-        this.downloadURL.subscribe(url => this.service.saveMediaUrl(url));
-      } )
+  //   const file = event.item(0);
+  //   if (file.type.split('/')[0] !== 'video') { 
+  //     this.service.isLoading = false;
+  //     this.toastr.error('Whoops!', 'Upload images only', {
+  //       timeOut: 4000,
+  //       progressBar: true
+  //     });
+  //     return;
+  //   }
+  //   const filePath = `courses/${new Date().getTime()}_${file.name}`;
+  //   const fileRef = this.storage.ref(filePath);
+  //   const task = this.storage.upload(filePath, file);
+  //   this.percentage = task.percentageChanges();
+  //   task.snapshotChanges().pipe(
+  //     finalize(() => {
+  //       this.downloadURL = fileRef.getDownloadURL();
+  //       // this.percentage = null;
+  //       this.downloadURL.subscribe(url => this.service.saveMediaUrl(url));
+  //     } )
       
-   )
-  .subscribe();
+  //  )
+  // .subscribe();
+  this.service.saveMediaUrl('hulk');
 
   }
 
