@@ -72,6 +72,7 @@ export class CreatecourseComponent implements OnInit {
    localStorage.removeItem('uploadCount');
    localStorage.removeItem('uploadId');
    this.router.navigate(['/dashboard']);
+   this.toastr.success('Great! your has been successfully published');
   }
 
 }

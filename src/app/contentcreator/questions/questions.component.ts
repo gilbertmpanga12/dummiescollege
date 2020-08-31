@@ -30,6 +30,7 @@ export class QuestionsComponent implements OnInit {
     localStorage.setItem('question1Filled', 'true');
     localStorage.setItem('question1',JSON.stringify(this.questionsGroup.getRawValue()));
     localStorage.setItem('correctAnswerA', `${correctAnswerA}`);
+    window.location.reload();// step to part 1
   }
 
 }

@@ -1,0 +1,39 @@
+.position-right{
+    right: 29px;
+    top: 83px;
+
+}
+
+.position-right2{
+    right: 20px;
+    top: 93%;
+
+}
+
+input[type='radio']:after {
+    width: 20px;
+    height: 20px;
+    border-radius: 15px;
+    top: 5px;
+    left: 5px;
+    position: relative;
+    background-color: #d1d3d1;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+}
+
+input[type='radio']:checked:after {
+    width: 20px;
+    height: 20px;
+    border-radius: 15px;
+    top: 5px;
+    left: 5px;
+    position: relative;
+    background-color: #226C3B;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+}
