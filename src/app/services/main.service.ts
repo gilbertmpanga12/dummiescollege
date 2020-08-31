@@ -183,6 +183,9 @@ get filledInquestion1(): boolean {
   return hasFilled == 'true';
 }
 
+ currentUrl(path: string): boolean{
+  return this.router.url == path;
+}
 
   
 

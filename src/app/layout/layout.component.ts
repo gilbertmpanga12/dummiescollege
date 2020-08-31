@@ -32,7 +32,12 @@ const slideInAnimation = trigger('routeAnimations', [
   animations: [slideInAnimation]
 })
 export class LayoutComponent implements OnInit {
-  
+  defaultLinkStyle: string = `
+  text-gray-800 font-bold py-2 px-4  hover:text-green-400 focus:text-green-800 inline-flex items-center outline-none mr-2
+   `;
+  currentLinkStyle = `
+  text-gray-800 font-bold py-2 px-4  hover:text-green-400 focus:text-green-800 inline-flex items-center outline-none mr-2
+  `;
   constructor(public service: MainService, private toastr: ToastrService, public router: Router) { 
     
   }
