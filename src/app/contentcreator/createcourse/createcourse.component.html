@@ -1,10 +1,13 @@
 <app-nav></app-nav>
 
-<app-contentform *ngIf="!service.hasCreatedTitle">
+<app-finishup *ngIf="service.hasCreatedTitle && service.uploadsCount == 15"></app-finishup>
+
+<app-contentform *ngIf="!service.hasCreatedTitle && !service.uploadsCount">
 
 </app-contentform>
 
-<div class="w-full container pt-8 md:pt-16 md:w-6/12 md:mx-auto md:h-8/12" *ngIf="service.hasCreatedTitle">
+<div class="w-full container pt-8 md:pt-16 md:w-6/12 md:mx-auto md:h-8/12" 
+*ngIf="service.hasCreatedTitle && service.uploadsCount < 15">
   <div class="bg-white 
   border border-gray-300 shadow-2xl md:ml-6 h-64 my-8 p-6 relative ml-1 mr-1 h-auto w-full">
 
@@ -72,7 +75,5 @@ class="flex flex-col items-center   text-gray-800 font-bold  rounded-full cursor
 
   </div>
 </div>
-
-
 
 <app-bottomnav></app-bottomnav>
