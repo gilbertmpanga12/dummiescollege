@@ -51,7 +51,6 @@ export class LayoutComponent implements OnInit {
   
   showMenu(){
     this.service.showMobileMenu = true;
-    console.log(this.service.showMobileMenu);
   }
 
   logout(): void{

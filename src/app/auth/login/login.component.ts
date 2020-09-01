@@ -38,6 +38,7 @@ export class LoginComponent implements OnInit {
     this.service.isLoading = true;
     this.service.login(payload['email'],payload['password']).then(resp => {
       this.service.isLoading = false;
+      this.service.toast('Welcome back 👋👋','info');
     }).catch(err => {
       this.service.isLoading = false;
       this.service.showError(err);
