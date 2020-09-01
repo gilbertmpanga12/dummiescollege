@@ -80,6 +80,7 @@ export class MainService {
 
   async logout(){
     await this.auth.signOut();
+    window.location.reload();
   }
 
   get userId(): string {
@@ -225,7 +226,7 @@ toast(message:any , operation: any){ // strings
     toast: true,
     position: 'top-end',
     showConfirmButton: false,
-    timer: 4000,
+    timer: 3000,
     timerProgressBar: true,
     onOpen: (toast) => {
       toast.addEventListener('mouseenter', Swal.stopTimer)
