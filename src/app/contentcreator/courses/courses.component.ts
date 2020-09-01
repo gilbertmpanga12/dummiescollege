@@ -50,4 +50,8 @@ export class CoursesComponent implements OnInit {
   
   }
 
+  log(payloadn){
+    console.log(payloadn);
+  }
+
 }

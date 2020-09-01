@@ -110,6 +110,7 @@ export class MainService {
 
 
 
+
 get hasCreatedTitle(): boolean{
   let hasTitle = localStorage.getItem('hasTitle');
   return hasTitle == 'true';
