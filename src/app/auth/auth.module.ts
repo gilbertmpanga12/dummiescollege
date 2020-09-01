@@ -7,13 +7,13 @@ import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 import { MainService } from '../services/main.service';
-import { ContentcreatorComponent } from './contentcreator/contentcreator.component';
-import { ExtrainfouserComponent } from './extrainfouser/extrainfouser.component';
+
+
 
 
 @NgModule({
   declarations: [AuthComponent,
-     RegistrationComponent, LoginComponent, ForgotpasswordComponent, ContentcreatorComponent, ExtrainfouserComponent],
+     RegistrationComponent, LoginComponent, ForgotpasswordComponent],
   imports: [
     CommonModule,
     AuthRoutingModule,

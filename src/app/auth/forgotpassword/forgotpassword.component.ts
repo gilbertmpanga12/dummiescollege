@@ -19,6 +19,7 @@ export class ForgotpasswordComponent implements OnInit {
 
   resetPassword(): void{
     const payload = this.resetPasswordGroup.getRawValue();
+    this.service.forgotPassword(payload['email']);
   }
 
 }

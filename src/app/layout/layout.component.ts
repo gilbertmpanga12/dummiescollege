@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MainService } from '../services/main.service';
-import { ToastrService } from 'ngx-toastr';
 import { RouterOutlet, Router } from '@angular/router';
 import { trigger, transition, style, animate } from '@angular/animations';
 
@@ -38,7 +37,7 @@ export class LayoutComponent implements OnInit {
   currentLinkStyle = `
   text-gray-800 font-bold py-2 px-4  hover:text-green-400 focus:text-green-800 inline-flex items-center outline-none mr-2
   `;
-  constructor(public service: MainService, private toastr: ToastrService, public router: Router) { 
+  constructor(public service: MainService,  public router: Router) { 
     
   }
 
@@ -58,7 +57,7 @@ export class LayoutComponent implements OnInit {
   logout(): void{
     this.service.showMobileMenu = false;
     this.service.logout();
-    this.toastr.info('You\'ve been signed out','');
+    this.service.toast('You\'ve been signed out', 'info');
   }
 
   

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MainService } from 'src/app/services/main.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Student} from '../../services/models';
-import { ToastrService } from 'ngx-toastr';
+
 
 
 @Component({
@@ -19,8 +19,7 @@ export class RegistrationComponent implements OnInit {
   
   constructor(
     public service: MainService,
-    private _fb: FormBuilder,
-    private toastr: ToastrService
+    private _fb: FormBuilder
   ) {
     
   }
@@ -50,9 +49,7 @@ export class RegistrationComponent implements OnInit {
     this.service.isLoading = false;
     }).catch(err => {
       this.service.isLoading = false;
-      this.toastr.error('Whoops!', err, {
-        timeOut: 4000,
-      });
+      this.service.showError(err);
     });
   }
 

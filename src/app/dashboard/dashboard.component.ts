@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MainService } from '../services/main.service';
-import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Skills, Certificates, Student } from '../services/models';
@@ -23,7 +22,7 @@ export class DashboardComponent implements OnInit {
   downloadURL: Observable<string>;
   userDetails: AngularFirestoreDocument<Student>;
   userDetail$: Observable<Student>;
-  constructor(public service: MainService,  private toastr: ToastrService, 
+  constructor(public service: MainService,  
     private af:  AngularFirestore, private storage: AngularFireStorage, private router: Router) { 
     this.userDetails = this.af.doc<Student>('users' + '/' + service.userId);
     this.userDetail$ = this.userDetails.valueChanges();
@@ -39,17 +38,14 @@ export class DashboardComponent implements OnInit {
   logout(): void{
     this.service.showMobileMenu = false;
     this.service.logout();
-    this.toastr.info('You\'ve been signed out','');
+    this.service.toast('You\'ve been signed out', 'info');
     this.router.navigate(['/']);
   }
 
   startUpload(event: FileList): void{
     const file = event.item(0);
     if (file.type.split('/')[0] !== 'image') { 
-      this.toastr.error('Whoops!', 'Upload images only', {
-        timeOut: 4000,
-        progressBar: true
-      });
+      this.service.showError('Upload images only');
       return;
     }
     const filePath = `profiles/${new Date().getTime()}_${file.name}`;

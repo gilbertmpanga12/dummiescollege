@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { LayoutComponent } from './layout/layout.component';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
-import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
@@ -26,7 +25,6 @@ import { NavModule } from './sharables/nav/nav.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    ToastrModule.forRoot(),
     HttpClientModule,
     NavModule,
     AngularFireStorageModule

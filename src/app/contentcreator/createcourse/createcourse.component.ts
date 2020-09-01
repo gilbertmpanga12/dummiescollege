@@ -5,7 +5,7 @@ import { AngularFireUploadTask } from '@angular/fire/storage/task';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { finalize, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-createcourse',
@@ -18,7 +18,7 @@ export class CreatecourseComponent implements OnInit {
   snapshot: Observable<any>;
   downloadURL: Observable<string>;
   constructor(public service: MainService, private router: Router, 
-    private toastr: ToastrService, private storage: AngularFireStorage) { }
+   private storage: AngularFireStorage) { }
 
   ngOnInit(): void {
   }
@@ -26,29 +26,26 @@ export class CreatecourseComponent implements OnInit {
 
   startUpload(event: FileList): void {
     this.service.isLoading = true;
-  //   const file = event.item(0);
-  //   if (file.type.split('/')[0] !== 'video') { 
-  //     this.service.isLoading = false;
-  //     this.toastr.error('Whoops!', 'Upload images only', {
-  //       timeOut: 4000,
-  //       progressBar: true
-  //     });
-  //     return;
-  //   }
-  //   const filePath = `courses/${new Date().getTime()}_${file.name}`;
-  //   const fileRef = this.storage.ref(filePath);
-  //   const task = this.storage.upload(filePath, file);
-  //   this.percentage = task.percentageChanges();
-  //   task.snapshotChanges().pipe(
-  //     finalize(() => {
-  //       this.downloadURL = fileRef.getDownloadURL();
-  //       // this.percentage = null;
-  //       this.downloadURL.subscribe(url => this.service.saveMediaUrl(url));
-  //     } )
+    const file = event.item(0);
+    if (file.type.split('/')[0] !== 'video') { 
+      this.service.isLoading = false;
+      this.service.showError('Upload images only');
+      return;
+    }
+    const filePath = `courses/${new Date().getTime()}_${file.name}`;
+    const fileRef = this.storage.ref(filePath);
+    const task = this.storage.upload(filePath, file);
+    this.percentage = task.percentageChanges();
+    task.snapshotChanges().pipe(
+      finalize(() => {
+        this.downloadURL = fileRef.getDownloadURL();
+        // this.percentage = null;
+        this.downloadURL.subscribe(url => this.service.saveMediaUrl(url));
+      } )
       
-  //  )
-  // .subscribe();
-  this.service.saveMediaUrl('hulk');
+   )
+  .subscribe();
+ 
 
   }
 
@@ -57,13 +54,10 @@ export class CreatecourseComponent implements OnInit {
    localStorage.removeItem('hasTitle');
    localStorage.removeItem('uploadCount');
    localStorage.removeItem('uploadId');
-   this.toastr.success('Cancelled creating course');
+   this.service.toast('Cancelled creating course', 'info');
    this.router.navigate(['/dashboard']);
     }).catch(err => {
-      this.toastr.error('Whoops!', err, {
-        timeOut: 4000,
-        
-      });
+      this.service.showError(err);
     });
   }
 
@@ -72,7 +66,7 @@ export class CreatecourseComponent implements OnInit {
    localStorage.removeItem('uploadCount');
    localStorage.removeItem('uploadId');
    this.router.navigate(['/dashboard']);
-   this.toastr.success('Great! your has been successfully published');
+   this.service.toast('Great! your has been successfully published', 'success');
   }
 
 }

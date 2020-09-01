@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
 import { Router, RouterOutlet } from '@angular/router';
 import { MainService } from 'src/app/services/main.service';
 
@@ -19,7 +18,7 @@ export class NavComponent implements OnInit {
  font-bold py-2 px-4  hover:text-green-400 focus:text-green-600 inline-flex items-center outline-none 
    rounded-lg text-sm
  `;
-  constructor(public service: MainService, private toastr: ToastrService, public router: Router) { 
+  constructor(public service: MainService,  public router: Router) { 
     
   }
 
@@ -38,13 +37,9 @@ export class NavComponent implements OnInit {
   logout(): void{
     this.service.showMobileMenu = false;
     this.service.logout();
-    this.toastr.info('You\'ve been signed out','');
+    this.service.toast('You\'ve been signed out', 'info');
   }
 
-  navigate(url: string): void{
-    console.log('am clicked');
-    this.router.navigate([url]);
-
-  }
+ 
 
 }

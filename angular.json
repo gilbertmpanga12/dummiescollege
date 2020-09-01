@@ -29,9 +29,7 @@
             ],
             "styles": [
               "src/styles.scss",
-              "node_modules/tailwindcss/dist/tailwind.min.css",
-              "node_modules/ngx-toastr/toastr.css"
-            ],
+              "node_modules/tailwindcss/dist/tailwind.min.css"],
             "scripts": []
           },
           "configurations": {

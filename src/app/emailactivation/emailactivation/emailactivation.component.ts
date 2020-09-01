@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MainService } from 'src/app/services/main.service';
-import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-emailactivation',
@@ -10,8 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class EmailactivationComponent implements OnInit {
   emailActivationGroup: FormGroup;
-  constructor(private _fb: FormBuilder, public service: MainService, 
-    private toastr: ToastrService) { }
+  constructor(private _fb: FormBuilder, public service: MainService) { }
 
   ngOnInit(): void {
     this.emailActivationGroup  = this._fb.group({
@@ -25,12 +24,10 @@ export class EmailactivationComponent implements OnInit {
     this.service.resendEmailLink().then((resp) => {
       this.service.isLoading = false;
       this.emailActivationGroup.reset();
-      this.toastr.success('Great!', 'Confirmation link has been sent to your email');
+      this.service.toast('Confirmation link has been sent to your email','success');
     } ).catch(err => {
       this.service.isLoading = false;
-      this.toastr.error('Oops', err, {
-        timeOut: 3000,
-      });
+      this.service.showError(err);
     });
     }
   

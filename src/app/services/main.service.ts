@@ -7,7 +7,7 @@ import { Student, Certificates, Skills, Course } from './models';
 // import { HttpClient, HttpHeaders } from '@angular/common/http';
 // import { environment } from 'src/environments/environment';
 import { tap } from 'rxjs/operators';
-import { ToastrService } from 'ngx-toastr';
+
 // import { firestore as ft } from 'firebase/app';
 // import { Observable, BehaviorSubject } from 'rxjs';
 import Swal from 'sweetalert2';
@@ -24,7 +24,7 @@ export class MainService {
   fullYear: number = this.year.getFullYear();
   isLoading: boolean = false;
   constructor(private auth: AngularFireAuth, 
-    private router: Router, private firestore: AngularFirestore, private toastr: ToastrService) {
+    private router: Router, private firestore: AngularFirestore) {
       this.auth.authState.subscribe(user => {
         if (user){
           this.user = user;
@@ -58,7 +58,15 @@ export class MainService {
   }
 
   async forgotPassword(email: string){
-    return await this.auth.sendPasswordResetEmail(email);
+     try{
+       this.isLoading = true;
+       await this.auth.sendPasswordResetEmail(email);
+       this.isLoading = false;
+       this.toast('Password reset link sent to your email', 'success');
+     }catch(e){
+      this.isLoading = false;
+      this.showError('something went wrong');
+     }
   }
 
   async sendEmailVerification() {
@@ -126,9 +134,8 @@ async saveMediaUrl(path: string){
   {merge: true});
   this.isLoading = false;
   this.router.navigate(['/questions']);
-  this.toastr.info('Great! Now attach interview questions', '',{
-    timeOut: 5000
-  });
+  this.toast('Great! Now attach interview questions', 'info');
+  
  }catch(e){
   this.isLoading = false;
   this.showError(e);
@@ -151,7 +158,7 @@ async saveQuestions(payload:any, correctAnswerA: string, correctAnswerB){
     this.isLoading = false;
     localStorage.setItem('uploadCount', `${uploadCount}`);
     this.router.navigate(['/createcourse']);
-    this.toastr.info('Questions set successfully');
+    this.toast('Questions set successfully', 'info');
     localStorage.removeItem('question1Filled');
     localStorage.removeItem('correctAnswerA');
     localStorage.removeItem('question1');
@@ -169,10 +176,7 @@ randomUp(number: number): number{
 
 
 showError(message:string): void{
-  this.toastr.error('Whoops!', message, {
-    timeOut: 4000,
-    
-  });
+  this.showError(message);
 }
 
 async deleteCourse(docId: string) {
@@ -199,11 +203,11 @@ try{
   await this.firestore.collection('courses')
   .doc(user).delete();
   this.isLoading = false;
-  this.toastr.warning('Discarded course');
+  this.toast('Discarded course', 'warning');
 
 }catch(e){
   this.isLoading = false;
-  this.showError('Whoops! something went wrong');
+  this.showError('something went wrong');
 }
 }
 
@@ -216,7 +220,7 @@ get filledInquestion1(): boolean {
   return this.router.url == path;
 }
 
-toast(message:any , operation: any){
+toast(message:any , operation: any){ // strings
   const Toast = Swal.mixin({
     toast: true,
     position: 'top-end',

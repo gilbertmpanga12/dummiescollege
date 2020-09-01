@@ -4,7 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ThrowStmt } from '@angular/compiler';
-import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-login',
@@ -18,8 +18,7 @@ export class LoginComponent implements OnInit {
   
   invalidFields: boolean = false;
   constructor(public service: MainService, private _fb: FormBuilder, 
-    private route: ActivatedRoute, 
-    private toastr: ToastrService) { }
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     
@@ -41,10 +40,7 @@ export class LoginComponent implements OnInit {
       this.service.isLoading = false;
     }).catch(err => {
       this.service.isLoading = false;
-      this.toastr.error('Whoops!', err, {
-        timeOut: 4000,
-        
-      });
+      this.service.showError(err);
     });
   }
 
