@@ -35,5 +35,7 @@ export class NotificationsComponent implements OnInit {
     this.notification$ = this.notifications.valueChanges();
   }
 
- 
+   publishedAt(date:number){
+     return `${new Date(date)}`.substring(0,10)
+   }
 }
