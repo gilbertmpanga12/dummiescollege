@@ -23,3 +23,12 @@ export interface Course{
     caption: string;
     docId?:string;
 }
+
+export interface Notifcations{
+    author: string;
+    title: string;
+    message: string;
+    status: string;
+    read: boolean;
+    timestamp: number;
+}

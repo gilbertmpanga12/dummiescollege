@@ -8,52 +8,61 @@
       
             <div class="w-full   h-full flex flex-col">
                 <div class="bg-white text-sm text-gray-500 font-bold px-5 py-2 shadow border-b border-gray-300">
-                    Tracking events
+                    Your activity
                 </div>
                 
                 <div class="w-full h-full overflow-auto shadow bg-white" id="journal-scroll">
     
-                <table class="w-full">
+
+                    
+                    <ng-container *ngIf="notification$ | async;let nots;else loading">
+                        <table class="w-full" *ngFor="let notification of nots">
     
     
-                    <tbody class="">
-                                                <tr class="relative transform scale-100
-                                    text-xs py-1 border-b-2 border-blue-100 cursor-default
-    
-                            bg-blue-500 bg-opacity-25">
-                            <td class="pl-5 pr-3 whitespace-no-wrap">
-                                <div class="text-gray-400">Today</div>
-                                <div>07:45</div>
-                            </td>
-    
-                            <td class="px-2 py-2 whitespace-no-wrap">
-                                <div class="leading-5 text-gray-500 font-medium">Taylor Otwel</div>
-                                <div class="leading-5 text-gray-900">Create pull request #1213
-                                    <a class="text-blue-500 hover:underline" href="#">#231231</a></div>
-                                <div class="leading-5 text-gray-800">Hello message</div>
-                            </td>
-    
-                        </tr>
-                                              
-                                                <tr class="relative transform scale-100
-                                    text-xs py-1 border-b-2 border-blue-100 cursor-default
-    
-                            ">
-                            <td class="pl-5 pr-3 whitespace-no-wrap">
-                                <div class="text-gray-400">24 jule</div>
-                                <div>07:45</div>
-                            </td>
-    
-                            <td class="px-2 py-2 whitespace-no-wrap">
-                                <div class="leading-5 text-gray-500 font-medium">Taylor Otwel</div>
-                                <div class="leading-5 text-gray-900">Create pull request #1213
-                                    <a class="text-blue-500 hover:underline" href="#">#231231</a></div>
-                                <div class="leading-5 text-gray-800">Hello message</div>
-                            </td>
-    
-                        </tr>
-                                            </tbody>
-                </table>
+                            <tbody class="">
+                                                        <tr [className]="notification.read ? read : unread">
+                                    <td class="pl-5 pr-3 whitespace-no-wrap">
+                                        <div class="text-gray-400">Today</div>
+                                        <div>{{notification.timestamp}}</div>
+                                    </td>
+            
+                                    <td class="px-2 py-2 whitespace-no-wrap">
+                                        <div class="leading-5 text-gray-500 font-medium">{{notification.author}}</div>
+                                        <div class="leading-5 text-gray-900">{{notification.title}}
+                                            <a class="text-blue-500 hover:underline" href="#">{{notification.status}}</a></div>
+                                        <div class="leading-5 text-gray-800">{{notification.message}}</div>
+                                    </td>
+            
+                                </tr>
+                                                      
+                                                       
+                                                    </tbody>
+                        </table>
+                        <div class="w-full" *ngIf="nots.length == 0">
+                            <img src="assets/void.svg" class="h-40 w-40 md:w-64 md:h-auto mx-auto  pt-10" />
+                                <h1 class="text-center font-bold text-lg md:text-2xl text-gray-800 py-4 md:py-8">You have no notifications</h1>
+                            </div> 
+                    </ng-container>
+
+                    <ng-template #loading>
+                        <div style="
+                        vertical-align: middle;
+                        text-align: center;
+                        border-style: none;
+                        margin: 0;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        margin-right: -50%;
+                        transform: translate(-50%, -50%);">
+                      <div class="loadingio-spinner-dual-ring-5c21w3omuld"><div class="ldio-b4dmdb0e9x8">
+                          <div></div><div><div></div></div>
+                          </div></div>
+                      </div>
+                    </ng-template>
+                
+
+
                 </div>
                 
           
