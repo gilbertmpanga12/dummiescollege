@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
 import { MainService } from 'src/app/services/main.service';
 import * as algoliasearch from 'algoliasearch/lite';
+import { environment } from 'src/environments/environment';
 
 const searchClient = algoliasearch(
-  'B1G2GM9NG0',
-  'aadef574be1f9252bb48d4ea09b5cfe5'
+  environment.algolia_app_id,
+  environment.algolia_api_key
 );
 
 @Component({
@@ -24,9 +25,9 @@ export class NavComponent implements OnInit {
  font-bold py-2 px-4  hover:text-green-400 focus:text-green-600 inline-flex items-center outline-none 
    rounded-lg text-sm
  `;
- 
+
  config = {
-  indexName: 'demo_ecommerce',
+  indexName: 'prod_DummiesCollege',
   searchClient
 };
 

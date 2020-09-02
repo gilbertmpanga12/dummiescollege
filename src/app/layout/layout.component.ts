@@ -3,12 +3,14 @@ import { MainService } from '../services/main.service';
 import { RouterOutlet, Router } from '@angular/router';
 import { trigger, transition, style, animate } from '@angular/animations';
 import * as algoliasearch from 'algoliasearch/lite';
+import { environment } from 'src/environments/environment';
 
 
 const searchClient = algoliasearch(
-  'B1G2GM9NG0',
-  'aadef574be1f9252bb48d4ea09b5cfe5'
+  environment.algolia_app_id,
+  environment.algolia_api_key
 );
+
 
 const slideInAnimation = trigger('routeAnimations', [ 
   transition('HomePage <=> ResumePage', [
@@ -44,7 +46,7 @@ export class LayoutComponent implements OnInit {
   text-gray-800 font-bold py-2 px-4  hover:text-green-400 focus:text-green-800 inline-flex items-center outline-none mr-2
   `;
   config = {
-    indexName: 'demo_ecommerce',
+    indexName: 'prod_DummiesCollege',
     searchClient
   };
   constructor(public service: MainService,  public router: Router) { 
