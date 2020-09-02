@@ -18,7 +18,6 @@ import { NavModule } from './sharables/nav/nav.module';
   declarations: [
     AppComponent,
     LayoutComponent,
-    NgAisModule,
     PagenotfoundComponent
   ],
   imports: [
@@ -29,7 +28,7 @@ import { NavModule } from './sharables/nav/nav.module';
     HttpClientModule,
     NavModule,
     AngularFireStorageModule,
-    NgAisModule.forRoot()
+   NgAisModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
