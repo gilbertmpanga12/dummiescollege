@@ -9,6 +9,7 @@ import { environment } from 'src/environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { NgAisModule } from 'angular-instantsearch';
 
 import { NavModule } from './sharables/nav/nav.module';
 
@@ -17,7 +18,7 @@ import { NavModule } from './sharables/nav/nav.module';
   declarations: [
     AppComponent,
     LayoutComponent,
-
+    NgAisModule,
     PagenotfoundComponent
   ],
   imports: [
@@ -27,7 +28,8 @@ import { NavModule } from './sharables/nav/nav.module';
     AngularFireModule.initializeApp(environment.firebase),
     HttpClientModule,
     NavModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    NgAisModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -47,6 +47,7 @@ function getFirebaseUser(req, res, next) {
         console.log("ID Token correctly decoded", decodedIdToken);
         req.user = decodedIdToken;
         next();
+        return null;
       })
       .catch(error => {
         console.error("Error while verifying Firebase ID token:", error);
@@ -67,7 +68,7 @@ function getFirebaseUser(req, res, next) {
   }, getFirebaseUser);
 
 
-  
+
 
 
 

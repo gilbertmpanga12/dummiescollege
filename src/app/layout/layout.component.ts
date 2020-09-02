@@ -2,7 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { MainService } from '../services/main.service';
 import { RouterOutlet, Router } from '@angular/router';
 import { trigger, transition, style, animate } from '@angular/animations';
+import * as algoliasearch from 'algoliasearch/lite';
 
+
+const searchClient = algoliasearch(
+  'B1G2GM9NG0',
+  'aadef574be1f9252bb48d4ea09b5cfe5'
+);
 
 const slideInAnimation = trigger('routeAnimations', [ 
   transition('HomePage <=> ResumePage', [
