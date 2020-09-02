@@ -29,7 +29,9 @@
             ],
             "styles": [
               "src/styles.scss",
-              "node_modules/tailwindcss/dist/tailwind.min.css"],
+              "node_modules/tailwindcss/dist/tailwind.min.css",
+              "node_modules/instantsearch.css/themes/algolia.css"
+            ],
             "scripts": []
           },
           "configurations": {

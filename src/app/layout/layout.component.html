@@ -17,24 +17,45 @@
 
 
       <div class="relative ml-2 md:ml-6 mr-1 flex-1">
-        <input  class="duration-100 ease-in-out text-gray-800 font-bold py-2 pr-4 pl-10 text-left  
-        appearance-none leading-normal  w-full   md:w-11/12
-         text-left rounded-md
-        select-none truncate  bg-gray-200 rounded-lg border  border-transparent  
-         focus:bg-white focus:border-gray-300 
-        placeholder-gray-700 transition-colors duration-100 ease-in-out focus:outline-none" 
-        aria-placeholder="Find skills for your next job " 
-        placeholder="Search for course"/>
-        <button type="submit" class="absolute normalize-search-icon">
-          <svg class="text-gray-800 font-bold h-4 w-4 fill-gray-800" xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px"
-            viewBox="0 0 56.966 56.966" style="enable-background:new 0 0 56.966 56.966;" xml:space="preserve"
-            width="512px" height="512px" fill="#2d3748">
-            <path
-              d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23  s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92  c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17  s-17-7.626-17-17S14.61,6,23.984,6z" />
-          </svg>
-        </button>
+        <ais-instantsearch [config]="config">
+          <ais-search-box 
+          placeholder="Search for courses"
+          [autofocus]="false"
+          [searchAsYouType]="true"
+          ></ais-search-box>
+          
+          <ais-configure [searchParameters]="{ hitsPerPage: 8 }"></ais-configure>
+
+          <ais-hits>
+
+            <ng-template let-hits="hits" let-results="results">
+              <div *ngIf="results.query"
+              class="origin-top-left absolute left-0
+              mt-2 w-full rounded-md shadow-lg transition ease-out duration-100  
+              transform opacity-100 scale-100 transition ease-out duration-100" >
+                  <div class="py-1 rounded-md bg-white shadow-xs" role="menu" 
+                  aria-orientation="vertical" aria-labelledby="user-menu">
+                  
+                  <a routerLink="/my-resume" class="block px-4 py-2 text-sm leading-5 
+                  text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 
+                  transition duration-150 ease-in-out" role="menuitem" *ngFor="let hit of hits">{{hit.name}}</a>
+                    
+                  </div>
+                </div> 
+  
+            </ng-template>
+           
+          </ais-hits>   
+          
+
+
+
+
+         
+        </ais-instantsearch>
       </div>
+
+      
 
       <div class="mr-6 cta-section">
         <div class="flex">

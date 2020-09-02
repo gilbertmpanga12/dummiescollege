@@ -1,9 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 // regular style toast 
 @tailwind base;
-
 @tailwind components;
-
 @tailwind utilities;
 
 
@@ -142,4 +140,26 @@ body,html{
   progress {background-color: #50c878;height: 10px !important;}
   progress::-moz-progress-bar {background-color: #50c878!important;height: 7px !important;}
 
- 
+  .ais-InstantSearch { max-width: 960px; 
+    overflow: hidden; margin: 0 auto; outline: none !important;}
+
+
+  .ais-SearchBox-input {
+    background-color: #edf2f7 !important;
+    color:#2d3748 !important;
+    border-color: transparent !important;
+    outline: none !important;
+
+  }
+  .ais-SearchBox-input:focus{
+    border-color: #e2e8f0 !important;
+    background: #ffffff !important;
+    transition-property: background-color,border-color,color,fill,stroke !important;
+    transition-timing-function: cubic-bezier(.4,0,.2,1) !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+    transition-duration: .1s !important;
+    user-select: none !important;
+    color: #2d3748 !important;
+  }

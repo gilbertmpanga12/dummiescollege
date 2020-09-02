@@ -10,8 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { NgAisModule } from 'angular-instantsearch';
-
 import { NavModule } from './sharables/nav/nav.module';
+import { DropdownModule } from './directives/dropdown/dropdown.module';
 
 
 @NgModule({
@@ -28,7 +28,8 @@ import { NavModule } from './sharables/nav/nav.module';
     HttpClientModule,
     NavModule,
     AngularFireStorageModule,
-   NgAisModule.forRoot()
+   NgAisModule.forRoot(),
+   DropdownModule
   ],
   providers: [],
   bootstrap: [AppComponent]
