@@ -158,7 +158,7 @@ async saveQuestions(payload:any, correctAnswerA: string, correctAnswerB){
     let uploadCount = this.uploadsCount + 1;
 
     if(uploadCount == 15){
-       this.seedDocument();
+       this.seedDocument({}); // payload data 
     }
     await this.firestore.collection('courses').doc(user)
     .collection('videos').doc(user).set({
@@ -181,24 +181,17 @@ async saveQuestions(payload:any, correctAnswerA: string, correctAnswerB){
   }
 }
 
-async seedDocument(){
- 
-  const payload = {
-    caption: "Neil Degrasee talks about space and time",
-    docId: "80446132852",
-    grade: 1,
-    size: 10,
-    title: "How to become an astro physicist?",
-    uid: "2z7KehpMbNbGuVSOdPBpsefV32v2"
-  }
-  let firebaseUser = await this.auth.currentUser;
-  
+async seedDocument(payload: any){
+  const firebaseUser = await this.auth.currentUser;
   firebaseUser.getIdToken()
-  .then(function(token) {
-    // return fetch('http://localhost:8080/index-documents' , {
-    //     headers: { Authorization: 'Bearer ' + token }
-    // });
-    this.http.
+  .then((token) => {
+    this.http.post(environment.baseUrl + 'index-documents', payload, 
+    {headers: { Authorization: 'Bearer ' + token }}).subscribe(data => {
+      console.log(data);
+    }, err => {
+      // this.showError(err.message);
+      console.log(err);
+    })
   });
   
 }
