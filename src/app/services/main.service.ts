@@ -279,7 +279,8 @@ toast(message:any , operation: any){ // strings
   });
 }
 
-async navigate(){
+async navigate(count: any){
+  console.log(count);
   this.router.navigate(['/notifications']);
   await this.firestore.collection<Student>('users').doc(this.userId).set({notificationCount: 0}, {merge: true});
   // if(count > 0){
