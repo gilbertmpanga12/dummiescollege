@@ -11,6 +11,10 @@ import { tap } from 'rxjs/operators';
 // import { firestore as ft } from 'firebase/app';
 // import { Observable, BehaviorSubject } from 'rxjs';
 import Swal from 'sweetalert2';
+import * as algoliasearch from 'algoliasearch';
+import { environment } from 'src/environments/environment';
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -151,6 +155,14 @@ async saveQuestions(payload:any, correctAnswerA: string, correctAnswerB){
     let firebaseUser = await this.auth.currentUser;
     let user = localStorage.getItem('uploadId');
     let uploadCount = this.uploadsCount + 1;
+
+    if(uploadCount == 15){
+       this.seedDocument({
+        questions: payload,
+        correctAnswerA: correctAnswerA,
+        correctAnswerB: correctAnswerB
+      });
+    }
     await this.firestore.collection('courses').doc(user)
     .collection('videos').doc(user).set({
       questions: payload,
@@ -165,10 +177,36 @@ async saveQuestions(payload:any, correctAnswerA: string, correctAnswerB){
     localStorage.removeItem('correctAnswerA');
     localStorage.removeItem('question1');
     
+    
   }catch(e){
     this.showError('something went wrong');
     this.isLoading = false;
   }
+}
+
+async seedDocument(payload: any){
+  let firebaseUser = await this.auth.currentUser;
+  
+  firebaseUser.getIdToken()
+  .then(function(token) {
+    return fetch(' https://dummiescollege.herokuapp.com/index-documents' , {
+        headers: { Authorization: 'Bearer ' + token }
+    });
+  })
+  .then(function(response) {
+    // The Fetch API returns a stream, which we convert into a JSON object.
+    return response.json();
+  })
+  .then(function(data) {
+    const searchClient = algoliasearch(
+      environment.algolia_app_id,
+      data.key
+    );
+     const index = searchClient.initIndex('prod_DummiesCollege');
+    
+     index.saveObject({...payload});
+    return true;
+  });
 }
 
 randomUp(number: number): number{
@@ -239,6 +277,16 @@ toast(message:any , operation: any){ // strings
     icon: operation,
     title: message
   });
+}
+
+async navigate(){
+  this.router.navigate(['/notifications']);
+  await this.firestore.collection<Student>('users').doc(this.userId).set({notificationCount: 0}, {merge: true});
+  // if(count > 0){
+  //   
+  // }
+  return true;
+ 
 }
 
   

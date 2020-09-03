@@ -3,6 +3,9 @@ import { Router, RouterOutlet } from '@angular/router';
 import { MainService } from 'src/app/services/main.service';
 import * as algoliasearch from 'algoliasearch/lite';
 import { environment } from 'src/environments/environment';
+import { AngularFirestoreDocument, AngularFirestore } from '@angular/fire/firestore';
+import { Student } from 'src/app/services/models';
+import { Observable } from 'rxjs';
 
 const searchClient = algoliasearch(
   environment.algolia_app_id,
@@ -30,12 +33,16 @@ export class NavComponent implements OnInit {
   indexName: 'prod_DummiesCollege',
   searchClient
 };
+notification: AngularFirestoreDocument<Student>;
+  notification$: Observable<Student>;
 
-  constructor(public service: MainService,  public router: Router) { 
+  constructor(public service: MainService,  public router: Router, private af: AngularFirestore) { 
     
   }
 
   ngOnInit(): void {
+    this.notification = this.af.collection<Student>('users').doc(this.service.userId);
+    this.notification$ = this.notification.valueChanges();
   }
 
   prepareRoute(outlet: RouterOutlet) {

@@ -45,6 +45,7 @@ export class RegistrationComponent implements OnInit {
     payload['profilePicture'] = '';
     payload['skillsCount'] = 0;
     payload['certificateCount'] = 0;
+    payload['notificationCount'] = 0;
     this.service.registerAccount(payload).then(resp => {
     this.service.isLoading = false;
     }).catch(err => {

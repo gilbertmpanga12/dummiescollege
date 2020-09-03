@@ -6,6 +6,7 @@ export interface Student {
     profilePicture: string;
     skillsCount: number;
     certificateCount: number;
+    notificationCount?: number;
 }
 
 export interface Certificates{

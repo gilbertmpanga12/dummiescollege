@@ -4,6 +4,9 @@ import { RouterOutlet, Router } from '@angular/router';
 import { trigger, transition, style, animate } from '@angular/animations';
 import * as algoliasearch from 'algoliasearch/lite';
 import { environment } from 'src/environments/environment';
+import { AngularFirestoreDocument, AngularFirestore } from '@angular/fire/firestore';
+import { Student } from '../services/models';
+import { Observable } from 'rxjs';
 
 
 const searchClient = algoliasearch(
@@ -49,11 +52,16 @@ export class LayoutComponent implements OnInit {
     indexName: 'prod_DummiesCollege',
     searchClient
   };
-  constructor(public service: MainService,  public router: Router) { 
+  notification: AngularFirestoreDocument<Student>;
+  notification$: Observable<Student>;
+  constructor(public service: MainService,  public router: Router, private af: AngularFirestore) { 
     
   }
 
   ngOnInit(): void {
+    
+    this.notification = this.af.collection<Student>('users').doc(this.service.userId);
+    this.notification$ = this.notification.valueChanges();
   }
 
   prepareRoute(outlet: RouterOutlet) {
