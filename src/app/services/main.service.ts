@@ -13,6 +13,7 @@ import { tap } from 'rxjs/operators';
 import Swal from 'sweetalert2';
 import * as algoliasearch from 'algoliasearch';
 import { environment } from 'src/environments/environment';
+import { HttpClient } from '@angular/common/http';
 
 
 
@@ -28,7 +29,7 @@ export class MainService {
   fullYear: number = this.year.getFullYear();
   isLoading: boolean = false;
   constructor(private auth: AngularFireAuth, 
-    private router: Router, private firestore: AngularFirestore) {
+    private router: Router, private firestore: AngularFirestore, private http: HttpClient) {
       this.auth.authState.subscribe(user => {
         if (user){
           this.user = user;
@@ -157,11 +158,7 @@ async saveQuestions(payload:any, correctAnswerA: string, correctAnswerB){
     let uploadCount = this.uploadsCount + 1;
 
     if(uploadCount == 15){
-       this.seedDocument({
-        questions: payload,
-        correctAnswerA: correctAnswerA,
-        correctAnswerB: correctAnswerB
-      });
+       this.seedDocument();
     }
     await this.firestore.collection('courses').doc(user)
     .collection('videos').doc(user).set({
@@ -184,29 +181,26 @@ async saveQuestions(payload:any, correctAnswerA: string, correctAnswerB){
   }
 }
 
-async seedDocument(payload: any){
+async seedDocument(){
+ 
+  const payload = {
+    caption: "Neil Degrasee talks about space and time",
+    docId: "80446132852",
+    grade: 1,
+    size: 10,
+    title: "How to become an astro physicist?",
+    uid: "2z7KehpMbNbGuVSOdPBpsefV32v2"
+  }
   let firebaseUser = await this.auth.currentUser;
   
   firebaseUser.getIdToken()
   .then(function(token) {
-    return fetch(' https://dummiescollege.herokuapp.com/index-documents' , {
-        headers: { Authorization: 'Bearer ' + token }
-    });
-  })
-  .then(function(response) {
-    // The Fetch API returns a stream, which we convert into a JSON object.
-    return response.json();
-  })
-  .then(function(data) {
-    const searchClient = algoliasearch(
-      environment.algolia_app_id,
-      data.key
-    );
-     const index = searchClient.initIndex('prod_DummiesCollege');
-    
-     index.saveObject({...payload});
-    return true;
+    // return fetch('http://localhost:8080/index-documents' , {
+    //     headers: { Authorization: 'Bearer ' + token }
+    // });
+    this.http.
   });
+  
 }
 
 randomUp(number: number): number{

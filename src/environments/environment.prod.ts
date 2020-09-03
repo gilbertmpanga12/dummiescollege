@@ -12,5 +12,6 @@ export const environment = {
     messagingSenderId: "692824260415",
     appId: "1:692824260415:web:7834a713ba58bdbdb91d8a",
     measurementId: "G-V1W9VNP8H8"
-  }
+  },
+  baseUrl: 'https://dummiescollege.herokuapp.com/'
 };
