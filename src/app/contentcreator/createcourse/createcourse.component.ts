@@ -54,6 +54,7 @@ export class CreatecourseComponent implements OnInit {
    localStorage.removeItem('hasTitle');
    localStorage.removeItem('uploadCount');
    localStorage.removeItem('uploadId');
+   localStorage.removeItem('course');
    this.service.toast('Cancelled creating course', 'info');
    this.router.navigate(['/dashboard']);
     }).catch(err => {
@@ -67,7 +68,7 @@ export class CreatecourseComponent implements OnInit {
    localStorage.removeItem('uploadId');
    this.router.navigate(['/dashboard']);
    this.service.toast('Great! your has been successfully published', 'success');
-   this.service.seedDocument({}); // index documents
+   this.service.seedDocument(); // index documents
   }
 
 }

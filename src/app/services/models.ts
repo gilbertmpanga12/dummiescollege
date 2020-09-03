@@ -20,9 +20,13 @@ export interface Skills{
 }
 
 export interface Course{
-    title: string;
-    caption: string;
-    docId?:string;
+   title: string;
+   caption: string;
+   docId?:string;
+   uid?: string;
+   grade?: number;
+   size?: number;
+   intro?; string;
 }
 
 export interface Notifcations{

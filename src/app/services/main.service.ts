@@ -111,6 +111,9 @@ export class MainService {
    localStorage.setItem('hasTitle', 'true');
    localStorage.setItem('uploadCount', '0');
    localStorage.setItem('uploadId', randomId);
+   localStorage.setItem('course', JSON.stringify({title:payload.title, 
+    caption: payload.caption, uid: user.uid, docId: randomId, 
+    grade: 0, size: 0, intro: ''}));
  }
 
 
@@ -139,6 +142,9 @@ async saveMediaUrl(path: string){
     uid: firebaseUser.uid
   }, 
   {merge: true});
+  if(this.uploadsCount == 0){
+    await this.firestore.collection('courses').doc(user).update({intro: path});
+  }
   this.isLoading = false;
   this.router.navigate(['/questions']);
   this.toast('Great! Now attach interview questions', 'info');
@@ -158,7 +164,7 @@ async saveQuestions(payload:any, correctAnswerA: string, correctAnswerB){
     let uploadCount = this.uploadsCount + 1;
 
     if(uploadCount == 15){
-       this.seedDocument({}); // payload data 
+       this.seedDocument(); // payload data 
     }
     await this.firestore.collection('courses').doc(user)
     .collection('videos').doc(user).set({
@@ -173,6 +179,7 @@ async saveQuestions(payload:any, correctAnswerA: string, correctAnswerB){
     localStorage.removeItem('question1Filled');
     localStorage.removeItem('correctAnswerA');
     localStorage.removeItem('question1');
+    localStorage.removeItem('course');
     
     
   }catch(e){
@@ -181,11 +188,12 @@ async saveQuestions(payload:any, correctAnswerA: string, correctAnswerB){
   }
 }
 
-async seedDocument(payload: any){
+async seedDocument(){
+  const course = JSON.parse(localStorage.getItem('course'));
   const firebaseUser = await this.auth.currentUser;
   firebaseUser.getIdToken()
   .then((token) => {
-    this.http.post(environment.baseUrl + 'index-documents', payload, 
+    this.http.post(environment.baseUrl + 'index-documents', course, 
     {headers: { Authorization: 'Bearer ' + token }}).subscribe(data => {
       console.log(data);
     }, err => {
