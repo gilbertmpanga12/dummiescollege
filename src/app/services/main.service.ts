@@ -185,7 +185,8 @@ async saveQuestions(payload: any, correctAnswerA: string, correctAnswerB){
     localStorage.setItem('uploadCount', `${uploadCount}`);
     this.router.navigate(['/createcourse']);
     this.toast('Questions set successfully', 'info');
-    this.clearImportantCredentials();
+    localStorage.removeItem('hasTitle');
+    localStorage.removeItem('question1Filled');
     
     
   }catch(e){
