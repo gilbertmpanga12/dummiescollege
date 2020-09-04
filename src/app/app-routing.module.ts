@@ -23,7 +23,7 @@ const routes: Routes = [
       },
 
       {
-        data: { animation: 'WatchPage' }, path: 'watch', loadChildren: () => import('./watch/watch.module').then(m => m.WatchModule), canActivate: [AuthGuard]
+        data: { animation: 'WatchPage' }, path: 'watch/:docId', loadChildren: () => import('./watch/watch.module').then(m => m.WatchModule), canActivate: [AuthGuard]
       },
     ]
   },

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, Renderer2, ViewChild } from '@angular/core';
 import { MainService } from '../services/main.service';
 import { RouterOutlet, Router } from '@angular/router';
 import { trigger, transition, style, animate } from '@angular/animations';
@@ -50,11 +50,24 @@ export class LayoutComponent implements OnInit {
   `;
   config = {
     indexName: 'prod_DummiesCollege',
-    searchClient
+    searchClient,
+    // routing: true,
+    insightsClient: (window as any).aa
   };
+
+  @ViewChild('searchBox')  searchBox: ElementRef;
+
+  
+  resetSearchForm(path: String): void{
+    const element: any = document.getElementsByClassName('ais-SearchBox-reset')[0];
+    element.click();
+    this.router.navigate(['/watch',path]);
+  }
+  
   notification: AngularFirestoreDocument<Student>;
   notification$: Observable<Student>;
-  constructor(public service: MainService,  public router: Router, private af: AngularFirestore) { 
+  constructor(public service: MainService,  public router: Router, private af: AngularFirestore, 
+    private element: ElementRef, private renderer: Renderer2) { 
     
   }
 
