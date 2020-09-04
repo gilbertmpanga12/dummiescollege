@@ -35,7 +35,10 @@
               transform opacity-100 scale-100 transition ease-out duration-100" >
                   <div class="py-1 rounded-md bg-white shadow-xs" role="menu" 
                   aria-orientation="vertical" aria-labelledby="user-menu">
-                  
+                  <a *ngIf="hits.length === 0" class="block px-4 py-2 text-sm leading-5 
+                  text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 
+                  transition duration-150 ease-in-out" role="menuitem" >No results found matching</a>
+                    
                   <a routerLink="/my-resume" class="block px-4 py-2 text-sm leading-5 
                   text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 
                   transition duration-150 ease-in-out" role="menuitem" *ngFor="let hit of hits">{{hit.title}}</a>
