@@ -102,20 +102,17 @@ export class MainService {
 
  async createCourse(payload: Course){
   try{
-    this.isLoading = true;
+  this.isLoading = true;
   const randomId = `${Math.ceil(Math.random() * 100000000000)}`;
   let user = await this.auth.currentUser;
-  await this.firestore.collection('courses')
-  .doc(randomId).set({title:payload.title, 
-  caption: payload.caption, uid: user.uid, docId: randomId, 
-  grade: 0, size: 0}, {merge: true});
+  localStorage.setItem('coursePayload', JSON.stringify({title: payload.title, 
+    caption: payload.caption, uid: user.uid, docId: randomId, 
+    grade: 0, size: 0}));
    this.isLoading = false;
    localStorage.setItem('hasTitle', 'true');
    localStorage.setItem('uploadCount', '0');
    localStorage.setItem('uploadId', randomId);
-   localStorage.setItem('course', JSON.stringify({title:payload.title, 
-    caption: payload.caption, uid: user.uid, docId: randomId, 
-    grade: 0, size: 0, intro: ''}));
+   
   }catch(e){
     this.toast('Oops something went wrong', 'error');
   }
@@ -138,26 +135,13 @@ get uploadsCount(): number{
 
 
 async saveMediaUrl(path: string, videoTitle: string){
-  let firebaseUser = await this.auth.currentUser;
-  let user = localStorage.getItem('uploadId');
-  var childId;
-
-  if(localStorage.getItem('childId')){
-    childId =  localStorage.getItem('childId');
-  }else{
-    childId = `${Math.ceil(Math.random() * 100000000000)}`;
-    localStorage.setItem('childId', `${Math.ceil(Math.random() * 100000000000)}`);
-  }
   
   try{
-  await this.firestore.collection('courses').doc(user)
-  .collection('videos').add({
-    videoUrl: path,
-    questions: [],
-    docId: user,
-    uid: firebaseUser.uid,
-    videoTitle: videoTitle
-  });
+    localStorage.setItem('videoPayload', JSON.stringify({
+      videoUrl: path,
+      videoTitle: videoTitle
+    }));
+    
   // if(this.uploadsCount == 0){
   //   await this.firestore.collection('courses').doc(user).update({intro: path});
   // }
@@ -172,30 +156,36 @@ async saveMediaUrl(path: string, videoTitle: string){
 
 }
 
-async saveQuestions(payload:any, correctAnswerA: string, correctAnswerB){
+async saveQuestions(payload: any, correctAnswerA: string, correctAnswerB){
   try{
-       this.isLoading = true;
-    let firebaseUser = await this.auth.currentUser;
-    let user = localStorage.getItem('uploadId');
+    this.isLoading = true;
+    let coursePayload = JSON.parse(localStorage.getItem('coursePayload'));
+    let videoPayload =  JSON.parse(localStorage.getItem('videoPayload'));
     let uploadCount = this.uploadsCount + 1;
-
+    
     if(uploadCount == 15){
        this.seedDocument(); // payload data 
     }
-    await this.firestore.collection('courses').doc(user)
-    .collection('videos').doc(user).set({
-      questions: payload,
-      correctAnswerA: correctAnswerA,
-      correctAnswerB: correctAnswerB
-    }, {merge: true});
+
+    videoPayload['correctAnswerA'] = correctAnswerA;
+    videoPayload['correctAnswerB'] = correctAnswerB;
+    videoPayload['questions'] = payload;
+    coursePayload['size'] += 1;
+
+    await this.firestore.collection('courses').doc(this.uploadId).set({
+      ...coursePayload
+    });
+
+    await this.firestore.collection('courses').doc(this.uploadId)
+    .collection('videos').add({
+      ...videoPayload
+    });
+
     this.isLoading = false;
     localStorage.setItem('uploadCount', `${uploadCount}`);
     this.router.navigate(['/createcourse']);
     this.toast('Questions set successfully', 'info');
-    localStorage.removeItem('question1Filled');
-    // localStorage.removeItem('correctAnswerA');
-    // localStorage.removeItem('question1');
-    // localStorage.removeItem('course');
+    this.clearImportantCredentials();
     
     
   }catch(e){
@@ -208,8 +198,8 @@ async deleteAlgoliaIndex(index: string){
   const firebaseUser = await this.auth.currentUser;
   firebaseUser.getIdToken()
   .then((token) => {
-    this.http.get(environment.baseUrl + 'delete-index', 
-    {headers: { Authorization: 'Bearer ' + token }, params: {docId: index}}).subscribe(data => {
+    this.http.get(environment.baseUrl + 'delete-index/' + index, 
+    {headers: { Authorization: 'Bearer ' + token }}).subscribe(data => {
       console.log(data);// come back
     }, err => {
       // this.showError(err.message);
@@ -226,10 +216,11 @@ async seedDocument(){
   .then((token) => {
     this.http.post(environment.baseUrl + 'index-documents', course, 
     {headers: { Authorization: 'Bearer ' + token }}).subscribe(data => {
-      console.log(data);
+      // console.log(data);
+      localStorage.removeItem('uploadId');
     }, err => {
       // this.showError(err.message);
-      console.log(err);
+      // console.log(err);
     });
   });
   
@@ -263,23 +254,18 @@ async deleteCourse(docId: string) {
   }
 
 
-async cancelUpload() {
-  this.isErrorLoading = true;
-  const user = localStorage.getItem('uploadId');
-  await this.firestore.collection('courses')
-  .doc(user).delete();
-}
+
 
 
 async clearImportantCredentials(){
    localStorage.removeItem('hasTitle');
    localStorage.removeItem('uploadCount');
    localStorage.removeItem('uploadId');
-   localStorage.removeItem('course');
+   localStorage.removeItem('coursePayload');
    localStorage.removeItem('question1');
    localStorage.removeItem('question1Filled');
    localStorage.removeItem('correctAnswerA');
-   localStorage.removeItem('childId');
+   localStorage.removeItem('videoPayload');
 }
 
 async cancelQuestion() {
@@ -305,21 +291,35 @@ get filledInquestion1(): boolean {
   return hasFilled == 'true';
 }
 
+get uploadId(): string{
+  return  localStorage.getItem('uploadId');
+}
+
  currentUrl(path: string): boolean{
   return this.router.url == path;
 }
 
 cancelCoursecreation():void { //back
-  this.toast('Processing....', 'warning');
-  this.cancelUpload().then(res => {
-    this.isErrorLoading = false;
-   this.clearImportantCredentials();
-   this.toast('Cancelled creating course', 'info');
-   this.router.navigate(['/dashboard']);
-    }).catch((e) => {
+  try{
+    this.toast('Processing....', 'warning');
+    this.isErrorLoading = true;
+    const user = localStorage.getItem('uploadId');
+     this.firestore.collection('courses')
+    .doc(user).collection('videos').doc(user).delete().then(() => {
+     
+     this.firestore.collection('courses')
+    .doc(user).delete().then(() => {
       this.isErrorLoading = false;
-      this.showError('Oops something went wrong');
-    });
+      this.clearImportantCredentials();
+      this.toast('Cancelled creating course', 'info');
+      this.router.navigate(['/dashboard']);
+    })
+  
+      });
+  }catch(e){
+    this.isErrorLoading = false;
+    this.showError('Oops something went wrong');
+  }
   }
 
 toast(message:any , operation: any){ // strings
