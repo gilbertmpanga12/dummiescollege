@@ -204,8 +204,23 @@ async saveQuestions(payload:any, correctAnswerA: string, correctAnswerB){
   }
 }
 
+async deleteAlgoliaIndex(index: string){
+  const firebaseUser = await this.auth.currentUser;
+  firebaseUser.getIdToken()
+  .then((token) => {
+    this.http.get(environment.baseUrl + 'delete-index', 
+    {headers: { Authorization: 'Bearer ' + token }, params: {docId: index}}).subscribe(data => {
+      console.log(data);// come back
+    }, err => {
+      // this.showError(err.message);
+      console.log(err);
+    });
+  });
+}
+
 async seedDocument(){
   const course = JSON.parse(localStorage.getItem('course'));
+  course['objectID'] = this.userId;
   const firebaseUser = await this.auth.currentUser;
   firebaseUser.getIdToken()
   .then((token) => {
@@ -215,7 +230,7 @@ async seedDocument(){
     }, err => {
       // this.showError(err.message);
       console.log(err);
-    })
+    });
   });
   
 }
@@ -237,7 +252,8 @@ async deleteCourse(docId: string) {
     await this.firestore.collection('courses')
     .doc(docId).delete();
     this.isLoading = false;
-
+    this.deleteAlgoliaIndex(docId);
+   
   
   }catch(e){
     this.isLoading = false;
