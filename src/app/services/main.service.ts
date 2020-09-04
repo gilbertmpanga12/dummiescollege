@@ -162,6 +162,7 @@ async saveQuestions(payload: any, correctAnswerA: string, correctAnswerB){
     let coursePayload = JSON.parse(localStorage.getItem('coursePayload'));
     let videoPayload =  JSON.parse(localStorage.getItem('videoPayload'));
     let uploadCount = this.uploadsCount + 1;
+    const randomId = `${Math.ceil(Math.random() * 100000000000)}`; 
     
     if(uploadCount == 15){
        this.seedDocument(); // payload data 
@@ -172,14 +173,17 @@ async saveQuestions(payload: any, correctAnswerA: string, correctAnswerB){
     videoPayload['questions'] = payload;
     coursePayload['size'] += 1;
     videoPayload['docId'] = this.uploadId;
+    videoPayload['secondayId'] = randomId;
     videoPayload['created_at'] = Date.now();
+
+    
 
     await this.firestore.collection('courses').doc(this.uploadId).set({
       ...coursePayload
     });
 
     await this.firestore.collection('courses').doc(this.uploadId).collection('videos')
-    .doc(this.uploadId).set({
+    .doc(randomId).set({
       ...videoPayload
     });
 
