@@ -301,27 +301,10 @@ get uploadId(): string{
   return this.router.url == path;
 }
 
-cancelCoursecreation():void { //back
-  try{
-    this.toast('Processing....', 'warning');
-    this.isErrorLoading = true;
-    const user = localStorage.getItem('uploadId');
-     this.firestore.collection('courses')
-    .doc(user).collection('videos').doc(user).delete().then(() => {
-     
-     this.firestore.collection('courses')
-    .doc(user).delete().then(() => {
-      this.isErrorLoading = false;
-      this.clearImportantCredentials();
-      this.toast('Cancelled creating course', 'info');
-      this.router.navigate(['/dashboard']);
-    })
-  
-      });
-  }catch(e){
-    this.isErrorLoading = false;
-    this.showError('Oops something went wrong');
-  }
+cancelCourse(){
+  this.router.navigate(['/dashboard']);
+  this.toast('Course discarded', 'warning');
+  this.clearImportantCredentials();
   }
 
 toast(message:any , operation: any){ // strings
