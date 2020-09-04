@@ -171,13 +171,15 @@ async saveQuestions(payload: any, correctAnswerA: string, correctAnswerB){
     videoPayload['correctAnswerB'] = correctAnswerB;
     videoPayload['questions'] = payload;
     coursePayload['size'] += 1;
+    videoPayload['docId'] = this.uploadId;
+    videoPayload['created_at'] = Date.now();
 
     await this.firestore.collection('courses').doc(this.uploadId).set({
       ...coursePayload
     });
 
-    await this.firestore.collection('courses').doc(this.uploadId)
-    .collection('videos').add({
+    await this.firestore.collection('courses').doc(this.uploadId).collection('videos')
+    .doc(this.uploadId).set({
       ...videoPayload
     });
 
@@ -185,7 +187,6 @@ async saveQuestions(payload: any, correctAnswerA: string, correctAnswerB){
     localStorage.setItem('uploadCount', `${uploadCount}`);
     this.router.navigate(['/createcourse']);
     this.toast('Questions set successfully', 'info');
-    localStorage.removeItem('hasTitle');
     localStorage.removeItem('question1Filled');
     
     
