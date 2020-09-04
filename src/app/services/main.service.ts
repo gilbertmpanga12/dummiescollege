@@ -129,7 +129,9 @@ get uploadsCount(): number{
   return parseInt(count);
 }
 
-async saveMediaUrl(path: string){
+
+
+async saveMediaUrl(path: string, videoTitle: string){
   let firebaseUser = await this.auth.currentUser;
   let user = localStorage.getItem('uploadId');
   
@@ -139,7 +141,8 @@ async saveMediaUrl(path: string){
     videoUrl: path,
     questions: [],
     docId: user,
-    uid: firebaseUser.uid
+    uid: firebaseUser.uid,
+    videoTitle: videoTitle
   }, 
   {merge: true});
   if(this.uploadsCount == 0){
@@ -254,6 +257,23 @@ get filledInquestion1(): boolean {
  currentUrl(path: string): boolean{
   return this.router.url == path;
 }
+
+cancelCoursecreation():void { //back
+  this.cancelUpload().then(res => {
+   localStorage.removeItem('hasTitle');
+   localStorage.removeItem('uploadCount');
+   localStorage.removeItem('uploadId');
+   localStorage.removeItem('course');
+   localStorage.removeItem('question1');
+   localStorage.removeItem('question1Filled');
+   localStorage.removeItem('correctAnswerA');
+
+   this.toast('Cancelled creating course', 'info');
+   this.router.navigate(['/dashboard']);
+    }).catch(err => {
+      this.showError('Oops something went wrong');
+    });
+  }
 
 toast(message:any , operation: any){ // strings
   const Toast = Swal.mixin({

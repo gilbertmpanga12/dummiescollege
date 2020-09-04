@@ -7,7 +7,7 @@
     border border-gray-300 shadow-2xl md:ml-6 h-64 my-8 p-6 relative ml-1 mr-1 h-auto  
     md:pl-9 rounded-lg">
     
-    <div class="w-full text-left text-2xl font-bold text-gray-800 md:text-center">
+    <div class="w-full text-left text-2xl font-bold text-gray-800 md:text-center" id="startFromTop">
        Finalize the last interview questions in this section
 
     </div>
@@ -79,22 +79,26 @@
   </div>
 
 
-    <div class="md:flex md:items-center">
-      <div class="w-full">
-        <button 
-        (click)="submitQuestions()"
-        class="shadow bg-secondary hover:bg-green-400 focus:shadow-outline 
-        focus:outline-none text-white font-bold py-2 px-4 rounded w-full md:w-48" type="button">
-        <span *ngIf="!service.isLoading">Next</span>
+  <div class="flex  justify-between mt-8">
+    <button  (click)="service.cancelCoursecreation()" 
+        class="block bg-transparent  text-gray-800 font-semibold 
+        hover:text-red-500 py-2 px-4 font-thin border border-gray-400 hover:border-transparent rounded w-full md:w-48">
+        Cancel
+       </button>
+ 
+       <button 
+       (click)="submitQuestions()"
+        class="ml-8 block shadow bg-secondary hover:bg-green-400 focus:shadow-outline 
+        focus:outline-none text-white  py-2 px-4 rounded w-full md:w-48 font-bold" type="button">
+        <span *ngIf="!service.isLoading">Finish up</span>
         <div class="spinner" *ngIf="service.isLoading">
             <div class="bounce1"></div>
             <div class="bounce2"></div>
             <div class="bounce3"></div>
           </div>
         </button>
-      </div>
-      <div class="md:w-2/3"></div>
-    </div>
+        
+     </div>
   </form>
 <br/>
     

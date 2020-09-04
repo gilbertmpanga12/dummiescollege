@@ -15,8 +15,8 @@ export class ContentformComponent implements OnInit {
 
   ngOnInit(): void {
     this.courseGroup = this._fb.group({
-      title: ['', [Validators.required, Validators.maxLength(30)]],
-      caption: ['', [Validators.required, Validators.maxLength(50)]]
+      title: ['', [Validators.required, Validators.maxLength(50)]],
+      caption: ['', [Validators.required, Validators.maxLength(100)]]
     });
   }
 

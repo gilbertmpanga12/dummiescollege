@@ -38,13 +38,13 @@
         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
           Caption
         </label>
-        <textarea formControlName="caption" maxlength="51"
+        <textarea formControlName="caption" maxlength="101"
         class=" no-resize appearance-none block w-full bg-gray-200 
         text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3
          leading-tight focus:outline-none focus:bg-white focus:border-green-400 h-48 resize-none" id="message"></textarea>
-         <p [ngClass]="courseGroup.get('caption').value.length > 50 ? 'text-red-600 text-xs italic' : 'text-gray-600 text-xs italic'">Caption must not exceed 
+         <p [ngClass]="courseGroup.get('caption').value.length > 100 ? 'text-red-600 text-xs italic' : 'text-gray-600 text-xs italic'">Caption must not exceed 
             50 characters</p>
-            <p [ngClass]="courseGroup.get('caption').value.length > 50? 'text-red-600 text-xs italic absolute position-right2' : 'text-gray-600 text-xs italic absolute position-right2'">{{courseGroup.get('caption').value.length}}</p>
+            <p [ngClass]="courseGroup.get('caption').value.length > 100 ? 'text-red-600 text-xs italic absolute position-right2' : 'text-gray-600 text-xs italic absolute position-right2'">{{courseGroup.get('caption').value.length}}</p>
     
       </div>
     </div>

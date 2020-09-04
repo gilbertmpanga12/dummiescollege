@@ -1,7 +1,10 @@
 
 <app-nav></app-nav>
 
-<app-questionpart2 *ngIf="service.filledInquestion1"></app-questionpart2>
+<app-questionpart2 
+*ngIf="service.filledInquestion1" 
+id="startFromTop">
+</app-questionpart2>
 
 <ng-container *ngIf="!service.filledInquestion1">
   <div class="w-full container pt-16 md:pt-16 md:w-6/12 md:mx-auto md:h-scren">
@@ -82,22 +85,27 @@
 
 
 
-    <div class="md:flex md:items-center">
-      <div class="w-full">
-        <button 
-       (click)="nextQuestion()"
-        class="shadow bg-secondary hover:bg-green-400 focus:shadow-outline 
-        focus:outline-none text-white font-bold py-2 px-4 rounded w-full md:w-48" type="button">
-        <span *ngIf="!service.isLoading">Next</span>
-        <div class="spinner" *ngIf="service.isLoading">
-            <div class="bounce1"></div>
-            <div class="bounce2"></div>
-            <div class="bounce3"></div>
-          </div>
-        </button>
-      </div>
-      <div class="md:w-2/3"></div>
+    <div class="flex  justify-between mt-8">
+   <button  (click)="service.cancelCoursecreation()" 
+       class="block bg-transparent  text-gray-800 font-semibold 
+       hover:text-red-500 py-2 px-4 font-thin border border-gray-400 hover:border-transparent rounded w-full md:w-48">
+       Cancel
+      </button>
+
+      <button 
+      (click)="nextQuestion()"
+       class="ml-8 block shadow bg-secondary hover:bg-green-400 focus:shadow-outline 
+       focus:outline-none text-white  py-2 px-4 rounded w-full md:w-48 font-bold" type="button">
+       <span *ngIf="!service.isLoading">Continue</span>
+       <div class="spinner" *ngIf="service.isLoading">
+           <div class="bounce1"></div>
+           <div class="bounce2"></div>
+           <div class="bounce3"></div>
+         </div>
+       </button>
+       
     </div>
+
   </form>
 <br/>
     
