@@ -136,23 +136,31 @@ get uploadsCount(): number{
 
 
 
+
 async saveMediaUrl(path: string, videoTitle: string){
   let firebaseUser = await this.auth.currentUser;
   let user = localStorage.getItem('uploadId');
+  var childId;
+
+  if(localStorage.getItem('childId')){
+    childId =  localStorage.getItem('childId');
+  }else{
+    childId = `${Math.ceil(Math.random() * 100000000000)}`;
+    localStorage.setItem('childId', `${Math.ceil(Math.random() * 100000000000)}`);
+  }
   
   try{
   await this.firestore.collection('courses').doc(user)
-  .collection('videos').doc(user).set({
+  .collection('videos').add({
     videoUrl: path,
     questions: [],
     docId: user,
     uid: firebaseUser.uid,
     videoTitle: videoTitle
-  }, 
-  {merge: true});
-  if(this.uploadsCount == 0){
-    await this.firestore.collection('courses').doc(user).update({intro: path});
-  }
+  });
+  // if(this.uploadsCount == 0){
+  //   await this.firestore.collection('courses').doc(user).update({intro: path});
+  // }
   this.isLoading = false;
   this.router.navigate(['/questions']);
   this.toast('Great! Now attach interview questions', 'info');
@@ -255,6 +263,7 @@ async clearImportantCredentials(){
    localStorage.removeItem('question1');
    localStorage.removeItem('question1Filled');
    localStorage.removeItem('correctAnswerA');
+   localStorage.removeItem('childId');
 }
 
 async cancelQuestion() {
