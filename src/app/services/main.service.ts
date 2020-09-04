@@ -28,6 +28,7 @@ export class MainService {
   userVerified: boolean = false;
   fullYear: number = this.year.getFullYear();
   isLoading: boolean = false;
+  isErrorLoading: boolean = false;
   constructor(private auth: AngularFireAuth, 
     private router: Router, private firestore: AngularFirestore, private http: HttpClient) {
       this.auth.authState.subscribe(user => {
@@ -224,7 +225,7 @@ async deleteCourse(docId: string) {
     await this.firestore.collection('courses')
     .doc(docId).delete();
     this.isLoading = false;
-    // this.toastr.warning('Deleted course successfully');
+
   
   }catch(e){
     this.isLoading = false;
@@ -235,19 +236,40 @@ async deleteCourse(docId: string) {
 
 
 async cancelUpload() {
-try{
-  this.isLoading = true;
+  this.isErrorLoading = true;
   const user = localStorage.getItem('uploadId');
   await this.firestore.collection('courses')
   .doc(user).delete();
-  this.isLoading = false;
-  this.toast('Discarded course', 'warning');
+}
 
-}catch(e){
-  this.isLoading = false;
-  this.showError('something went wrong');
+
+async clearImportantCredentials(){
+   localStorage.removeItem('hasTitle');
+   localStorage.removeItem('uploadCount');
+   localStorage.removeItem('uploadId');
+   localStorage.removeItem('course');
+   localStorage.removeItem('question1');
+   localStorage.removeItem('question1Filled');
+   localStorage.removeItem('correctAnswerA');
 }
-}
+
+async cancelQuestion() {
+  try{
+
+    const user = localStorage.getItem('uploadId');
+    await this.firestore.collection('courses')
+    .doc(user).delete();
+    this.isLoading = false;
+    this.toast('Discarded course', 'warning');
+    this.clearImportantCredentials();
+   // this.router.navigate(['/dashboard']);
+  
+  }catch(e){
+    this.showError('something went wrong');
+  }
+  }
+
+
 
 get filledInquestion1(): boolean {
   const hasFilled = localStorage.getItem('question1Filled');
@@ -259,18 +281,14 @@ get filledInquestion1(): boolean {
 }
 
 cancelCoursecreation():void { //back
+  this.toast('Processing....', 'warning');
   this.cancelUpload().then(res => {
-   localStorage.removeItem('hasTitle');
-   localStorage.removeItem('uploadCount');
-   localStorage.removeItem('uploadId');
-   localStorage.removeItem('course');
-   localStorage.removeItem('question1');
-   localStorage.removeItem('question1Filled');
-   localStorage.removeItem('correctAnswerA');
-
+    this.isErrorLoading = false;
+   this.clearImportantCredentials();
    this.toast('Cancelled creating course', 'info');
    this.router.navigate(['/dashboard']);
-    }).catch(err => {
+    }).catch((e) => {
+      this.isErrorLoading = false;
       this.showError('Oops something went wrong');
     });
   }

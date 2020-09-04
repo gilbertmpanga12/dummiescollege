@@ -89,7 +89,12 @@ id="startFromTop">
    <button  (click)="service.cancelCoursecreation()" 
        class="block bg-transparent  text-gray-800 font-semibold 
        hover:text-red-500 py-2 px-4 font-thin border border-gray-400 hover:border-transparent rounded w-full md:w-48">
-       Cancel
+       <span *ngIf="!service.isErrorLoading">Cancel</span>
+       <div class="spinner" *ngIf="service.isErrorLoading">
+           <div class="bounce1"></div>
+           <div class="bounce2"></div>
+           <div class="bounce3"></div>
+         </div>
       </button>
 
       <button 
