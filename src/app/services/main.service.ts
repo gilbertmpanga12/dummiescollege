@@ -278,6 +278,7 @@ async cancelQuestion() {
     this.isLoading = false;
     this.toast('Discarded course', 'warning');
     this.clearImportantCredentials();
+    
    // this.router.navigate(['/dashboard']);
   
   }catch(e){

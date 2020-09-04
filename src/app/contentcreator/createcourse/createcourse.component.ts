@@ -83,16 +83,17 @@ export class CreatecourseComponent implements OnInit {
   
 
   doneCourseUpload(): void{
-   localStorage.removeItem('hasTitle');
-   localStorage.removeItem('uploadCount');
-   localStorage.removeItem('question1');// childId
-   localStorage.removeItem('childId');
-   localStorage.removeItem('correctAnswerA');
-   localStorage.removeItem('course');
-   localStorage.removeItem('childId');
-   this.router.navigate(['/dashboard']);
-   this.service.toast('Great! your has been successfully published', 'success');
-   this.service.seedDocument(); // index documents
+  //  localStorage.removeItem('hasTitle');
+  //  localStorage.removeItem('uploadCount');
+  //  localStorage.removeItem('question1');// childId
+  //  localStorage.removeItem('childId');
+  //  localStorage.removeItem('correctAnswerA');
+  //  localStorage.removeItem('course');
+  //  localStorage.removeItem('childId');
+  this.router.navigate(['/dashboard']);
+  this.service.toast('Great! your has been successfully published', 'success');
+  this.service.clearImportantCredentials();
+  this.service.seedDocument(); // index documents
   
   }
 
