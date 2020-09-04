@@ -6,7 +6,7 @@ import { AngularFirestore } from '@angular/fire/firestore';//AngularFirestoreDoc
 import { Student, Certificates, Skills, Course } from './models';
 // import { HttpClient, HttpHeaders } from '@angular/common/http';
 // import { environment } from 'src/environments/environment';
-import { tap } from 'rxjs/operators';
+import { tap, timestamp } from 'rxjs/operators';
 
 // import { firestore as ft } from 'firebase/app';
 // import { Observable, BehaviorSubject } from 'rxjs';
@@ -101,7 +101,8 @@ export class MainService {
  }
 
  async createCourse(payload: Course){
-  this.isLoading = true;
+  try{
+    this.isLoading = true;
   const randomId = `${Math.ceil(Math.random() * 100000000000)}`;
   let user = await this.auth.currentUser;
   await this.firestore.collection('courses')
@@ -115,6 +116,9 @@ export class MainService {
    localStorage.setItem('course', JSON.stringify({title:payload.title, 
     caption: payload.caption, uid: user.uid, docId: randomId, 
     grade: 0, size: 0, intro: ''}));
+  }catch(e){
+    this.toast('Oops something went wrong', 'error');
+  }
  }
 
 
@@ -181,9 +185,9 @@ async saveQuestions(payload:any, correctAnswerA: string, correctAnswerB){
     this.router.navigate(['/createcourse']);
     this.toast('Questions set successfully', 'info');
     localStorage.removeItem('question1Filled');
-    localStorage.removeItem('correctAnswerA');
-    localStorage.removeItem('question1');
-    localStorage.removeItem('course');
+    // localStorage.removeItem('correctAnswerA');
+    // localStorage.removeItem('question1');
+    // localStorage.removeItem('course');
     
     
   }catch(e){

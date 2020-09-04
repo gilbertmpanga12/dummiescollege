@@ -90,6 +90,7 @@ export class CreatecourseComponent implements OnInit {
    this.router.navigate(['/dashboard']);
    this.service.toast('Great! your has been successfully published', 'success');
    this.service.seedDocument(); // index documents
+  
   }
 
 }
