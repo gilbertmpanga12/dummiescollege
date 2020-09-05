@@ -57,14 +57,21 @@ export class WatchComponent implements OnInit {
   }
 
   watchNextVideo(): void{
-    if(this.initialPosition >= this.videoResults.length){
-      return;
-    }
-    this.initialPosition++;
-    localStorage.setItem('initialPosition', `${this.initialPosition}`);
-    localStorage.setItem('currentCourse', JSON.stringify(this.videoResults));
-    this.router.navigate(['/interviews',this.videoParamId,this.initialPosition]);
+    // if(this.initialPosition >= this.videoResults.length){
+    //   return;
+    // }
+    // this.initialPosition++;
+    // localStorage.setItem('initialPosition', `${this.initialPosition}`);
+    // localStorage.setItem('currentCourse', JSON.stringify(this.videoResults));
+    // this.router.navigate(['/interviews',this.videoParamId,this.initialPosition]);
     // console.log(this.initialPosition);
+    if(localStorage.getItem('initialPosition') == null){
+      localStorage.setItem('initialPosition', `0`);
+      this.router.navigate(['/interviews',this.videoParamId, this.initialPosition]);
+    }
+    const currentPosition:number = parseInt(localStorage.getItem('initialPosition'));
+    this.router.navigate(['/interviews',this.videoParamId, currentPosition]);
+
   }
 
 }

@@ -118,6 +118,17 @@ export class MainService {
   }
  }
 
+ async submitInterviews(payload: any){
+   try{
+    let user = this.userId;
+    this.firestore.collection('courses').doc(payload['docId']).collection('scoreboard').add({
+      ...payload
+    });
+    this.toast('Submitted!', 'info');
+   }catch(e){
+    this.toast('Something went wrong', 'error');
+   }
+ }
 
 
 
@@ -175,6 +186,8 @@ async saveQuestions(payload: any, correctAnswerA: string, correctAnswerB){
     videoPayload['docId'] = this.uploadId;
     videoPayload['secondayId'] = randomId;
     videoPayload['created_at'] = Date.now();
+    videoPayload['interviwerId'] = this.userId;
+    videoPayload['courseTitle'] = coursePayload['title'];
 
     
 
