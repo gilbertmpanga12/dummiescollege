@@ -222,11 +222,11 @@ async seedDocument(){
   .then((token) => {
     this.http.post(environment.baseUrl + 'index-documents', course, 
     {headers: { Authorization: 'Bearer ' + token }}).subscribe(data => {
-      // console.log(data);
-      localStorage.removeItem('uploadId');
+     
+      this.clearImportantCredentials();
     }, err => {
       // this.showError(err.message);
-      // console.log(err);
+      console.log(err);
     });
   });
   

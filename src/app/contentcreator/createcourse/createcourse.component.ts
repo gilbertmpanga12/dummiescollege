@@ -93,7 +93,6 @@ export class CreatecourseComponent implements OnInit {
   //  localStorage.removeItem('childId');
   this.router.navigate(['/dashboard']);
   this.service.toast('Great! your has been successfully published', 'success');
-  this.service.clearImportantCredentials();
   this.service.seedDocument(); // index documents
   
   }
