@@ -15,7 +15,7 @@ import * as algoliasearch from 'algoliasearch';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 
-import * as firebase from 'firebase';
+import { firestore as ft } from 'firebase/app';
 
 
 @Injectable({
@@ -145,8 +145,13 @@ get uploadsCount(): number{
 
 
 async updateCourseCount(){
-  const increment = firebase.firestore.FieldValue.increment(1);
+  const increment = ft.FieldValue.increment(1)
   this.firestore.doc('users/'+ this.userId).set({courseCount: increment}, {merge: true});
+}
+
+async deleteCourseCount(){
+  const decrement =ft.FieldValue.increment(-1)
+  this.firestore.doc('users/'+ this.userId).set({courseCount:  decrement}, {merge: true});
 }
 
 
@@ -224,7 +229,7 @@ async deleteAlgoliaIndex(index: string){
   .then((token) => {
     this.http.get(environment.baseUrl + 'delete-index/' + index, 
     {headers: { Authorization: 'Bearer ' + token }}).subscribe(data => {
-      console.log(data);// come back
+      this.deleteCourseCount();
     }, err => {
       // this.showError(err.message);
       console.log(err);

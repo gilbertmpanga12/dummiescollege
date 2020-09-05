@@ -18,7 +18,8 @@ export class VjsPlayerComponent implements OnInit {
           src: string,
           type: string,
       }[],
-      responsive: boolean
+      responsive: boolean,
+      muted: boolean
   };
   player: videojs.Player;
 

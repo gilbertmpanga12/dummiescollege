@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
+ canPlay: boolean = false;
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  watch(): void{
+    this.canPlay = true;
   }
 
 }
