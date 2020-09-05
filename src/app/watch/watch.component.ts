@@ -44,7 +44,7 @@ export class WatchComponent implements OnInit {
           this.videoResults.push(course.data());
           this.title = this.videoResults[this.initialPosition]['videoTitle'];
           this.initialVideo =  this.videoResults[this.initialPosition]['videoUrl'];
-          //console.log(this.videoResults);
+          console.log(this.videoResults);
         })
         //this.videoResults.push
       })
@@ -56,6 +56,7 @@ export class WatchComponent implements OnInit {
       return;
     }
     this.initialPosition++;
+    console.log(this.initialPosition);
   }
 
 }
