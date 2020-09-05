@@ -7,6 +7,8 @@ export interface Student {
     skillsCount: number;
     certificateCount: number;
     notificationCount?: number;
+    courseCount?: number;
+    views?: number;
 }
 
 export interface Certificates{

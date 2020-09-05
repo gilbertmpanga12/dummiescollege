@@ -24,7 +24,7 @@
                 
                    <p class="mt-8" *ngIf="initialVideo != null">
                     <app-vjs-player [options]="{ autoplay: false, controls: true, 
-                      sources: [{ src: 'assets/small.mp4', type: 'video/mp4'}], fluid:true, responsive: true}"></app-vjs-player>
+                      sources: [{ src: initialVideo, type: 'video/mp4'}], fluid:true, responsive: true}"></app-vjs-player>
                    </p>
                      </div>
         
