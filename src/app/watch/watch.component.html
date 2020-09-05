@@ -1,7 +1,6 @@
 <ng-container [ngSwitch]="(service.user?.emailVerified)">
    <ng-container *ngSwitchCase="true">
-      <app-courseintro *ngIf="false
-      "></app-courseintro>
+      
       
       <div class="container w-full">
          <div class="max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl mx-auto   mt-8 p-3">
@@ -21,9 +20,11 @@
    
               
                   </ul>
-                   <!-- <p class="mt-8"> 
-                      <youtube-player videoId="WKcTj5wDgzU"></youtube-player>
-                   </p> -->
+                
+                   <p class="mt-8" *ngIf="initialVideo != null">
+                    <app-vjs-player [options]="{ autoplay: true, controls: true, 
+                      sources: [{ src: initialVideo, type: 'video/mp4'}], fluid:true, responsive: true}"></app-vjs-player>
+                   </p>
                      </div>
         
      </div>

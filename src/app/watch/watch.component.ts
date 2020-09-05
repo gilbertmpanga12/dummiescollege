@@ -28,6 +28,7 @@ export class WatchComponent implements OnInit {
    font-semibold leading-tight shadow-md ml-2 bg-indigo-500
    `;
    title: any;
+   initialVideo: any;
   constructor(public service: MainService, private route: ActivatedRoute, private af: AngularFirestore) { }
 
   ngOnInit(): void {
@@ -41,7 +42,8 @@ export class WatchComponent implements OnInit {
       .collection('videos').get().subscribe(courses => {
         courses.docs.forEach(course => {
           this.videoResults.push(course.data());
-          this.title = this.videoResults[this.initialPosition]['videoTitle']
+          this.title = this.videoResults[this.initialPosition]['videoTitle'];
+          this.initialVideo =  this.videoResults[this.initialPosition]['videoUrl'];
           //console.log(this.videoResults);
         })
         //this.videoResults.push
