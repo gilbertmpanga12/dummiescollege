@@ -3,12 +3,12 @@ import { CommonModule } from '@angular/common';
 
 import { WatchRoutingModule } from './watch-routing.module';
 import { WatchComponent } from './watch.component';
-import { CourseintroComponent } from './courseintro/courseintro.component';
 import {YouTubePlayerModule} from '@angular/youtube-player';
 import { EmailactivationModule } from '../emailactivation/emailactivation.module';
+import { VjsPlayerComponent } from './vjs-player/vjs-player.component';
 
 @NgModule({
-  declarations: [WatchComponent, CourseintroComponent],
+  declarations: [WatchComponent, VjsPlayerComponent],
   imports: [
     CommonModule,
     WatchRoutingModule,

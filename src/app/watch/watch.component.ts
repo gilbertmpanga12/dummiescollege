@@ -14,11 +14,20 @@ interface VideoParams{
   styleUrls: ['./watch.component.scss']
 })
 export class WatchComponent implements OnInit {
-  test: string[] = ["Chapter 1", "Chapter 2", 
-  "Chapter 3", "Chapter 4",
-  "Chapter 5", "Chapter 6", "Chapter 7", "Chapter 8", "Chapter 9", "Chapter 10"];
    videoParamId: string;
    videoResults: any[] = [];
+   initialPosition: number = 0;
+   initialBackgroundColor: string = `
+   flex rounded-sm px-4 md:px-5 xl:px-4 py-3 md:py-4 xl:py-3 
+   hover:bg-indigo-500 md:text-lg xl:text-base text-white 
+   font-semibold leading-tight shadow-md ml-2 bg-default
+   `;
+   defaultBackgroundColor: string = `
+   flex rounded-sm px-4 md:px-5 xl:px-4 py-3 md:py-4 xl:py-3 
+   hover:bg-indigo-500 md:text-lg xl:text-base text-white 
+   font-semibold leading-tight shadow-md ml-2 bg-indigo-500
+   `;
+   title: any;
   constructor(public service: MainService, private route: ActivatedRoute, private af: AngularFirestore) { }
 
   ngOnInit(): void {
@@ -32,11 +41,19 @@ export class WatchComponent implements OnInit {
       .collection('videos').get().subscribe(courses => {
         courses.docs.forEach(course => {
           this.videoResults.push(course.data());
-          console.log(this.videoResults);
+          this.title = this.videoResults[this.initialPosition]['videoTitle']
+          //console.log(this.videoResults);
         })
         //this.videoResults.push
       })
     });
+  }
+
+  watchNextVideo(): void{
+    if(this.initialPosition >= this.videoResults.length){
+      return;
+    }
+    this.initialPosition++;
   }
 
 }

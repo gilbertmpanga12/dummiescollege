@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CourseintroComponent } from './courseintro.component';
+import { VjsPlayerComponent } from './vjs-player.component';
 
-describe('CourseintroComponent', () => {
-  let component: CourseintroComponent;
-  let fixture: ComponentFixture<CourseintroComponent>;
+describe('VjsPlayerComponent', () => {
+  let component: VjsPlayerComponent;
+  let fixture: ComponentFixture<VjsPlayerComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CourseintroComponent ]
+      declarations: [ VjsPlayerComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CourseintroComponent);
+    fixture = TestBed.createComponent(VjsPlayerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
