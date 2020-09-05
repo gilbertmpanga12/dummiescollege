@@ -15,6 +15,7 @@ import * as algoliasearch from 'algoliasearch';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 
+import * as firebase from 'firebase';
 
 
 @Injectable({
@@ -143,6 +144,10 @@ get uploadsCount(): number{
 }
 
 
+async updateCourseCount(){
+  const increment = firebase.firestore.FieldValue.increment(1);
+  this.firestore.doc('users/'+ this.userId).set({courseCount: increment}, {merge: true});
+}
 
 
 async saveMediaUrl(path: string, videoTitle: string){
@@ -228,6 +233,7 @@ async deleteAlgoliaIndex(index: string){
 }
 
 async seedDocument(){
+  
   const course = JSON.parse(localStorage.getItem('coursePayload'));
   course['objectID'] = this.userId;
   const firebaseUser = await this.auth.currentUser;
@@ -235,7 +241,7 @@ async seedDocument(){
   .then((token) => {
     this.http.post(environment.baseUrl + 'index-documents', course, 
     {headers: { Authorization: 'Bearer ' + token }}).subscribe(data => {
-     
+      this.updateCourseCount();
       this.clearImportantCredentials();
     }, err => {
       // this.showError(err.message);
