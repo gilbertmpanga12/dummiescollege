@@ -16,7 +16,7 @@
                      <li [className]="i > 0 ? defaultBackgroundColor : initialBackgroundColor" 
                     *ngFor="let chapter of videoResults; let i = index;" (click)="watchNextVideo()"
                     >
-                  <div style="width: 99px;height: 20px;text-align: center;">{{i > 0 ? 'Chapter ' + i : 'Intro'}}</div>
+                  <div style="width: 99px;height: 20px;text-align: center;">{{initialPosition > 0 ? 'Chapter ' + initialPosition : 'Intro'}}</div>
                   </li>
    
               

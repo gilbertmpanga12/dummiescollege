@@ -23,7 +23,7 @@ const routes: Routes = [
       },
 
       {
-        data: { animation: 'WatchPage' }, path: 'watch/:docId', loadChildren: () => import('./watch/watch.module').then(m => m.WatchModule), canActivate: [AuthGuard]
+        data: { animation: 'WatchPage' }, path: 'watch/:docId/:index', loadChildren: () => import('./watch/watch.module').then(m => m.WatchModule), canActivate: [AuthGuard]
       },
     ]
   },
@@ -32,7 +32,7 @@ const routes: Routes = [
     path: 'categories', data: { animation: 'CategoriesPage' },
     loadChildren: () => import('./categories/categories.module').then(m => m.CategoriesModule)
   },
-  { path: 'interviews', data: { animation: 'InterviewsPage' }, loadChildren: () => import('./interviews/interviews.module').then(m => m.InterviewsModule), canActivate: [AuthGuard] },
+  { path: 'interviews/:docId/:index', data: { animation: 'InterviewsPage' }, loadChildren: () => import('./interviews/interviews.module').then(m => m.InterviewsModule), canActivate: [AuthGuard] },
   { path: 'dashboard', data: { animation: 'DashboardPage' }, loadChildren: () => import('./contentcreator/contentcreatordash/contentcreatordash.module').then(m => m.ContentcreatordashModule), canActivate: [AuthGuard] },
   {
     path: 'courses', data: { animation: 'CoursesPage' }, loadChildren:
