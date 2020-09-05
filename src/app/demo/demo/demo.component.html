@@ -7,18 +7,48 @@
         lg:text-2xl xl:text-3xl font-medium text-center text-gray-800">
        Learn startup basics</h1>
       
-        
-             <!-- <ul class="flex flex-row space-x-3 overflow-x-auto py-4 px-2 mt-2">
+       <p class="font-thin leading-5 text-center md:pl-16 md:pr-16">Entreprenuership 101 , undertanding the basics</p>
+             <ul class="flex flex-row space-x-3 overflow-x-auto py-4 px-2 mt-2">
 
-                <li [className]="i > 0 ? defaultBackgroundColor : initialBackgroundColor" 
-               *ngFor="let chapter of videoResults; let i = index;" (click)="watchNextVideo()"
+                <li class=" flex rounded-sm px-4 md:px-5 xl:px-4 py-3 md:py-4 xl:py-3 
+                hover:bg-indigo-500 md:text-lg xl:text-base text-white 
+                font-semibold leading-tight shadow-md ml-2 bg-default" 
+              
                >
-             <div style="width: 99px;height: 20px;text-align: center;">{{initialPosition > 0 ? 'Chapter ' + initialPosition : 'Intro'}}</div>
+             <div style="width: 99px;height: 20px;text-align: center;">Intro</div>
              </li>
 
-         
-             </ul> -->
+             <li class=" flex rounded-sm px-4 md:px-5 xl:px-4 py-3 md:py-4 xl:py-3 
+             md:text-lg xl:text-base text-white 
+             font-semibold leading-tight shadow-md ml-2 bg-transparent border-green-600 
+             text-gray-800" 
            
+            >
+          <div style="width: 99px;height: 20px;text-align: center;">Chapter 2</div>
+          </li>
+
+          <li class=" flex rounded-sm px-4 md:px-5 xl:px-4 py-3 md:py-4 xl:py-3 
+          md:text-lg xl:text-base text-white 
+          font-semibold leading-tight shadow-md ml-2 bg-transparent border-green-600 
+          text-gray-800" 
+        
+         >
+       <div style="width: 99px;height: 20px;text-align: center;">Chapter 3</div>
+       </li>
+         
+       <li class=" flex rounded-sm px-4 md:px-5 xl:px-4 py-3 md:py-4 xl:py-3 
+       md:text-lg xl:text-base text-white 
+       font-semibold leading-tight shadow-md ml-2 bg-transparent border-green-600 
+       text-gray-800" 
+     
+      >
+    <div style="width: 99px;height: 20px;text-align: center;">Chapter 4</div>
+    </li>
+             </ul>
+           
+             <!-- PRODUCTION
+               https://firebasestorage.googleapis.com/v0/b/dummiescollege-9106f.appspot.com/o/1.mp4?alt=media&token=379a01c7-439c-457d-9cc1-f03144ee7aa5
+              -->
               <p class="mt-8">
                <app-vjs-player [options]="{ autoplay: false, controls: true, 
                  sources: [{ src: 'assets/small.mp4', type: 'video/mp4'}], fluid:true, responsive: true, muted: false}"></app-vjs-player>
