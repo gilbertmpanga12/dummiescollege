@@ -215,7 +215,7 @@ async deleteAlgoliaIndex(index: string){
 }
 
 async seedDocument(){
-  const course = JSON.parse(localStorage.getItem('course'));
+  const course = JSON.parse(localStorage.getItem('coursePayload'));
   course['objectID'] = this.userId;
   const firebaseUser = await this.auth.currentUser;
   firebaseUser.getIdToken()
