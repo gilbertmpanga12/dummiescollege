@@ -38,10 +38,10 @@
     <div class="mt-16">
 
       <div *ngIf="userDetail$ | async as userdetail;else loading">
-        <h1 class="text-lg text-center font-semibold">
+        <h1 class="text-lg text-center font-semibold text-gray-800">
          {{userdetail?.fullName}}
         </h1>
-        <div class="text-sm text-gray-600 text-center">
+        <div class="text-xl text-gray-800 text-center">
           {{userdetail?.skillsCount && 
             userdetail?.certificateCount == 0 ? "You haven\'t learned anything yet'": 'Specialist in ' + userdetail?.skillsCount + ' skills ' + ' & ' + userdetail?.certificateCount + ' ' + 'certificates'}}
           <!-- Specialist in {{userdetail?.skillsCount}} skills & {{ userdetail?.certificateCount }} certificates -->
