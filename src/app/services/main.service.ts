@@ -30,6 +30,7 @@ export class MainService {
   fullYear: number = this.year.getFullYear();
   isLoading: boolean = false;
   isErrorLoading: boolean = false;
+  hasWatched: boolean = false;
   constructor(private auth: AngularFireAuth, 
     private router: Router, private firestore: AngularFirestore, private http: HttpClient) {
       this.auth.authState.subscribe(user => {
@@ -364,6 +365,23 @@ async navigate(count: any){
   // }
   return true;
  
+}
+
+async launchDemo(){
+  Swal.fire({
+    title: 'All answers are correct! Signup and get to learn more',
+    width: 600,
+    padding: '3em',
+    background: '#fff url(https://sweetalert2.github.io/images/trees.png)',
+    backdrop: `
+      rgba(0,0,123,0.4)
+      url("https://sweetalert2.github.io/images/nyan-cat.gif")
+      left top
+      no-repeat
+    `
+  }).then(result => {
+this.router.navigate(['/auth','register']);
+  });
 }
 
   
