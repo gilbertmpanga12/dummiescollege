@@ -41,9 +41,10 @@ const routes: Routes = [
   },
 
   {
-    path: 'createcourse', data: { animation: 'CreateCoursePage' }, canActivate: [AuthGuard],
+    path: 'createcourse', data: { animation: 'CreateCoursePage' }, 
     loadChildren: () => import('./contentcreator/createcourse/createcourse.module')
-      .then(m => m.CreatecourseModule)
+      .then(m => m.CreatecourseModule),
+      canActivate: [AuthGuard]
   },
 
   { path: 'questions', data: { animation: 'QuestionsPage' }, canActivate: [AuthGuard], loadChildren: () => import('./contentcreator/questions/questions.module').then(m => m.QuestionsModule) },// ,canActivate:[AuthGuard] 

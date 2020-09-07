@@ -67,15 +67,7 @@ export class MainService {
   }
 
   async forgotPassword(email: string){
-     try{
-       this.isLoading = true;
-       await this.auth.sendPasswordResetEmail(email);
-       this.isLoading = false;
-       this.toast('Password reset link sent to your email', 'success');
-     }catch(e){
-      this.isLoading = false;
-      this.showError('something went wrong');
-     }
+    await this.auth.sendPasswordResetEmail(email);
   }
 
   async sendEmailVerification() {

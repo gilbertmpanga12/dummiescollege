@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MainService } from 'src/app/services/main.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Student} from '../../services/models';
-
-
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-registration',
@@ -50,9 +49,35 @@ export class RegistrationComponent implements OnInit {
     payload['views'] = 0;
     this.service.registerAccount(payload).then(resp => {
     this.service.isLoading = false;
+    this.toast('Check your email for link', 'info' ,5000);
     }).catch(err => {
       this.service.isLoading = false;
-      this.service.showError(err);
+      if(err.code == 'auth/user-not-found'){
+        this.toast('This account does not exist', 'error', 5000);
+      }else if(err.code == 'auth/auth/wrong-password'){
+        this.toast('Oops you entered the wrong password', 'error', 5000);
+      }else{
+        this.toast('Oops something went wrong, please check your network', 'error', 5000);
+      }
+    });
+  }
+
+  toast(message:string , operation: any, error:number){
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: error,
+      timerProgressBar: true,
+      onOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+      }
+    });
+    
+    Toast.fire({
+      icon: operation,
+      title: message
     });
   }
 
