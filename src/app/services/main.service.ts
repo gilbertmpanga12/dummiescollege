@@ -14,7 +14,7 @@ import Swal from 'sweetalert2';
 import * as algoliasearch from 'algoliasearch';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
-
+import { auth } from 'firebase/app';
 import { firestore as ft } from 'firebase/app';
 
 
@@ -31,6 +31,7 @@ export class MainService {
   isLoading: boolean = false;
   isErrorLoading: boolean = false;
   hasWatched: boolean = false;
+  spinner: boolean = false;
   constructor(private auth: AngularFireAuth, 
     private router: Router, private firestore: AngularFirestore, private http: HttpClient) {
       this.auth.authState.subscribe(user => {
@@ -60,6 +61,18 @@ export class MainService {
    this.resendEmailLink();
    await this.firestore.collection('users').doc(user.user.uid).set({...payload});
    this.router.navigate(['/']);
+  }
+
+  async googleSign(){
+    const googleProvider =  new auth.GoogleAuthProvider();
+     await this.auth.signInWithRedirect(googleProvider);
+     const lastUrl = localStorage.getItem('lastUrl');
+     if(lastUrl != null){
+       this.router.navigate(['/' + lastUrl]);
+       localStorage.removeItem('lastUrl');
+       return;
+     }
+     this.router.navigate(['/']);
   }
 
   async userSignedIn() {

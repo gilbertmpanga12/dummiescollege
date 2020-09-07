@@ -94,4 +94,16 @@ export class LoginComponent implements OnInit {
   Hidepassword(): void{
     this.type = 'password';
   }
+
+  googleSignIn(){
+    this.service.spinner = true;
+    this.service.googleSign().then(() => {
+      this.service.spinner = false;
+      this.toast('Welcome back 👋👋', 'info' ,3000);
+      console.log('am called!');
+    }).catch(() => {
+      this.service.spinner = false;
+      this.toast('Oops something went wrong, please check your network', 'error', 5000);
+    })
+  }
 }
