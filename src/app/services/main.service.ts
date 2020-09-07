@@ -57,6 +57,7 @@ export class MainService {
   async registerAccount(payload: Student){
    let user =  await this.auth.createUserWithEmailAndPassword(payload.email,payload.password);
    user.user.updateProfile({displayName: payload.fullName});
+   this.resendEmailLink();
    await this.firestore.collection('users').doc(user.user.uid).set({...payload});
    this.router.navigate(['/']);
   }
