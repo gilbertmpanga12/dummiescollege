@@ -56,6 +56,7 @@
 
                     </div>
     
+
                     <button style="outline: none;"  type="button"  (click)="login()"
                     class="bg-secondary text-white font-bold text-lg hover:bg-green-400 p-2 mt-8 cursor-pointer">
                     <span *ngIf="!service.isLoading">Log in</span>
@@ -65,6 +66,8 @@
                         <div class="bounce3"></div>
                       </div>
                 </button>
+                
+
 <p *ngIf="invalidFields" class="block text-md font-medium text-red-500">Whoops! make
      sure you entered correct email and password</p>
                 </form>
