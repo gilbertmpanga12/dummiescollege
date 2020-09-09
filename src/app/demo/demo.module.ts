@@ -11,7 +11,6 @@ import { VideoComponent } from './video/video.component';
   declarations: [DemoComponent, VideoComponent],
   imports: [
     CommonModule, 
-    VideoplayerModule,
     DemoRoutingModule,
     NavModule,
     BottomnavModule
