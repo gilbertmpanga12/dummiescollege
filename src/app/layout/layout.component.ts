@@ -61,7 +61,7 @@ export class LayoutComponent implements OnInit {
   resetSearchForm(path: String): void{
     const element: any = document.getElementsByClassName('ais-SearchBox-reset')[0];
     element.click();
-    this.router.navigate(['/watch',path]);
+    this.router.navigate(['/watch',path, 0]);
   }
   
   notification: AngularFirestoreDocument<Student>;

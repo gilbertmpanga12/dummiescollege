@@ -12,6 +12,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { NgAisModule } from 'angular-instantsearch';
 import { NavModule } from './sharables/nav/nav.module';
 import { DropdownModule } from './directives/dropdown/dropdown.module';
+import { VideoComponent } from './src/app/demo/video/video.component';
 
 
 
@@ -19,7 +20,8 @@ import { DropdownModule } from './directives/dropdown/dropdown.module';
   declarations: [
     AppComponent,
     LayoutComponent,
-    PagenotfoundComponent
+    PagenotfoundComponent,
+    VideoComponent
   ],
   imports: [
     BrowserModule,

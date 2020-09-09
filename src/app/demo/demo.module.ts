@@ -5,9 +5,10 @@ import {VideoplayerModule} from '../sharables/videoplayer/videoplayer.module';
 import {DemoRoutingModule} from './demo-routing.module';
 import { NavModule } from '../sharables/nav/nav.module';
 import { BottomnavModule } from '../sharables/bottomnav/bottomnav.module';
+import { VideoComponent } from './video/video.component';
 
 @NgModule({
-  declarations: [DemoComponent],
+  declarations: [DemoComponent, VideoComponent],
   imports: [
     CommonModule, 
     VideoplayerModule,

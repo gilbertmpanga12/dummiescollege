@@ -36,10 +36,6 @@ export class WatchComponent implements OnInit {
   private af: AngularFirestore, private router : Router) { }
 
   ngOnInit(): void {
-    // const tag = document.createElement('script');
-
-    // tag.src = "https://www.youtube.com/iframe_api";
-    // document.body.appendChild(tag);
     this.route.params.subscribe((param: VideoParams) => {
       this.videoParamId = param.docId;
       this.initialPosition = param.index;
@@ -49,29 +45,12 @@ export class WatchComponent implements OnInit {
           this.videoResults.push(course.data());
           this.title = this.videoResults[this.initialPosition]['videoTitle'];
           this.initialVideo =  this.videoResults[this.initialPosition]['videoUrl'];
-          console.log(this.videoResults);
         });
         //this.videoResults.push
       });
     });
   }
 
-  watchNextVideo(): void{
-    // if(this.initialPosition >= this.videoResults.length){
-    //   return;
-    // }
-    // this.initialPosition++;
-    // localStorage.setItem('initialPosition', `${this.initialPosition}`);
-    // localStorage.setItem('currentCourse', JSON.stringify(this.videoResults));
-    // this.router.navigate(['/interviews',this.videoParamId,this.initialPosition]);
-    // console.log(this.initialPosition);
-    if(localStorage.getItem('initialPosition') == null){
-      localStorage.setItem('initialPosition', `0`);
-      this.router.navigate(['/interviews',this.videoParamId, this.initialPosition]);
-    }
-    const currentPosition:number = parseInt(localStorage.getItem('initialPosition'));
-    this.router.navigate(['/interviews',this.videoParamId, currentPosition]);
-
-  }
+ 
 
 }

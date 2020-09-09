@@ -14,7 +14,7 @@
                   <ul class="flex flex-row space-x-3 overflow-x-auto py-4 px-2 mt-2">
    
                      <li [className]="i > 0 ? defaultBackgroundColor : initialBackgroundColor" 
-                    *ngFor="let chapter of videoResults; let i = index;" (click)="watchNextVideo()"
+                    *ngFor="let chapter of videoResults; let i = index;"
                     >
                   <div style="width: 99px;height: 20px;text-align: center;">{{initialPosition > 0 ? 'Chapter ' + initialPosition : 'Intro'}}</div>
                   </li>
@@ -23,8 +23,9 @@
                   </ul>
                 
                    <p class="mt-8" *ngIf="initialVideo != null">
-                    <app-vjs-player [options]="{ autoplay: false, controls: true, 
-                      sources: [{ src: initialVideo, type: 'video/mp4'}], fluid:true, responsive: true, muted: false}"></app-vjs-player>
+                    <app-vjs-player [options]="{videoplayer:{autoplay: false, controls: true, 
+                      sources: [{ src: initialVideo, type: 'video/mp4'}], fluid:true, 
+                      responsive: true, muted: false}, videoParamId: videoParamId,initialPosition:0}"></app-vjs-player>
                    </p>
                      </div>
         
