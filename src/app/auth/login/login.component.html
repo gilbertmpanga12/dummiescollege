@@ -7,7 +7,7 @@
 
             <div class="flex flex-col justify-center md:justify-start my-auto pt-8 md:pt-0 px-8 md:px-24 lg:px-32">
                 <p class="text-center text-3xl mt-8">Sign in to continue.</p>
-                <form class="flex flex-col pt-8 md:pt-8 relative"  [formGroup]="loginGroup">
+                <form class="flex flex-col pt-8 md:pt-8 relative"  [formGroup]="loginGroup" novalidate>
             
                     <svg *ngIf="this.service.spinner" class="animate-spin center-rotator" 
                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4335 4335"

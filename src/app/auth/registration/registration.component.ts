@@ -15,7 +15,8 @@ export class RegistrationComponent implements OnInit {
   type: string = 'password';
   isFocused: boolean = false;
   invalidFields: boolean = false;
-  
+  confirmPasswordType: string = 'password';
+  isFocusedConfirm: boolean = false;
   constructor(
     public service: MainService,
     private _fb: FormBuilder
@@ -28,14 +29,20 @@ export class RegistrationComponent implements OnInit {
       fullName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
-      country: [nations[0]]
+      country: [nations[0]],
+      confirmPassword: ['', [Validators.required, Validators.minLength(6) ]]
     });
   }
 
   signUp(): void {
     
-    if(this.registrationGroup.invalid){
+    if(this.registrationGroup.invalid && this.passwordMatch){
       this.invalidFields = true;
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Please fill in all required fields'
+      });
      return;
     }
     this.invalidFields = false;
@@ -88,6 +95,11 @@ export class RegistrationComponent implements OnInit {
     );
   }
 
+  get passwordMatch(): boolean {
+    return this.registrationGroup.get('password').value != 
+    this.registrationGroup.get('confirmPassword').value;
+  }
+
   unfocus(): void{
     this.isFocused = false;
   }
@@ -98,11 +110,27 @@ export class RegistrationComponent implements OnInit {
   isSelected(controlName: string): boolean{
     return this.registrationGroup.get(controlName).dirty;
   }
+
   showPassword(): void{
     this.type = 'text';
   }
   Hidepassword(): void{
     this.type = 'password';
+  }
+
+  confirmPassword(): void{
+    this.confirmPasswordType = 'text';
+  }
+  hideconfirmPassword(): void{
+    this.confirmPasswordType = 'password';
+  }
+
+  focusConfirm(): void{
+    this.isFocusedConfirm = true;
+  }
+
+  unfocusConfirm(): void{
+    this.isFocusedConfirm = false;
   }
 }
 
