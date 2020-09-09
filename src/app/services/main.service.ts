@@ -127,6 +127,7 @@ export class MainService {
  }
 
  async submitInterviews(payload: any){
+  console.log(payload)
    try{
     let user = this.userId;
     this.firestore.collection('courses').doc(payload['docId']).collection('scoreboard').add({

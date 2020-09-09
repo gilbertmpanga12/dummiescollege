@@ -31,6 +31,7 @@ export class WatchComponent implements OnInit {
    `;
    title: any;
    initialVideo: any;
+   totalRoutes: number = 0;
   constructor(public service: MainService, 
   private route: ActivatedRoute, 
   private af: AngularFirestore, private router : Router) { }
@@ -42,9 +43,12 @@ export class WatchComponent implements OnInit {
       this.af.collection('courses').doc(this.videoParamId)
       .collection('videos').get().subscribe(courses => {
         courses.docs.forEach(course => {
+          this.totalRoutes++;
           this.videoResults.push(course.data());
           this.title = this.videoResults[this.initialPosition]['videoTitle'];
           this.initialVideo =  this.videoResults[this.initialPosition]['videoUrl'];
+          localStorage.setItem('currentCourse', JSON.stringify(this.videoResults));
+          localStorage.setItem('totalRoutes', `${this.totalRoutes}`);
         });
         //this.videoResults.push
       });
