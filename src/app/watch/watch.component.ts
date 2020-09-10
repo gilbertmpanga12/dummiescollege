@@ -43,20 +43,39 @@ export class WatchComponent implements OnInit {
       this.initialPosition = param.index;
       this.af.collection('courses').doc(this.videoParamId)
       .collection('videos').get().subscribe(courses => {
-        courses.docs.forEach(course => {
+        
+      let results = new Promise((reject, resolve) => {
+        
+        courses.docs.forEach((value, index, array) => {
           this.totalRoutes++;
-          this.videoResults.push(course.data());
-          console.log(this.videoResults)
-          this.title = this.videoResults[this.initialPosition]['videoTitle'];
-          this.mainTitle = this.videoResults[this.initialPosition]['courseTitle'];
-          this.initialVideo =  this.videoResults[this.initialPosition]['videoUrl'];
-          localStorage.setItem('currentCourse', JSON.stringify(this.videoResults));
-          localStorage.setItem('totalRoutes', `${this.totalRoutes}`);
+
+          this.videoResults.push(array[index].data());
+         
+          if(index == array.length - 1) resolve(this.videoResults);
         });
+      });
+       results.then((e) => {
+         
+        console.log('yopppp')
+    
+       }).catch(e => {
+        // console.log(e, 'HED HONCHO');
+            this.title = e[this.initialPosition]['videoTitle'];
+    this.mainTitle = e[this.initialPosition]['courseTitle'];
+    this.initialVideo =  e[this.initialPosition]['videoUrl'];
+    localStorage.setItem('currentCourse', JSON.stringify(e));
+    localStorage.setItem('totalRoutes', `${e.length}`);
+       });
+        
         //this.videoResults.push
       });
     });
+
+
+    
   }
+
+
 
  
 

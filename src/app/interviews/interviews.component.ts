@@ -55,9 +55,8 @@ fullCourse: any;
   currentPosition++;
   if(currentPosition >= this.fullCourse.length){
     let totalRoutes = parseInt(localStorage.getItem('totalRoutes'));
-    totalRoutes =- 1;
+    
     if(totalRoutes < 0){
-      // fire celebraions here
       Swal.fire(
         'Good job!',
         'You have completed the course. Check for your certficates on your profile',
@@ -75,8 +74,8 @@ fullCourse: any;
       });
       return;
     }
-    this.router.navigate(['/watch', this.docId, totalRoutes]);
-    localStorage.setItem('totalRoutes', `${totalRoutes}`);
+    this.router.navigate(['/watch', this.docId, currentPosition - 1]);
+    localStorage.setItem('totalRoutes', `${currentPosition - 1}`);
     return;
   }
   localStorage.setItem('initialPosition', `${currentPosition}`);
