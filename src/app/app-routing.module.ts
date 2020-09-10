@@ -48,11 +48,7 @@ const routes: Routes = [
   },
 
   { path: 'questions', data: { animation: 'QuestionsPage' }, canActivate: [AuthGuard], loadChildren: () => import('./contentcreator/questions/questions.module').then(m => m.QuestionsModule) },// ,canActivate:[AuthGuard] 
-  {
-    path: 'demo', data: { animation: 'DemoPage' }, 
-    loadChildren: () => import('./demo/demo.module')
-      .then(m => m.DemoModule)
-  },
+  
   { path: '**', component: PagenotfoundComponent, pathMatch: 'full' }
 ];
 
