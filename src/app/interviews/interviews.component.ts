@@ -42,8 +42,6 @@ fullCourse: any;
 
 
  async submitInterviewQuestion(question:string, answer: string){
-   let countQuestions: any[] = this.questions;
-   console.log(countQuestions, 'COUNT TOP')
    let testsSubmission = {
     questions: [{question, answer}],
     title: this.fullCourse[this.index]['courseTitle'],
@@ -51,15 +49,10 @@ fullCourse: any;
     studentId: localStorage.getItem('userId'),
     docId: this.fullCourse[this.index]['docId'],
    };
-   
-  // let questionAnswers = JSON.parse(localStorage.getItem('fullInterview'));
-  // let currentQuestions: any[] = questionAnswers['questions'];
-  // currentQuestions.push({question, answer});
-  // questionAnswers['questions'] = currentQuestions;
+  
   localStorage.setItem('fullInterview', JSON.stringify(testsSubmission));
   let currentPosition:number = parseInt(localStorage.getItem('initialPosition'));
   currentPosition++;
- console.log(currentPosition >= this.fullCourse.length, 'Conditional circuity')
   if(currentPosition >= this.fullCourse.length){
     let totalRoutes = parseInt(localStorage.getItem('totalRoutes'));
     totalRoutes =- 1;
@@ -71,6 +64,12 @@ fullCourse: any;
         'success',
 
       ).then(() => {
+        // clear course history
+        localStorage.removeItem('fullInterview');
+        localStorage.removeItem('initialPosition');
+        localStorage.removeItem('currentCourse');
+        localStorage.removeItem('totalRoutes');
+
         this.router.navigate(['/my-resume']);
         return;
       });
@@ -82,7 +81,7 @@ fullCourse: any;
   }
   localStorage.setItem('initialPosition', `${currentPosition}`);
   this.router.navigate(['/interviews', this.docId, currentPosition]);
-  console.log(currentPosition, 'curerent positon');
+
   this.service.submitInterviews(testsSubmission);
 
   

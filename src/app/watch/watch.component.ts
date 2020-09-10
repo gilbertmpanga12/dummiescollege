@@ -20,7 +20,7 @@ export class WatchComponent implements OnInit {
    initialPosition: number;
    initialBackgroundColor: string = `
    flex rounded-sm px-4 md:px-5 xl:px-4 py-3 md:py-4 xl:py-3 
-   hover:bg-indigo-500 md:text-lg xl:text-base text-white 
+     md:text-lg xl:text-base text-white 
    font-semibold leading-tight shadow-md ml-2 bg-default
    `;
    defaultBackgroundColor: string = `
@@ -46,6 +46,7 @@ export class WatchComponent implements OnInit {
         courses.docs.forEach(course => {
           this.totalRoutes++;
           this.videoResults.push(course.data());
+          console.log(this.videoResults)
           this.title = this.videoResults[this.initialPosition]['videoTitle'];
           this.mainTitle = this.videoResults[this.initialPosition]['courseTitle'];
           this.initialVideo =  this.videoResults[this.initialPosition]['videoUrl'];
