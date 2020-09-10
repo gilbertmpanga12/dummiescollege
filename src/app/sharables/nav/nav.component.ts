@@ -43,7 +43,7 @@ notification: AngularFirestoreDocument<Student>;
   resetSearchForm(path: String): void{
     const element: any = document.getElementsByClassName('ais-SearchBox-reset')[0];
     element.click();
-    this.router.navigate(['/watch',path]);
+    this.router.navigate(['/watch',path, 0]);
   }
   
   ngOnInit(): void {
