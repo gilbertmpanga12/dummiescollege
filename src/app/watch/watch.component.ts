@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MainService } from '../services/main.service';
 import {  ActivatedRoute, Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
-
+import Swal from 'sweetalert2';
 
 interface VideoParams{
   docId: string;
@@ -44,27 +44,25 @@ export class WatchComponent implements OnInit {
       this.af.collection('courses').doc(this.videoParamId)
       .collection('videos').get().subscribe(courses => {
         
-      let results = new Promise((reject, resolve) => {
+      let results = new Promise((resolve, reject) => {
         
         courses.docs.forEach((value, index, array) => {
-          this.totalRoutes++;
-
+       
           this.videoResults.push(array[index].data());
          
           if(index == array.length - 1) resolve(this.videoResults);
         });
       });
-       results.then((e) => {
-         
-        console.log('yopppp')
-    
-       }).catch(e => {
-        // console.log(e, 'HED HONCHO');
-            this.title = e[this.initialPosition]['videoTitle'];
+       results.then((e:any) => {
+    this.title = e[this.initialPosition]['videoTitle'];
     this.mainTitle = e[this.initialPosition]['courseTitle'];
     this.initialVideo =  e[this.initialPosition]['videoUrl'];
     localStorage.setItem('currentCourse', JSON.stringify(e));
     localStorage.setItem('totalRoutes', `${e.length}`);
+    
+       }).catch(e => {
+       this.toast('Check your internet connection', 'error', 5000);
+            
        });
         
         //this.videoResults.push
@@ -75,7 +73,23 @@ export class WatchComponent implements OnInit {
     
   }
 
-
+  toast(message:string , operation: any, error:number){
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: error,
+      onOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+      }
+    });
+    
+    Toast.fire({
+      icon: operation,
+      title: message
+    });
+  }
 
  
 
