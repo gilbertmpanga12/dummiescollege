@@ -37,11 +37,13 @@ fullCourse: any;
     let questions = JSON.parse(localStorage.getItem('currentCourse'));
     this.fullCourse = questions;
     this.questions = questions[index]['questions'][index];
+
    }
 
 
  async submitInterviewQuestion(question:string, answer: string){
    let countQuestions: any[] = this.questions;
+   console.log(countQuestions, 'COUNT TOP')
    let testsSubmission = {
     questions: [{question, answer}],
     title: this.fullCourse[this.index]['courseTitle'],
@@ -57,9 +59,10 @@ fullCourse: any;
   localStorage.setItem('fullInterview', JSON.stringify(testsSubmission));
   let currentPosition:number = parseInt(localStorage.getItem('initialPosition'));
   currentPosition++;
-  if(currentPosition > countQuestions.length){
+ console.log(currentPosition >= this.fullCourse.length, 'Conditional circuity')
+  if(currentPosition >= this.fullCourse.length){
     let totalRoutes = parseInt(localStorage.getItem('totalRoutes'));
-    totalRoutes - 1;
+    totalRoutes =- 1;
     if(totalRoutes < 0){
       // fire celebraions here
       Swal.fire(
@@ -77,8 +80,9 @@ fullCourse: any;
     localStorage.setItem('totalRoutes', `${totalRoutes}`);
     return;
   }
-  localStorage.setItem('initialPosition', `currentPosition`);
+  localStorage.setItem('initialPosition', `${currentPosition}`);
   this.router.navigate(['/interviews', this.docId, currentPosition]);
+  console.log(currentPosition, 'curerent positon');
   this.service.submitInterviews(testsSubmission);
 
   
