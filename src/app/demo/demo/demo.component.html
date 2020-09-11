@@ -1,0 +1,97 @@
+<app-nav></app-nav>
+<ng-container *ngIf="!service.hasWatched">
+  <div class="container w-full pt-16">
+    <div class="max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl mx-auto   mt-8 p-3
+     bg-white rounded shadow-xl
+    ">
+        <h1 class="text-lg sm:text-lg md:text-xl 
+        lg:text-2xl xl:text-3xl font-medium text-center text-gray-800">
+       Learn startup basics</h1>
+      
+       <p class="font-thin leading-5 text-center md:pl-16 md:pr-16">Entreprenuership 101 , undertanding the basics</p>
+             <ul class="flex flex-row space-x-3 overflow-x-auto py-4 px-2 mt-2">
+
+                <li class=" flex rounded-sm px-4 md:px-5 xl:px-4 py-3 md:py-4 xl:py-3 
+                hover:bg-indigo-500 md:text-lg xl:text-base text-white 
+                font-semibold leading-tight shadow-md ml-2 bg-default" 
+              
+               >
+             <div style="width: 99px;height: 20px;text-align: center;">Intro</div>
+             </li>
+
+             <li class=" flex rounded-sm px-4 md:px-5 xl:px-4 py-3 md:py-4 xl:py-3 
+             md:text-lg xl:text-base text-white 
+             font-semibold leading-tight shadow-md ml-2 bg-transparent border-green-600 
+             text-gray-800" 
+           
+            >
+          <div style="width: 99px;height: 20px;text-align: center;">Chapter 2</div>
+          </li>
+
+          <li class=" flex rounded-sm px-4 md:px-5 xl:px-4 py-3 md:py-4 xl:py-3 
+          md:text-lg xl:text-base text-white 
+          font-semibold leading-tight shadow-md ml-2 bg-transparent border-green-600 
+          text-gray-800" 
+        
+         >
+       <div style="width: 99px;height: 20px;text-align: center;">Chapter 3</div>
+       </li>
+         
+       <li class=" flex rounded-sm px-4 md:px-5 xl:px-4 py-3 md:py-4 xl:py-3 
+       md:text-lg xl:text-base text-white 
+       font-semibold leading-tight shadow-md ml-2 bg-transparent border-green-600 
+       text-gray-800" 
+     
+      >
+    <div style="width: 99px;height: 20px;text-align: center;">Chapter 4</div>
+    </li>
+             </ul>
+           
+             <!-- PRODUCTION
+               https://firebasestorage.googleapis.com/v0/b/dummiescollege-9106f.appspot.com/o/1.mp4?alt=media&token=379a01c7-439c-457d-9cc1-f03144ee7aa5
+              -->
+              <p class="mt-8">
+               <app-video [options]="{ autoplay: false, controls: true, 
+                 sources: [{ src: 'https://firebasestorage.googleapis.com/v0/b/dummiescollege-9106f.appspot.com/o/1.mp4?alt=media&token=379a01c7-439c-457d-9cc1-f03144ee7aa5', type: 'video/mp4'}], fluid:true, responsive: true, muted: false}"></app-video>
+              </p>
+                </div>
+   
+</div>
+</ng-container>
+
+
+
+<!-- interview question -->
+<ng-container *ngIf="service.hasWatched">
+  <div class="w-full container pt-16 md:pt-16 md:w-6/12 md:mx-auto md:h-scren">
+    <div class="bg-white 
+    border border-gray-300 shadow-2xl md:ml-6 h-64 my-8 p-6 relative ml-1 mr-1 h-auto  
+    md:pl-9 rounded-lg">
+    
+    <div class="w-full text-left text-2xl font-bold text-gray-800 md:text-center">
+      Business is about?
+        <p class="text-gray-600 my-4 text-sm block">Tap or click one for your answer*</p>
+    </div>
+
+<div class="mt-5"></div>
+
+<p class="text-center mt-5 md:text-center outline-none" style="outline: none;" 
+*ngFor="let answer of questions">
+    <button  style="outline: none;" (click)="service.launchDemo()"
+    value="Show certicates"  class="w-full md:w-7/12 
+    cursor-pointer  text-green-600 font-bold text-base rounded-full py-2 px-4  
+    bg-transparent border border-green-400 rounded-lg hover:bg-green-400 hover:text-white transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
+   {{answer}}
+  </button>
+  </p>
+
+  
+
+
+<br/>
+    
+    </div>
+    </div>
+</ng-container>
+
+<app-bottomnav></app-bottomnav>
