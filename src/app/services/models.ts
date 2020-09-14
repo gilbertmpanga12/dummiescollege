@@ -1,7 +1,7 @@
 export interface Student {
     fullName: string;
     email: string;
-    password: string;
+    password?: string;
     country: string;
     profilePicture: string;
     skillsCount: number;

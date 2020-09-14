@@ -59,7 +59,18 @@ export class MainService {
    let user =  await this.auth.createUserWithEmailAndPassword(payload.email,payload.password);
    user.user.updateProfile({displayName: payload.fullName});
    this.resendEmailLink();
-   await this.firestore.collection('users').doc(user.user.uid).set({...payload});
+   await this.firestore.collection('users').doc(user.user.uid) // <Student>
+   .set({
+   email: payload.email,
+   country: payload.country,
+   fullName: payload.fullName,
+   certificateCount: 0,
+   profilePicture: payload.profilePicture,
+   skillsCount: 0,
+   courseCount: 0,
+   notificationCount: 0,
+   views: 0
+   });
    this.router.navigate(['/']);
   }
 
