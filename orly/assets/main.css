@@ -1957,13 +1957,13 @@ video {
 }
 .bg-indigo-600 {
   --bg-opacity: 1;
-  background-color: #5850ec;
-  background-color: rgba(88, 80, 236, var(--bg-opacity));
+  background-color: #38B261;
+  background-color: #38B261;
 }
 .bg-indigo-700 {
   --bg-opacity: 1;
-  background-color: #5145cd;
-  background-color: rgba(81, 69, 205, var(--bg-opacity));
+  background-color: #50C878;
+  background-color: #50C878;
 }
 .hover\:bg-gray-50:hover {
   --bg-opacity: 1;
@@ -2731,13 +2731,13 @@ video {
 }
 .text-indigo-600 {
   --text-opacity: 1;
-  color: #5850ec;
-  color: rgba(88, 80, 236, var(--text-opacity));
+  color: #38B261;
+  color: #38B261;
 }
 .text-indigo-700 {
   --text-opacity: 1;
-  color: #5145cd;
-  color: rgba(81, 69, 205, var(--text-opacity));
+  color: #50C878;
+  color: #50C878;
 }
 .hover\:text-white:hover {
   --text-opacity: 1;
