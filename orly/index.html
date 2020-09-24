@@ -1,0 +1,2453 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+  
+    <link href="assets/main.css" rel="stylesheet" type="text/css"/>
+    <!-- <script
+      type="text/javascript"
+      async=""
+      src="./Twitter Bots - Make a Twitter Bot without Coding #NoCode - Digital Inspiration_files/j7apsukx"
+    ></script> -->
+    <!-- <script data-dapp-detection="">
+      (function () {
+        let alreadyInsertedMetaTag = false;
+
+        function __insertDappDetected() {
+          if (!alreadyInsertedMetaTag) {
+            const meta = document.createElement("meta");
+            meta.name = "dapp-detected";
+            document.head.appendChild(meta);
+            alreadyInsertedMetaTag = true;
+          }
+        }
+
+        if (window.hasOwnProperty("web3")) {
+     
+          window.__disableDappDetectionInsertion = true;
+    
+          if (window.web3 === undefined) {
+            return;
+          }
+          __insertDappDetected();
+        } else {
+          var oldWeb3 = window.web3;
+          Object.defineProperty(window, "web3", {
+            configurable: true,
+            set: function (val) {
+              if (!window.__disableDappDetectionInsertion)
+                __insertDappDetected();
+              oldWeb3 = val;
+            },
+            get: function () {
+              if (!window.__disableDappDetectionInsertion)
+                __insertDappDetected();
+              return oldWeb3;
+            },
+          });
+        }
+      })();
+    </script> -->
+    <meta name="generator" content="Gatsby 2.24.53" />
+    <title>
+      Twitter Bots - Make a Twitter Bot without Coding #NoCode - Digital
+      Inspiration
+    </title>
+    <meta
+      data-react-helmet="true"
+      name="description"
+      content="Create a Twitter bot without writing a single line of code. The Twitter bots can send auto-replies, retweet, like tweets and even send direct messages using the official Twitter API"
+    />
+    <meta
+      data-react-helmet="true"
+      name="image"
+      content="https://digitalinspiration.com/static/social.png"
+    />
+    <meta
+      data-react-helmet="true"
+      property="og:title"
+      content="Twitter Bots - Make a Twitter Bot without Coding #NoCode"
+    />
+    <meta
+      data-react-helmet="true"
+      property="og:description"
+      content="Create a Twitter bot without writing a single line of code. The Twitter bots can send auto-replies, retweet, like tweets and even send direct messages using the official Twitter API"
+    />
+    <meta
+      data-react-helmet="true"
+      property="og:image"
+      content="https://digitalinspiration.com/static/social.png"
+    />
+    <meta
+      data-react-helmet="true"
+      name="twitter:card"
+      content="summary_large_image"
+    />
+    <meta data-react-helmet="true" name="twitter:creator" content="@labnol" />
+    <meta
+      data-react-helmet="true"
+      name="twitter:title"
+      content="Twitter Bots - Make a Twitter Bot without Coding #NoCode"
+    />
+    <meta
+      data-react-helmet="true"
+      name="twitter:description"
+      content="Create a Twitter bot without writing a single line of code. The Twitter bots can send auto-replies, retweet, like tweets and even send direct messages using the official Twitter API"
+    />
+    <meta
+      data-react-helmet="true"
+      name="twitter:image"
+      content="https://digitalinspiration.com/static/social.png"
+    />
+    <link
+      rel="icon"
+      href="https://digitalinspiration.com/favicon-32x32.png?v=31bebceca397e169f191e1fba5edbeba"
+      type="image/png"
+    />
+    <link
+      rel="manifest"
+      href="https://digitalinspiration.com/manifest.webmanifest"
+    />
+    <meta name="theme-color" content="#6875f5" />
+    <link
+      rel="apple-touch-icon"
+      sizes="48x48"
+      href="https://digitalinspiration.com/icons/icon-48x48.png?v=31bebceca397e169f191e1fba5edbeba"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="https://digitalinspiration.com/icons/icon-72x72.png?v=31bebceca397e169f191e1fba5edbeba"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="96x96"
+      href="https://digitalinspiration.com/icons/icon-96x96.png?v=31bebceca397e169f191e1fba5edbeba"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="https://digitalinspiration.com/icons/icon-144x144.png?v=31bebceca397e169f191e1fba5edbeba"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="192x192"
+      href="https://digitalinspiration.com/icons/icon-192x192.png?v=31bebceca397e169f191e1fba5edbeba"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="256x256"
+      href="https://digitalinspiration.com/icons/icon-256x256.png?v=31bebceca397e169f191e1fba5edbeba"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="384x384"
+      href="https://digitalinspiration.com/icons/icon-384x384.png?v=31bebceca397e169f191e1fba5edbeba"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="512x512"
+      href="https://digitalinspiration.com/icons/icon-512x512.png?v=31bebceca397e169f191e1fba5edbeba"
+    />
+    <link
+      rel="preconnect dns-prefetch"
+      href="https://www.googletagmanager.com/"
+    />
+    <link rel="preconnect dns-prefetch" href="https://ip2c.org/" />
+    <link rel="preconnect dns-prefetch" href="https://www.youtube.com/" />
+  
+    
+    <link
+      as="script"
+      rel="preload"
+      href="./Twitter Bots - Make a Twitter Bot without Coding #NoCode - Digital Inspiration_files/webpack-runtime-f4739ee271593e66e4fb.js"
+    />
+    <link
+      as="script"
+      rel="preload"
+      href="./Twitter Bots - Make a Twitter Bot without Coding #NoCode - Digital Inspiration_files/styles-1211262dd08146354a2f.js"
+    />
+    <link
+      as="script"
+      rel="preload"
+      href="./Twitter Bots - Make a Twitter Bot without Coding #NoCode - Digital Inspiration_files/framework-7c17e37070ebc39b0fbd.js"
+    />
+    <link
+      as="script"
+      rel="preload"
+      href="./Twitter Bots - Make a Twitter Bot without Coding #NoCode - Digital Inspiration_files/app-177d9b73f5ed31f3ebef.js"
+    />
+    <link
+      as="script"
+      rel="preload"
+      href="./Twitter Bots - Make a Twitter Bot without Coding #NoCode - Digital Inspiration_files/0c428ae2-6b0833efc2db1cfb1291.js"
+    />
+    <link
+      as="script"
+      rel="preload"
+      href="./Twitter Bots - Make a Twitter Bot without Coding #NoCode - Digital Inspiration_files/commons-0ea8243c86d581a4ba28.js"
+    />
+    <link
+      as="script"
+      rel="preload"
+      href="./Twitter Bots - Make a Twitter Bot without Coding #NoCode - Digital Inspiration_files/063dffb1c87b6d86ccb366f8ebec95b5ff87e9fe-de4e934c503f254109b8.js"
+    />
+    <link
+      as="script"
+      rel="preload"
+      href="./Twitter Bots - Make a Twitter Bot without Coding #NoCode - Digital Inspiration_files/563a7694b2dce14f674a478cb37a31e05c2f9574-5098f62f4a8658db8f75.js"
+    />
+    <link
+      as="script"
+      rel="preload"
+      href="./Twitter Bots - Make a Twitter Bot without Coding #NoCode - Digital Inspiration_files/429649c3e279c91648498eba1ab2db4a0ed4bdb5-ae40478ee0f9472cef98.js"
+    />
+    <link
+      as="script"
+      rel="preload"
+      href="./Twitter Bots - Make a Twitter Bot without Coding #NoCode - Digital Inspiration_files/component---src-pages-product-twitter-bots-js-410bc95ef2ae9fe24af6.js"
+    />
+    <link
+      as="fetch"
+      rel="preload"
+      href="https://digitalinspiration.com/page-data/product/twitter-bots/page-data.json"
+      crossorigin="anonymous"
+    />
+    <link
+      as="fetch"
+      rel="preload"
+      href="https://digitalinspiration.com/page-data/sq/d/348379521.json"
+      crossorigin="anonymous"
+    />
+    <link
+      as="fetch"
+      rel="preload"
+      href="https://digitalinspiration.com/page-data/sq/d/4202924991.json"
+      crossorigin="anonymous"
+    />
+    <link
+      as="fetch"
+      rel="preload"
+      href="https://digitalinspiration.com/page-data/app-data.json"
+      crossorigin="anonymous"
+    />
+    <link
+      id="freshworks-frame"
+      rel="stylesheet"
+      href="./Twitter Bots - Make a Twitter Bot without Coding #NoCode - Digital Inspiration_files/frame.d7ae132c.css"
+    />
+  </head>
+  <body>
+    <div id="___gatsby">
+      <div style="outline: none" tabindex="-1" id="gatsby-focus-wrapper">
+        <div
+          class="font-sans antialiased leading-tight text-gray-700 bg-gray-50"
+        >
+          <div class="relative overflow-hidden bg-indigo-700">
+            <div
+              class="hidden sm:block sm:absolute sm:inset-y-0 sm:h-full sm:w-full"
+            >
+              <div class="relative h-full max-w-screen-xl mx-auto">
+                <svg
+                  class="absolute transform left-full -translate-y-3/6 -translate-x-1/12 md:-translate-y-3/6 lg:-translate-x-1/12"
+                  width="404"
+                  height="784"
+                  fill="none"
+                  viewBox="0 0 404 784"
+                >
+                  <defs>
+                    <pattern
+                      id="5d0dd344-b041-4d26-bec4-8d33ea57ec9b"
+                      x="0"
+                      y="0"
+                      width="20"
+                      height="20"
+                      patternUnits="userSpaceOnUse"
+                    >
+                      <rect
+                        x="0"
+                        y="0"
+                        width="4"
+                        height="4"
+                        class="text-indigo-600"
+                        fill="currentColor"
+                      ></rect>
+                    </pattern>
+                  </defs>
+                  <rect
+                    width="404"
+                    height="784"
+                    fill="url(#5d0dd344-b041-4d26-bec4-8d33ea57ec9b)"
+                  ></rect>
+                </svg>
+              </div>
+            </div>
+            <div class="relative pt-6 pb-24 sm:pb-36">
+              <div class="bg-indigo-700">
+                <div class="max-w-screen-xl px-4 mx-auto sm:px-6 py-4">
+                  <nav
+                    class="relative flex items-center justify-between sm:h-10 md:justify-center"
+                  >
+                    <div
+                      class="flex items-center flex-1 md:absolute md:inset-y-0 md:left-0"
+                    >
+                      <div
+                        class="flex items-center justify-between w-full md:w-auto z-10"
+                      >
+                        <a title="Home" href="https://digitalinspiration.com/"
+                          ><img
+                            src="data:image/png;base64,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"
+                            class="w-auto h-8"
+                            alt="Digital Inspiration"
+                        /></a>
+                        <div class="-mr-2 flex items-center md:hidden">
+                          <button
+                            type="button"
+                            class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out"
+                            id="main-menu"
+                            aria-label="Main menu"
+                            aria-haspopup="true"
+                          >
+                            <svg
+                              class="h-6 w-6"
+                              stroke="currentColor"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16"
+                              ></path>
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="hidden md:flex md:space-x-10">
+                      <a
+                        class="ml-0 font-semibold text-gray-300 transition duration-150 ease-in-out hover:text-white focus:outline-none focus:text-white text-xs uppercase"
+                        href="https://digitalinspiration.com/product/twitter-bots/#features"
+                        >Features</a
+                      ><a
+                        class="ml-0 font-semibold text-gray-300 transition duration-150 ease-in-out hover:text-white focus:outline-none focus:text-white text-xs uppercase"
+                        href="https://digitalinspiration.com/product/twitter-bots/#pricing"
+                        >Pricing</a
+                      ><a
+                        class="ml-0 font-semibold text-gray-300 transition duration-150 ease-in-out hover:text-white focus:outline-none focus:text-white text-xs uppercase"
+                        href="https://digitalinspiration.com/product/twitter-bots/#faq"
+                        >FAQ</a
+                      ><a
+                        class="ml-0 font-semibold text-gray-300 transition duration-150 ease-in-out hover:text-white focus:outline-none focus:text-white text-xs uppercase"
+                        href="https://digitalinspiration.com/#products"
+                        >Products</a
+                      ><a
+                        href="https://digitalinspiration.support/"
+                        target="_blank"
+                        rel="noreferrer"
+                        class="ml-0 font-semibold text-gray-300 transition duration-150 ease-in-out hover:text-white focus:outline-none focus:text-white text-xs uppercase"
+                        >Support</a
+                      >
+                    </div>
+                  </nav>
+                </div>
+              </div>
+              <div
+                class="max-w-screen-xl px-4 mx-auto mt-10 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 xl:mt-28"
+              >
+                <div class="text-center">
+                  <h2
+                    class="text-4xl tracking-tight leading-10 font-extrabold text-gray-200 sm:text-5xl sm:leading-none md:text-6xl"
+                  >
+                    <span class="text-white">Twitter Bots</span>
+                  </h2>
+                  <p
+                    class="mt-3 max-w-md mx-auto text-base text-gray-200 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl"
+                  >
+                    Build your own smart Twitter bots without writing a single
+                    line of code.
+                  </p>
+                  <div
+                    class="max-w-md mx-auto mt-6 sm:flex sm:justify-center md:mt-12"
+                  >
+                    <div class="rounded-md shadow">
+                      <a
+                        title="Install Twitter Bots"
+                        target="_blank"
+                        rel="noreferrer"
+                        href="https://script.google.com/a/macros/ctrlq.org/s/AKfycbwWSRgdQ7ji6TH1njlimjZiM81M7MdHA34BliELlrANouhfIBXz/exec"
+                        class="flex items-center justify-center w-full px-8 py-3 text-base font-medium leading-6 text-indigo-700 transition duration-150 ease-in-out bg-gray-100 border border-transparent rounded-md hover:text-indigo-600 hover:bg-indigo-50 focus:outline-none focus:shadow-outline focus:border-indigo-300 md:py-4 md:text-lg md:px-10"
+                        >Install</a
+                      >
+                    </div>
+                    <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
+                      <a
+                        href="https://digitalinspiration.com/product/twitter-bots#pricing"
+                        title="Go premium and unlock all features!"
+                        rel="noreferrer"
+                        class="flex items-center justify-center w-full px-8 py-3 text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-indigo-600 border border-transparent rounded-md hover:bg-indigo-500 focus:outline-none focus:shadow-outline-indigo md:py-4 md:text-lg md:px-10"
+                        >Upgrade</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bg-gray-100">
+            <div class="container flex flex-wrap px-5 py-24 mx-auto">
+              <div class="flex flex-col w-full mb-16 text-center">
+                <h2
+                  class="text-4xl font-bold leading-8 tracking-tight text-gray-700 sm:text-4xl sm:leading-9"
+                >
+                  How Twitter Bots <span class="text-indigo-600">work?</span>
+                </h2>
+              </div>
+              <div class="flex flex-wrap w-full">
+                <div class="lg:w-2/5 md:pr-10 md:py-6">
+                  <div class="relative flex pb-12">
+                    <div
+                      class="absolute inset-0 flex items-center justify-center w-10 h-full"
+                    >
+                      <div
+                        class="w-1 h-full bg-gray-200 pointer-events-none"
+                      ></div>
+                    </div>
+                    <div
+                      class="relative z-10 inline-flex items-center justify-center flex-shrink-0 w-10 h-10 bg-indigo-500 rounded-full text-gray-50"
+                    >
+                      <svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 16 16"
+                        class="w-5 h-5"
+                        height="1em"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M14 1H2a1 1 0 00-1 1v12a1 1 0 001 1h12a1 1 0 001-1V2a1 1 0 00-1-1zM2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2z"
+                          clip-rule="evenodd"
+                        ></path>
+                        <path
+                          fill-rule="evenodd"
+                          d="M11 15V1h1v14h-1zM3 3.5a.5.5 0 01.5-.5h5a.5.5 0 010 1h-5a.5.5 0 01-.5-.5zm0 3a.5.5 0 01.5-.5h5a.5.5 0 010 1h-5a.5.5 0 01-.5-.5zm0 3a.5.5 0 01.5-.5h5a.5.5 0 010 1h-5a.5.5 0 01-.5-.5zm0 3a.5.5 0 01.5-.5h5a.5.5 0 010 1h-5a.5.5 0 01-.5-.5z"
+                          clip-rule="evenodd"
+                        ></path>
+                      </svg>
+                    </div>
+                    <div class="flex-grow pl-4">
+                      <h2
+                        class="mb-1 text-sm font-bold tracking-wider text-gray-900 uppercase"
+                      >
+                        Step 1
+                      </h2>
+                      <p class="leading-relaxed">
+                        Go to developer.twitter.com, create a&nbsp;<a
+                          class="border-b-2 border-indigo-400"
+                          href="https://developer.twitter.com/en/apps"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          >new app</a
+                        >&nbsp;and make a note of the access token and consumer
+                        keys.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="relative flex pb-12">
+                    <div
+                      class="absolute inset-0 flex items-center justify-center w-10 h-full"
+                    >
+                      <div
+                        class="w-1 h-full bg-gray-200 pointer-events-none"
+                      ></div>
+                    </div>
+                    <div
+                      class="relative z-10 inline-flex items-center justify-center flex-shrink-0 w-10 h-10 bg-indigo-500 rounded-full text-gray-50"
+                    >
+                      <svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 16 16"
+                        class="w-5 h-5"
+                        height="1em"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M4.887 5.2l-.964-.165A2.5 2.5 0 103.5 10H6v1H3.5a3.5 3.5 0 11.59-6.95 5.002 5.002 0 119.804 1.98A2.501 2.501 0 0113.5 11H10v-1h3.5a1.5 1.5 0 00.237-2.981L12.7 6.854l.216-1.028a4 4 0 10-7.843-1.587l-.185.96z"
+                        ></path>
+                        <path
+                          fill-rule="evenodd"
+                          d="M5 12.5a.5.5 0 01.707 0L8 14.793l2.293-2.293a.5.5 0 11.707.707l-2.646 2.646a.5.5 0 01-.708 0L5 13.207a.5.5 0 010-.707z"
+                          clip-rule="evenodd"
+                        ></path>
+                        <path
+                          fill-rule="evenodd"
+                          d="M8 6a.5.5 0 01.5.5v8a.5.5 0 01-1 0v-8A.5.5 0 018 6z"
+                          clip-rule="evenodd"
+                        ></path>
+                      </svg>
+                    </div>
+                    <div class="flex-grow pl-4">
+                      <h2
+                        class="mb-1 text-sm font-bold tracking-wider text-gray-900 uppercase"
+                      >
+                        Step 2
+                      </h2>
+                      <p class="leading-relaxed">
+                        Open the&nbsp;<a
+                          class="border-b-2 border-indigo-400"
+                          href="https://digitalinspiration.com/bots"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          >Twitter Bots app</a
+                        >, sign-in with your Google account and paste the
+                        Twitter access keys.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="relative flex pb-12">
+                    <div
+                      class="relative z-10 inline-flex items-center justify-center flex-shrink-0 w-10 h-10 bg-indigo-500 rounded-full text-gray-50"
+                    >
+                      <svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 16 16"
+                        class="w-5 h-5"
+                        height="1em"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M3 2h8a2 2 0 012 2v10a2 2 0 01-2 2H3a2 2 0 01-2-2V4a2 2 0 012-2zm0 1a1 1 0 00-1 1v10a1 1 0 001 1h8a1 1 0 001-1V4a1 1 0 00-1-1H3z"
+                          clip-rule="evenodd"
+                        ></path>
+                        <path
+                          d="M5 0h8a2 2 0 012 2v10a2 2 0 01-2 2v-1a1 1 0 001-1V2a1 1 0 00-1-1H5a1 1 0 00-1 1H3a2 2 0 012-2z"
+                        ></path>
+                      </svg>
+                    </div>
+                    <div class="flex-grow pl-4">
+                      <h2
+                        class="mb-1 text-sm font-bold tracking-wider text-gray-900 uppercase"
+                      >
+                        Step 3
+                      </h2>
+                      <p class="leading-relaxed">
+                        Specify the<!-- -->
+                        <a
+                          class="border-b-2 border-indigo-400"
+                          href="https://www.labnol.org/twitter-search-examples-203"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          >search criteria</a
+                        >
+                        <!-- -->and select the<!-- -->
+                        <a
+                          class="border-b-2 border-indigo-400"
+                          href="https://www.labnol.org/twitter-bots-actions-4733"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          >action</a
+                        >
+                        <!-- -->that your bot will perform on the matching
+                        tweets.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="py-8 lg:w-3/5 sm:w-full md:mt-0 md:block lg:block xs:hidden"
+                >
+                  <div
+                    class="rounded shadow-lg embed-responsive aspect-ratio-16/9"
+                  >
+                    <iframe
+                      title="YouTube Video Demo"
+                      class="embed-responsive-item"
+                      src="./Twitter Bots - Make a Twitter Bot without Coding #NoCode - Digital Inspiration_files/_TMNURI1klM.html"
+                      frameborder="0"
+                      allowfullscreen=""
+                    ></iframe>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="py-16 overflow-hidden bg-gray-50 lg:py-24" id="features">
+            <div
+              class="relative max-w-xl px-4 mx-auto sm:px-6 lg:px-8 lg:max-w-screen-xl"
+            >
+              <div class="relative">
+                <h3
+                  class="text-3xl font-bold leading-8 tracking-tight text-center text-gray-700 sm:text-4xl sm:leading-10"
+                >
+                  Top <span class="text-indigo-600">Features</span> of Twitter
+                  Bots
+                </h3>
+                <p
+                  class="max-w-3xl mx-auto mt-4 text-xl leading-7 text-center text-gray-500"
+                >
+                  The only app you need to make intelligent Twitter bots!
+                </p>
+              </div>
+              <div
+                class="relative mt-12 lg:mt-24 lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center"
+              >
+                <div class="relative">
+                  <h4
+                    class="text-2xl font-extrabold leading-8 tracking-tight text-gray-900 sm:text-3xl sm:leading-9"
+                  >
+                    Simple #NoCode Setup
+                  </h4>
+                  <p class="mt-3 text-lg leading-7 text-gray-600">
+                    Follow the step-by-step wizard to define what actions your
+                    bot will perform, what tweets it should process and also
+                    specify the time period when your Twitter bot should be
+                    active.
+                  </p>
+                  <p>
+                    <a
+                      class="inline-flex items-center mt-3 font-semibold text-indigo-600"
+                      href="https://www.labnol.org/internet/write-twitter-bot/27902/"
+                      >Learn more<svg
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        class="w-4 h-4 ml-2"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M5 12h14M12 5l7 7-7 7"></path></svg
+                    ></a>
+                  </p>
+                </div>
+                <div class="relative mt-10 -mx-4 lg:mt-0">
+                  <svg
+                    class="absolute hidden transform -translate-x-1/2 -translate-y-8 left-full lg:block"
+                    width="204"
+                    height="404"
+                    fill="none"
+                    viewBox="0 0 204 404"
+                  >
+                    <defs>
+                      <pattern
+                        id="ca9667ae-9f92-4be7-abcb-9e3d727f2941"
+                        x="0"
+                        y="0"
+                        width="20"
+                        height="20"
+                        patternUnits="userSpaceOnUse"
+                      >
+                        <rect
+                          x="0"
+                          y="0"
+                          width="4"
+                          height="4"
+                          class="text-indigo-100"
+                          fill="currentColor"
+                        ></rect>
+                      </pattern>
+                    </defs>
+                    <rect
+                      width="204"
+                      height="404"
+                      fill="url(#ca9667ae-9f92-4be7-abcb-9e3d727f2941)"
+                    ></rect></svg
+                  ><a
+                    href="https://digitalinspiration.com/static/31cd9ee4649e5d2b5949cd08723d3f0e/133919.png"
+                    title="Simple #NoCode Setup"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    ><div
+                      class="relative max-w-lg mx-auto shadow-xl gatsby-image-wrapper"
+                      style="position: relative; overflow: hidden"
+                    >
+                      <div
+                        aria-hidden="true"
+                        style="width: 100%; padding-bottom: 59.333333333333336%"
+                      ></div>
+                      <img
+                        aria-hidden="true"
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsSAAALEgHS3X78AAABGUlEQVQoz51Ty07DMBD0X3PlYzjxFxyQOMC9EqrIEZEoQvUjiR172XHrdOO0qoqljbPjfUx2YtU0DXVdR33f532cJsJKKf3LFB5ylQMBbLBNjMBUCIGctWTZYoz5MHhPzjkyjHl+x8KOmGEYlmTvJzLGrDCFIvM8LwYfhkYwieEdWPFlXPEVgtDZuiNDOQ/5uRPPFqwRf2boMzuZlwvioICye20144JJX2F+7U+bFdbaXFQYSWAi2V1XOSaaT3MIovs1tjVe+8pzIW0NaVZrUZkxy/44jqt5QVHMUc51o/LqZxKdatVvYcd0Zrg//NLTfkfPX5908KdbQvetlGJmngt+tN/08PZCj++v1A3u7muXmTFDrTUzjfQHNROwK6mWdvEAAAAASUVORK5CYII="
+                        title="Simple #NoCode Setup"
+                        alt="Simple #NoCode Setup"
+                        style="
+                          position: absolute;
+                          top: 0px;
+                          left: 0px;
+                          width: 100%;
+                          height: 100%;
+                          object-fit: cover;
+                          object-position: center center;
+                          opacity: 0;
+                          transition-delay: 500ms;
+                        "
+                      /><picture
+                        ><source
+                          type="image/webp"
+                          srcset="
+                            /static/31cd9ee4649e5d2b5949cd08723d3f0e/4a599/133919.webp 150w,
+                            /static/31cd9ee4649e5d2b5949cd08723d3f0e/5ba9d/133919.webp 300w,
+                            /static/31cd9ee4649e5d2b5949cd08723d3f0e/6ef99/133919.webp 600w,
+                            /static/31cd9ee4649e5d2b5949cd08723d3f0e/4c5b3/133919.webp 784w
+                          "
+                          sizes="(max-width: 600px) 100vw, 600px" />
+                        <source
+                          srcset="
+                            /static/31cd9ee4649e5d2b5949cd08723d3f0e/5ad44/133919.png 150w,
+                            /static/31cd9ee4649e5d2b5949cd08723d3f0e/57fc3/133919.png 300w,
+                            /static/31cd9ee4649e5d2b5949cd08723d3f0e/f8eb5/133919.png 600w,
+                            /static/31cd9ee4649e5d2b5949cd08723d3f0e/274d3/133919.png 784w
+                          "
+                          sizes="(max-width: 600px) 100vw, 600px" />
+                        <img
+                          sizes="(max-width: 600px) 100vw, 600px"
+                          srcset="
+                            /static/31cd9ee4649e5d2b5949cd08723d3f0e/5ad44/133919.png 150w,
+                            /static/31cd9ee4649e5d2b5949cd08723d3f0e/57fc3/133919.png 300w,
+                            /static/31cd9ee4649e5d2b5949cd08723d3f0e/f8eb5/133919.png 600w,
+                            /static/31cd9ee4649e5d2b5949cd08723d3f0e/274d3/133919.png 784w
+                          "
+                          src="./Twitter Bots - Make a Twitter Bot without Coding #NoCode - Digital Inspiration_files/133919.png"
+                          alt="Simple #NoCode Setup"
+                          title="Simple #NoCode Setup"
+                          loading="lazy"
+                          style="
+                            position: absolute;
+                            top: 0px;
+                            left: 0px;
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                            object-position: center center;
+                            opacity: 1;
+                            transition: opacity 500ms ease 0s;
+                          " /></picture
+                      ><noscript
+                        ><picture
+                          ><source
+                            type="image/webp"
+                            srcset="
+                              /static/31cd9ee4649e5d2b5949cd08723d3f0e/4a599/133919.webp 150w,
+                              /static/31cd9ee4649e5d2b5949cd08723d3f0e/5ba9d/133919.webp 300w,
+                              /static/31cd9ee4649e5d2b5949cd08723d3f0e/6ef99/133919.webp 600w,
+                              /static/31cd9ee4649e5d2b5949cd08723d3f0e/4c5b3/133919.webp 784w
+                            "
+                            sizes="(max-width: 600px) 100vw, 600px" />
+                          <source
+                            srcset="
+                              /static/31cd9ee4649e5d2b5949cd08723d3f0e/5ad44/133919.png 150w,
+                              /static/31cd9ee4649e5d2b5949cd08723d3f0e/57fc3/133919.png 300w,
+                              /static/31cd9ee4649e5d2b5949cd08723d3f0e/f8eb5/133919.png 600w,
+                              /static/31cd9ee4649e5d2b5949cd08723d3f0e/274d3/133919.png 784w
+                            "
+                            sizes="(max-width: 600px) 100vw, 600px" />
+                          <img
+                            loading="lazy"
+                            sizes="(max-width: 600px) 100vw, 600px"
+                            srcset="
+                              /static/31cd9ee4649e5d2b5949cd08723d3f0e/5ad44/133919.png 150w,
+                              /static/31cd9ee4649e5d2b5949cd08723d3f0e/57fc3/133919.png 300w,
+                              /static/31cd9ee4649e5d2b5949cd08723d3f0e/f8eb5/133919.png 600w,
+                              /static/31cd9ee4649e5d2b5949cd08723d3f0e/274d3/133919.png 784w
+                            "
+                            src="/static/31cd9ee4649e5d2b5949cd08723d3f0e/f8eb5/133919.png"
+                            alt="Simple #NoCode Setup"
+                            title="Simple #NoCode Setup"
+                            style="
+                              position: absolute;
+                              top: 0;
+                              left: 0;
+                              opacity: 1;
+                              width: 100%;
+                              height: 100%;
+                              object-fit: cover;
+                              object-position: center;
+                            " /></picture
+                      ></noscript></div
+                  ></a>
+                </div>
+              </div>
+              <svg
+                class="absolute hidden transform translate-x-1/2 translate-y-28 lg:block right-full"
+                width="254"
+                height="404"
+                fill="none"
+                viewBox="0 0 254 404"
+              >
+                <defs>
+                  <pattern
+                    id="64e643ad-2176-4f86-b3d7-f2c5da3b6a6d"
+                    x="0"
+                    y="0"
+                    width="20"
+                    height="20"
+                    patternUnits="userSpaceOnUse"
+                  >
+                    <rect
+                      x="0"
+                      y="0"
+                      width="4"
+                      height="4"
+                      class="text-indigo-100"
+                      fill="currentColor"
+                    ></rect>
+                  </pattern>
+                </defs>
+                <rect
+                  width="254"
+                  height="404"
+                  fill="url(#64e643ad-2176-4f86-b3d7-f2c5da3b6a6d)"
+                ></rect>
+              </svg>
+              <div class="relative mt-12 sm:mt-16 lg:mt-48 lg:mb-48">
+                <div
+                  class="lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:gap-8 lg:items-center"
+                >
+                  <div class="lg:col-start-2">
+                    <h4
+                      class="text-2xl font-extrabold leading-8 tracking-tight text-gray-900 sm:text-3xl sm:leading-9"
+                    >
+                      Search Tweets by Location
+                    </h4>
+                    <p class="mt-3 text-lg leading-7 text-gray-600">
+                      Use Twitter bots to only process geotagged tweets that
+                      have been posted from a specific location (like 2 miles of
+                      Manhattan in New York)
+                    </p>
+                    <p>
+                      <a
+                        class="inline-flex items-center mt-3 font-semibold text-indigo-600"
+                        href="https://www.labnol.org/twitter-search-examples-203"
+                        >Learn more<svg
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          class="w-4 h-4 ml-2"
+                          viewBox="0 0 24 24"
+                        >
+                          <path d="M5 12h14M12 5l7 7-7 7"></path></svg
+                      ></a>
+                    </p>
+                  </div>
+                  <div class="relative mt-10 -mx-4 lg:mt-0 lg:col-start-1">
+                    <a
+                      href="https://digitalinspiration.com/static/949846e31ee204a5dbfcbb9faf28b01b/google-maps.png"
+                      title="Search Tweets by Location"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      ><div
+                        class="relative max-w-lg mx-auto shadow-xl gatsby-image-wrapper"
+                        style="position: relative; overflow: hidden"
+                      >
+                        <div
+                          aria-hidden="true"
+                          style="
+                            width: 100%;
+                            padding-bottom: 53.333333333333336%;
+                          "
+                        ></div>
+                        <img
+                          aria-hidden="true"
+                          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsSAAALEgHS3X78AAACEElEQVQoz03PW3PSQBgG4Pxvf4S3jhdetpIQDj3YipXaqq21sNkNSUgCObDH7JJyGCxtFYihOB1nvvnunnnfV6uj1SGaBPjzgB5BegpIA+cIx06PN4esM2DXUBpI1qAwerKBWcr8W+KcU/9qJhytjv40wQwGo8U8UffR4jGfLrFSJKAXMbUCdrnDXbrF+VypxJ1n/XGG77JEq9nFPixuyebp/n65+D2f/lqtiqfFJE5+jrjr8y9Q6iXu4CrgRjaPchbnGChJHmbpFuto0w5XHpZU9bHw2DTI371OO6ch8a30E1LbZFuaQLwfTC+mOafhjSTeTPqaaRflVVFheMU3p22Dt12pw76RRp0k7bvsDCodZbXn2SaUlSQHgrExtcep9Q+b9qb8NXt5Ex+iTIdZPUp/kMTti7PtZmVCVUXSRKJqCZ1PgpwTHPkvuAxfG6hohRjxCkgNd3geuL5HP1qy4oyOneQE0jpkZpftpbMrIpQfJdoz2+jWqsTl/tJfDoE91C3/IA6tBHetrOLQY1ecWMLYhmc1OcFE5jHG2laC1a72brzZW1/TM0D2hzFIhl1v1AJiz2Z6Tx5AoffEERdMZlKqsWbA9Uvz8ur2umE9tm08IK0R9SgOKYvi8Ct+88ohjTLc5k3GMWU8JlT7X+7wIZi2ndkge8jGmZpgftdf8JD53x36AbKqLeoqF0kUj2L/L2cKKRPYJXSvAAAAAElFTkSuQmCC"
+                          title="Search Tweets by Location"
+                          alt="Search Tweets by Location"
+                          style="
+                            position: absolute;
+                            top: 0px;
+                            left: 0px;
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                            object-position: center center;
+                            opacity: 0;
+                            transition-delay: 500ms;
+                          "
+                        /><picture
+                          ><source
+                            type="image/webp"
+                            srcset="
+                              /static/949846e31ee204a5dbfcbb9faf28b01b/4a599/google-maps.webp 150w,
+                              /static/949846e31ee204a5dbfcbb9faf28b01b/5ba9d/google-maps.webp 300w,
+                              /static/949846e31ee204a5dbfcbb9faf28b01b/6ef99/google-maps.webp 600w,
+                              /static/949846e31ee204a5dbfcbb9faf28b01b/ea3ae/google-maps.webp 720w
+                            "
+                            sizes="(max-width: 600px) 100vw, 600px" />
+                          <source
+                            srcset="
+                              /static/949846e31ee204a5dbfcbb9faf28b01b/5ad44/google-maps.png 150w,
+                              /static/949846e31ee204a5dbfcbb9faf28b01b/57fc3/google-maps.png 300w,
+                              /static/949846e31ee204a5dbfcbb9faf28b01b/f8eb5/google-maps.png 600w,
+                              /static/949846e31ee204a5dbfcbb9faf28b01b/5ab17/google-maps.png 720w
+                            "
+                            sizes="(max-width: 600px) 100vw, 600px" />
+                          <img
+                            sizes="(max-width: 600px) 100vw, 600px"
+                            srcset="
+                              /static/949846e31ee204a5dbfcbb9faf28b01b/5ad44/google-maps.png 150w,
+                              /static/949846e31ee204a5dbfcbb9faf28b01b/57fc3/google-maps.png 300w,
+                              /static/949846e31ee204a5dbfcbb9faf28b01b/f8eb5/google-maps.png 600w,
+                              /static/949846e31ee204a5dbfcbb9faf28b01b/5ab17/google-maps.png 720w
+                            "
+                            src="./Twitter Bots - Make a Twitter Bot without Coding #NoCode - Digital Inspiration_files/google-maps.png"
+                            alt="Search Tweets by Location"
+                            title="Search Tweets by Location"
+                            loading="lazy"
+                            style="
+                              position: absolute;
+                              top: 0px;
+                              left: 0px;
+                              width: 100%;
+                              height: 100%;
+                              object-fit: cover;
+                              object-position: center center;
+                              opacity: 1;
+                              transition: opacity 500ms ease 0s;
+                            " /></picture
+                        ><noscript
+                          ><picture
+                            ><source
+                              type="image/webp"
+                              srcset="
+                                /static/949846e31ee204a5dbfcbb9faf28b01b/4a599/google-maps.webp 150w,
+                                /static/949846e31ee204a5dbfcbb9faf28b01b/5ba9d/google-maps.webp 300w,
+                                /static/949846e31ee204a5dbfcbb9faf28b01b/6ef99/google-maps.webp 600w,
+                                /static/949846e31ee204a5dbfcbb9faf28b01b/ea3ae/google-maps.webp 720w
+                              "
+                              sizes="(max-width: 600px) 100vw, 600px" />
+                            <source
+                              srcset="
+                                /static/949846e31ee204a5dbfcbb9faf28b01b/5ad44/google-maps.png 150w,
+                                /static/949846e31ee204a5dbfcbb9faf28b01b/57fc3/google-maps.png 300w,
+                                /static/949846e31ee204a5dbfcbb9faf28b01b/f8eb5/google-maps.png 600w,
+                                /static/949846e31ee204a5dbfcbb9faf28b01b/5ab17/google-maps.png 720w
+                              "
+                              sizes="(max-width: 600px) 100vw, 600px" />
+                            <img
+                              loading="lazy"
+                              sizes="(max-width: 600px) 100vw, 600px"
+                              srcset="
+                                /static/949846e31ee204a5dbfcbb9faf28b01b/5ad44/google-maps.png 150w,
+                                /static/949846e31ee204a5dbfcbb9faf28b01b/57fc3/google-maps.png 300w,
+                                /static/949846e31ee204a5dbfcbb9faf28b01b/f8eb5/google-maps.png 600w,
+                                /static/949846e31ee204a5dbfcbb9faf28b01b/5ab17/google-maps.png 720w
+                              "
+                              src="/static/949846e31ee204a5dbfcbb9faf28b01b/f8eb5/google-maps.png"
+                              alt="Search Tweets by Location"
+                              title="Search Tweets by Location"
+                              style="
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                opacity: 1;
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
+                                object-position: center;
+                              " /></picture
+                        ></noscript></div
+                    ></a>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="relative mt-12 lg:mt-24 lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center"
+              >
+                <div class="relative">
+                  <h4
+                    class="text-2xl font-extrabold leading-8 tracking-tight text-gray-900 sm:text-3xl sm:leading-9"
+                  >
+                    Spintax Support
+                  </h4>
+                  <p class="mt-3 text-lg leading-7 text-gray-600">
+                    Use Spintax format with auto-replies to post random and
+                    alternate responses to different tweets even when they are
+                    coming from the same Twitter bot.
+                  </p>
+                  <p>
+                    <a
+                      class="inline-flex items-center mt-3 font-semibold text-indigo-600"
+                      href="https://www.labnol.org/twitter-spintax-4825"
+                      >Learn more<svg
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        class="w-4 h-4 ml-2"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M5 12h14M12 5l7 7-7 7"></path></svg
+                    ></a>
+                  </p>
+                </div>
+                <div class="relative mt-10 -mx-4 lg:mt-0">
+                  <svg
+                    class="absolute hidden transform -translate-x-1/2 -translate-y-8 left-full lg:block"
+                    width="204"
+                    height="404"
+                    fill="none"
+                    viewBox="0 0 204 404"
+                  >
+                    <defs>
+                      <pattern
+                        id="ca9667ae-9f92-4be7-abcb-9e3d727f2941"
+                        x="0"
+                        y="0"
+                        width="20"
+                        height="20"
+                        patternUnits="userSpaceOnUse"
+                      >
+                        <rect
+                          x="0"
+                          y="0"
+                          width="4"
+                          height="4"
+                          class="text-indigo-100"
+                          fill="currentColor"
+                        ></rect>
+                      </pattern>
+                    </defs>
+                    <rect
+                      width="204"
+                      height="404"
+                      fill="url(#ca9667ae-9f92-4be7-abcb-9e3d727f2941)"
+                    ></rect></svg
+                  ><a
+                    href="https://digitalinspiration.com/static/2ede0e6f1048a03e04d0079b93d9a000/spintax.png"
+                    title="Spintax"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    ><div
+                      class="relative max-w-lg mx-auto shadow-xl gatsby-image-wrapper"
+                      style="position: relative; overflow: hidden"
+                    >
+                      <div
+                        aria-hidden="true"
+                        style="width: 100%; padding-bottom: 50%"
+                      ></div>
+                      <img
+                        aria-hidden="true"
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABgUlEQVQoz2VRCY6DMAzk/3/sqndLobRAILdnx0mRulrQyI4zHh9pRAT6FSvVjt7DhIjJB/TW4uUcBmJ0HgvjChsjUv7K/dhmc/TXL9MO3mFvZrR2xWVZcDYGp9kU/2YX7KYJDxbacr5Fm82Ja4brI/yQEJ8ZcczIM1OI0DE2ZCSNvQnDe1rXRYQpIfkqXTv8CILtZ0cyL5VorwH+SdtGrLdQYlrM0jrGw5hKjsSyp61P7ZDd8SKpFR0ZCEFgVoG1As/OLTvyjDkniAoWjSRHcjVvprPyrCtt6iNUDCS3FLpT6LgIfjjuXWOunq+868k707bkdMRuEhzIe5JTRt6a5QC4rMBpAR8FFKj+i/6TaC1YCBSt6BwoDByWOlUduHTId7U94EeO5SHBIBPRTayyckcLxL24BwNJHjlSJUwlJv4NLpXnmf5I5aiPkijyCSSrz82FPEqBIjTtuaQjxFwAcwLcAFnv5b5wKFqKahFqlZHlq+U/yKEWU6iQ2pz+877yfwE9VA74XXb9EAAAAABJRU5ErkJggg=="
+                        title="Spintax"
+                        alt="Spintax"
+                        style="
+                          position: absolute;
+                          top: 0px;
+                          left: 0px;
+                          width: 100%;
+                          height: 100%;
+                          object-fit: cover;
+                          object-position: center center;
+                          opacity: 0;
+                          transition-delay: 500ms;
+                        "
+                      /><picture
+                        ><source
+                          type="image/webp"
+                          srcset="
+                            /static/2ede0e6f1048a03e04d0079b93d9a000/4a599/spintax.webp  150w,
+                            /static/2ede0e6f1048a03e04d0079b93d9a000/5ba9d/spintax.webp  300w,
+                            /static/2ede0e6f1048a03e04d0079b93d9a000/6ef99/spintax.webp  600w,
+                            /static/2ede0e6f1048a03e04d0079b93d9a000/cd91b/spintax.webp  900w,
+                            /static/2ede0e6f1048a03e04d0079b93d9a000/b5e5f/spintax.webp 1024w
+                          "
+                          sizes="(max-width: 600px) 100vw, 600px" />
+                        <source
+                          srcset="
+                            /static/2ede0e6f1048a03e04d0079b93d9a000/5ad44/spintax.png  150w,
+                            /static/2ede0e6f1048a03e04d0079b93d9a000/57fc3/spintax.png  300w,
+                            /static/2ede0e6f1048a03e04d0079b93d9a000/f8eb5/spintax.png  600w,
+                            /static/2ede0e6f1048a03e04d0079b93d9a000/8282f/spintax.png  900w,
+                            /static/2ede0e6f1048a03e04d0079b93d9a000/2cf84/spintax.png 1024w
+                          "
+                          sizes="(max-width: 600px) 100vw, 600px" />
+                        <img
+                          sizes="(max-width: 600px) 100vw, 600px"
+                          srcset="
+                            /static/2ede0e6f1048a03e04d0079b93d9a000/5ad44/spintax.png  150w,
+                            /static/2ede0e6f1048a03e04d0079b93d9a000/57fc3/spintax.png  300w,
+                            /static/2ede0e6f1048a03e04d0079b93d9a000/f8eb5/spintax.png  600w,
+                            /static/2ede0e6f1048a03e04d0079b93d9a000/8282f/spintax.png  900w,
+                            /static/2ede0e6f1048a03e04d0079b93d9a000/2cf84/spintax.png 1024w
+                          "
+                          src="./Twitter Bots - Make a Twitter Bot without Coding #NoCode - Digital Inspiration_files/spintax.png"
+                          alt="Spintax"
+                          title="Spintax"
+                          loading="lazy"
+                          style="
+                            position: absolute;
+                            top: 0px;
+                            left: 0px;
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                            object-position: center center;
+                            opacity: 1;
+                            transition: opacity 500ms ease 0s;
+                          " /></picture
+                      ><noscript
+                        ><picture
+                          ><source
+                            type="image/webp"
+                            srcset="
+                              /static/2ede0e6f1048a03e04d0079b93d9a000/4a599/spintax.webp  150w,
+                              /static/2ede0e6f1048a03e04d0079b93d9a000/5ba9d/spintax.webp  300w,
+                              /static/2ede0e6f1048a03e04d0079b93d9a000/6ef99/spintax.webp  600w,
+                              /static/2ede0e6f1048a03e04d0079b93d9a000/cd91b/spintax.webp  900w,
+                              /static/2ede0e6f1048a03e04d0079b93d9a000/b5e5f/spintax.webp 1024w
+                            "
+                            sizes="(max-width: 600px) 100vw, 600px" />
+                          <source
+                            srcset="
+                              /static/2ede0e6f1048a03e04d0079b93d9a000/5ad44/spintax.png  150w,
+                              /static/2ede0e6f1048a03e04d0079b93d9a000/57fc3/spintax.png  300w,
+                              /static/2ede0e6f1048a03e04d0079b93d9a000/f8eb5/spintax.png  600w,
+                              /static/2ede0e6f1048a03e04d0079b93d9a000/8282f/spintax.png  900w,
+                              /static/2ede0e6f1048a03e04d0079b93d9a000/2cf84/spintax.png 1024w
+                            "
+                            sizes="(max-width: 600px) 100vw, 600px" />
+                          <img
+                            loading="lazy"
+                            sizes="(max-width: 600px) 100vw, 600px"
+                            srcset="
+                              /static/2ede0e6f1048a03e04d0079b93d9a000/5ad44/spintax.png  150w,
+                              /static/2ede0e6f1048a03e04d0079b93d9a000/57fc3/spintax.png  300w,
+                              /static/2ede0e6f1048a03e04d0079b93d9a000/f8eb5/spintax.png  600w,
+                              /static/2ede0e6f1048a03e04d0079b93d9a000/8282f/spintax.png  900w,
+                              /static/2ede0e6f1048a03e04d0079b93d9a000/2cf84/spintax.png 1024w
+                            "
+                            src="/static/2ede0e6f1048a03e04d0079b93d9a000/f8eb5/spintax.png"
+                            alt="Spintax"
+                            title="Spintax"
+                            style="
+                              position: absolute;
+                              top: 0;
+                              left: 0;
+                              opacity: 1;
+                              width: 100%;
+                              height: 100%;
+                              object-fit: cover;
+                              object-position: center;
+                            " /></picture
+                      ></noscript></div
+                  ></a>
+                </div>
+              </div>
+              <svg
+                class="absolute hidden transform translate-x-1/2 translate-y-28 lg:block right-full"
+                width="254"
+                height="404"
+                fill="none"
+                viewBox="0 0 254 404"
+              >
+                <defs>
+                  <pattern
+                    id="64e643ad-2176-4f86-b3d7-f2c5da3b6a6d"
+                    x="0"
+                    y="0"
+                    width="20"
+                    height="20"
+                    patternUnits="userSpaceOnUse"
+                  >
+                    <rect
+                      x="0"
+                      y="0"
+                      width="4"
+                      height="4"
+                      class="text-indigo-100"
+                      fill="currentColor"
+                    ></rect>
+                  </pattern>
+                </defs>
+                <rect
+                  width="254"
+                  height="404"
+                  fill="url(#64e643ad-2176-4f86-b3d7-f2c5da3b6a6d)"
+                ></rect>
+              </svg>
+              <div class="relative mt-12 sm:mt-16 lg:mt-48 lg:mb-48">
+                <div
+                  class="lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:gap-8 lg:items-center"
+                >
+                  <div class="lg:col-start-2">
+                    <h4
+                      class="text-2xl font-extrabold leading-8 tracking-tight text-gray-900 sm:text-3xl sm:leading-9"
+                    >
+                      Filter Tweets by Count
+                    </h4>
+                    <p class="mt-3 text-lg leading-7 text-gray-600">
+                      Specify a minimum number of favorites / retweet count and
+                      the bot would only process tweets that have been retweeted
+                      or favorited at least the specified number of times.
+                    </p>
+                    <p>
+                      <a
+                        class="inline-flex items-center mt-3 font-semibold text-indigo-600"
+                        href="https://www.labnol.org/twitter-bots-actions-4733"
+                        >Learn more<svg
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          class="w-4 h-4 ml-2"
+                          viewBox="0 0 24 24"
+                        >
+                          <path d="M5 12h14M12 5l7 7-7 7"></path></svg
+                      ></a>
+                    </p>
+                  </div>
+                  <div class="relative mt-10 -mx-4 lg:mt-0 lg:col-start-1">
+                    <a
+                      href="https://digitalinspiration.com/static/bee3810a554ccde4888889c54124cabf/auto-reply.png"
+                      title="Filter Tweets by Count"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      ><div
+                        class="relative max-w-lg mx-auto shadow-xl gatsby-image-wrapper"
+                        style="position: relative; overflow: hidden"
+                      >
+                        <div
+                          aria-hidden="true"
+                          style="
+                            width: 100%;
+                            padding-bottom: 44.66666666666667%;
+                          "
+                        ></div>
+                        <img
+                          aria-hidden="true"
+                          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAIAAAC9o5sfAAAACXBIWXMAAAsSAAALEgHS3X78AAAA+0lEQVQoz51Ry07EMAzM//8eEhfEgaLNskUq2ublZ8o0XVYCTmD54LHj0YwTeu8iTMxmtv0xgohM00s8R3fv3wNjIlrXtdZ6g60BMgtqdIK5feTl2q7VatFyz6yZjNxNVVT1oIY6ZlZTbI1llZQTuhD/Q/l4SsLcvTue//IVxP1ymd/n+Rzjsizg86+gRjmneIlxfptO02s8kRKD0BiirFugx4fN/WDyu+9Rb32zzakTdyZQWTsSddUqLiE/P0mruDZi7EO/4E42GCFVx2fA5g5hV3SHtk8DjJdaUkr55lxKKWtK2IcCMKI/Dt4AW2sZ0zW1tk/DNv7gf/EJw18Pszlv2z0AAAAASUVORK5CYII="
+                          title="Filter Tweets by Count"
+                          alt="Filter Tweets by Count"
+                          style="
+                            position: absolute;
+                            top: 0px;
+                            left: 0px;
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                            object-position: center center;
+                            opacity: 0;
+                            transition-delay: 500ms;
+                          "
+                        /><picture
+                          ><source
+                            type="image/webp"
+                            srcset="
+                              /static/bee3810a554ccde4888889c54124cabf/4a599/auto-reply.webp 150w,
+                              /static/bee3810a554ccde4888889c54124cabf/5ba9d/auto-reply.webp 300w,
+                              /static/bee3810a554ccde4888889c54124cabf/37151/auto-reply.webp 586w
+                            "
+                            sizes="(max-width: 586px) 100vw, 586px" />
+                          <source
+                            srcset="
+                              /static/bee3810a554ccde4888889c54124cabf/5ad44/auto-reply.png 150w,
+                              /static/bee3810a554ccde4888889c54124cabf/57fc3/auto-reply.png 300w,
+                              /static/bee3810a554ccde4888889c54124cabf/c0226/auto-reply.png 586w
+                            "
+                            sizes="(max-width: 586px) 100vw, 586px" />
+                          <img
+                            sizes="(max-width: 586px) 100vw, 586px"
+                            srcset="
+                              /static/bee3810a554ccde4888889c54124cabf/5ad44/auto-reply.png 150w,
+                              /static/bee3810a554ccde4888889c54124cabf/57fc3/auto-reply.png 300w,
+                              /static/bee3810a554ccde4888889c54124cabf/c0226/auto-reply.png 586w
+                            "
+                            src="./Twitter Bots - Make a Twitter Bot without Coding #NoCode - Digital Inspiration_files/auto-reply.png"
+                            alt="Filter Tweets by Count"
+                            title="Filter Tweets by Count"
+                            loading="lazy"
+                            style="
+                              position: absolute;
+                              top: 0px;
+                              left: 0px;
+                              width: 100%;
+                              height: 100%;
+                              object-fit: cover;
+                              object-position: center center;
+                              opacity: 1;
+                              transition: opacity 500ms ease 0s;
+                            " /></picture
+                        ><noscript
+                          ><picture
+                            ><source
+                              type="image/webp"
+                              srcset="
+                                /static/bee3810a554ccde4888889c54124cabf/4a599/auto-reply.webp 150w,
+                                /static/bee3810a554ccde4888889c54124cabf/5ba9d/auto-reply.webp 300w,
+                                /static/bee3810a554ccde4888889c54124cabf/37151/auto-reply.webp 586w
+                              "
+                              sizes="(max-width: 586px) 100vw, 586px" />
+                            <source
+                              srcset="
+                                /static/bee3810a554ccde4888889c54124cabf/5ad44/auto-reply.png 150w,
+                                /static/bee3810a554ccde4888889c54124cabf/57fc3/auto-reply.png 300w,
+                                /static/bee3810a554ccde4888889c54124cabf/c0226/auto-reply.png 586w
+                              "
+                              sizes="(max-width: 586px) 100vw, 586px" />
+                            <img
+                              loading="lazy"
+                              sizes="(max-width: 586px) 100vw, 586px"
+                              srcset="
+                                /static/bee3810a554ccde4888889c54124cabf/5ad44/auto-reply.png 150w,
+                                /static/bee3810a554ccde4888889c54124cabf/57fc3/auto-reply.png 300w,
+                                /static/bee3810a554ccde4888889c54124cabf/c0226/auto-reply.png 586w
+                              "
+                              src="/static/bee3810a554ccde4888889c54124cabf/c0226/auto-reply.png"
+                              alt="Filter Tweets by Count"
+                              title="Filter Tweets by Count"
+                              style="
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                opacity: 1;
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
+                                object-position: center;
+                              " /></picture
+                        ></noscript></div
+                    ></a>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="max-w-screen-xl px-4 py-12 mx-auto text-center sm:px-6 lg:py-16 lg:px-8"
+              >
+                <h2
+                  class="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 sm:text-4xl sm:leading-10"
+                >
+                  Ready to dive in?<br />Start your free trial today.
+                </h2>
+                <div class="flex justify-center mt-8">
+                  <div class="inline-flex rounded-md shadow">
+                    <a
+                      href="https://script.google.com/a/macros/ctrlq.org/s/AKfycbwWSRgdQ7ji6TH1njlimjZiM81M7MdHA34BliELlrANouhfIBXz/exec"
+                      class="inline-flex items-center justify-center px-5 py-3 text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-indigo-600 border border-transparent rounded-md hover:bg-indigo-500 focus:outline-none focus:shadow-outline"
+                      >Install</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bg-indigo-700" id="pricing">
+            <div class="pt-12 sm:pt-16 lg:pt-24">
+              <div
+                class="max-w-screen-xl px-4 mx-auto text-center sm:px-6 lg:px-8"
+              >
+                <div class="max-w-3xl mx-auto lg:max-w-none">
+                  <h2
+                    class="text-lg font-semibold leading-6 tracking-wider text-gray-200 uppercase"
+                  >
+                    Pricing
+                  </h2>
+                  <p
+                    class="mt-4 text-3xl font-extrabold leading-9 text-white sm:text-4xl sm:leading-10 lg:text-5xl lg:leading-none"
+                  >
+                    Plans that work for your company
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div
+              class="pb-12 mt-8 bg-gray-50 sm:mt-12 sm:pb-16 lg:mt-16 lg:pb-24"
+            >
+              <div class="relative">
+                <div class="absolute inset-0 bg-indigo-700 h-3/4"></div>
+                <div
+                  class="relative z-10 max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8"
+                >
+                  <div
+                    class="max-w-md mx-auto lg:max-w-5xl lg:grid lg:grid-cols-2 lg:gap-5"
+                  >
+                    <div class="overflow-hidden rounded-lg shadow-lg">
+                      <div class="px-6 py-8 bg-white sm:p-10 sm:pb-6">
+                        <div>
+                          <h3
+                            class="inline-flex px-4 py-1 text-sm font-semibold leading-5 tracking-wide text-indigo-600 uppercase bg-indigo-100 rounded-full"
+                            id="tier-standard"
+                          >
+                            Standard
+                          </h3>
+                        </div>
+                        <div
+                          class="flex items-baseline mt-4 text-6xl font-extrabold leading-none"
+                        >
+                          $<!-- -->4.25<span
+                            class="ml-1 text-xl font-normal leading-8 text-gray-500"
+                            >/user<!-- -->/month</span
+                          >
+                        </div>
+                        <p class="mt-5 text-lg leading-7 text-gray-500">
+                          The price is
+                          <!-- -->per user,<!-- -->
+                          per month, billed annually
+                        </p>
+                      </div>
+                      <div class="px-6 pt-6 pb-8 bg-gray-50 sm:p-10 sm:pt-6">
+                        <ul>
+                          <li class="flex items-start">
+                            <div class="flex-shrink-0">
+                              <svg
+                                style="max-width: 2rem"
+                                class="w-6 h-6 text-green-500"
+                                stroke="currentColor"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-width="2"
+                                  d="M5 13l4 4L19 7"
+                                ></path>
+                              </svg>
+                            </div>
+                            <p class="ml-3 text-base leading-6 text-gray-700">
+                              Automatically runs every 15 minutes
+                            </p>
+                          </li>
+                          <li class="flex items-start mt-4">
+                            <div class="flex-shrink-0">
+                              <svg
+                                style="max-width: 2rem"
+                                class="w-6 h-6 text-green-500"
+                                stroke="currentColor"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-width="2"
+                                  d="M5 13l4 4L19 7"
+                                ></path>
+                              </svg>
+                            </div>
+                            <p class="ml-3 text-base leading-6 text-gray-700">
+                              Create up to 5 bots per Google account 🐢
+                            </p>
+                          </li>
+                          <li class="flex items-start mt-4">
+                            <div class="flex-shrink-0">
+                              <svg
+                                style="max-width: 2rem"
+                                class="w-6 h-6 text-green-500"
+                                stroke="currentColor"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-width="2"
+                                  d="M5 13l4 4L19 7"
+                                ></path>
+                              </svg>
+                            </div>
+                            <p class="ml-3 text-base leading-6 text-gray-700">
+                              Complimentary email support for 30 days
+                            </p>
+                          </li>
+                        </ul>
+                        <div class="mt-6 rounded-md shadow">
+                          <a
+                            class="flex items-center justify-center px-5 py-3 text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-gray-900 border border-transparent rounded-md hover:bg-gray-800 focus:outline-none focus:shadow-outline"
+                            aria-describedby="tier-standard"
+                            href="https://digitalinspiration.com/buy/?sku=GA12&amp;country=RO"
+                            >Upgrade</a
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="mt-4 overflow-hidden rounded-lg shadow-lg lg:mt-0"
+                    >
+                      <div class="px-6 py-8 bg-white sm:p-10 sm:pb-6">
+                        <div>
+                          <h3
+                            class="inline-flex px-4 py-1 text-sm font-semibold leading-5 tracking-wide text-indigo-600 uppercase bg-indigo-100 rounded-full"
+                            id="tier-enterprise"
+                          >
+                            Pro
+                          </h3>
+                        </div>
+                        <div
+                          class="flex items-baseline mt-4 text-6xl font-extrabold leading-none"
+                        >
+                          $<!-- -->7.25<span
+                            class="ml-1 text-xl font-normal leading-8 text-gray-500"
+                            >/user<!-- -->/month</span
+                          >
+                        </div>
+                        <p class="mt-5 text-lg leading-7 text-gray-500">
+                          The price is
+                          <!-- -->per user,<!-- -->
+                          per month, billed annually
+                        </p>
+                      </div>
+                      <div class="px-6 pt-6 pb-8 bg-gray-50 sm:p-10 sm:pt-6">
+                        <ul>
+                          <li class="flex items-start">
+                            <div class="flex-shrink-0">
+                              <svg
+                                style="max-width: 2rem"
+                                class="w-6 h-6 text-green-500"
+                                stroke="currentColor"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-width="2"
+                                  d="M5 13l4 4L19 7"
+                                ></path>
+                              </svg>
+                            </div>
+                            <p class="ml-3 text-base leading-6 text-gray-700">
+                              Automatically runs every 15 minutes
+                            </p>
+                          </li>
+                          <li class="flex items-start mt-4">
+                            <div class="flex-shrink-0">
+                              <svg
+                                style="max-width: 2rem"
+                                class="w-6 h-6 text-green-500"
+                                stroke="currentColor"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-width="2"
+                                  d="M5 13l4 4L19 7"
+                                ></path>
+                              </svg>
+                            </div>
+                            <p class="ml-3 text-base leading-6 text-gray-700">
+                              Create up to 10 bots per Google account 🐅
+                            </p>
+                          </li>
+                          <li class="flex items-start mt-4">
+                            <div class="flex-shrink-0">
+                              <svg
+                                style="max-width: 2rem"
+                                class="w-6 h-6 text-green-500"
+                                stroke="currentColor"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-width="2"
+                                  d="M5 13l4 4L19 7"
+                                ></path>
+                              </svg>
+                            </div>
+                            <p class="ml-3 text-base leading-6 text-gray-700">
+                              Priority email support while subscribed
+                            </p>
+                          </li>
+                        </ul>
+                        <div class="mt-6 rounded-md shadow">
+                          <a
+                            class="flex items-center justify-center px-5 py-3 text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-gray-900 border border-transparent rounded-md hover:bg-gray-800 focus:outline-none focus:shadow-outline"
+                            aria-describedby="tier-enterprise"
+                            href="https://digitalinspiration.com/buy/?sku=GA12&amp;country=RO&amp;edition=E"
+                            >Upgrade</a
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="mt-16 relative max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8"
+              >
+                <div class="max-w-md mx-auto lg:max-w-5xl">
+                  <div
+                    class="absolute inset-x-0 top-0 transform translate-y-px"
+                  >
+                    <div class="flex justify-center transform -translate-y-1/2">
+                      <span
+                        class="inline-flex rounded-full bg-indigo-600 px-4 py-1 text-sm leading-5 font-semibold tracking-wider uppercase text-white"
+                        >Domain License</span
+                      >
+                    </div>
+                  </div>
+                  <div
+                    class="rounded-lg bg-gray-100 px-6 py-8 sm:p-10 lg:flex lg:items-center border-2 border-indigo-600"
+                  >
+                    <div class="flex-1">
+                      <div class="mt-4 text-lg leading-7 text-gray-600">
+                        Purchase a domain license for your organization and
+                        enable premium features for all employees in your
+                        company or school. Compatible with all&nbsp;<strong
+                          class="font-semibold text-gray-900"
+                          >GSuite domains</strong
+                        >.
+                      </div>
+                    </div>
+                    <div
+                      class="mt-6 rounded-md shadow lg:mt-0 lg:ml-10 lg:flex-shrink-0"
+                    >
+                      <a
+                        class="flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-gray-900 bg-white hover:text-gray-700 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out"
+                        href="https://digitalinspiration.com/buy/?sku=GA12&amp;country=RO&amp;domain=true"
+                        >Buy Domain License</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="py-8 lg:py-24 bg-gray-50" id="faq">
+            <div
+              class="max-w-screen-xl px-4 py-12 mx-auto sm:py-16 sm:px-6 lg:px-8"
+            >
+              <div class="max-w-3xl mx-auto">
+                <h2
+                  class="text-3xl font-extrabold leading-9 text-center text-gray-900 sm:text-4xl sm:leading-10"
+                >
+                  Frequently Asked Questions
+                </h2>
+                <div class="pt-6 mt-6 border-t-2 border-gray-200">
+                  <dl>
+                    <div class="">
+                      <div>
+                        <dt class="text-lg leading-7">
+                          <button
+                            type="button"
+                            class="flex items-start justify-between w-full text-left text-gray-400 focus:outline-none focus:text-gray-900"
+                          >
+                            <span class="font-medium text-gray-900"
+                              >What do I actually receive after I purchase a
+                              license?</span
+                            ><span class="flex items-center ml-6 h-7"
+                              ><svg
+                                style="max-width: 2rem"
+                                class="w-6 h-6 transform rotate-0"
+                                stroke="currentColor"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-width="2"
+                                  d="M19 9l-7 7-7-7"
+                                ></path></svg
+                            ></span>
+                          </button>
+                        </dt>
+                        <dd class="pr-12 mt-2 hidden">
+                          <p class="text-base leading-6 text-gray-500">
+                            You'll receive a unique license code via email that
+                            you can use to automatically upgrade your Google
+                            add-on to the premium version.
+                          </p>
+                        </dd>
+                      </div>
+                    </div>
+                    <div class="mt-6 border-t border-gray-200 pt-6">
+                      <div>
+                        <dt class="text-lg leading-7">
+                          <button
+                            type="button"
+                            class="flex items-start justify-between w-full text-left text-gray-400 focus:outline-none focus:text-gray-900"
+                          >
+                            <span class="font-medium text-gray-900"
+                              >Can someone else order the license on my
+                              behalf?</span
+                            ><span class="flex items-center ml-6 h-7"
+                              ><svg
+                                style="max-width: 2rem"
+                                class="w-6 h-6 transform rotate-0"
+                                stroke="currentColor"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-width="2"
+                                  d="M19 9l-7 7-7-7"
+                                ></path></svg
+                            ></span>
+                          </button>
+                        </dt>
+                        <dd class="pr-12 mt-2 hidden">
+                          <p class="text-base leading-6 text-gray-500">
+                            Absolutely. When you make a purchase, the email
+                            address specified in the order will receive the
+                            license key but that key is not tied to the payer's
+                            email address. A colleague can use that key to
+                            activate his or her Google account to premium.
+                          </p>
+                        </dd>
+                      </div>
+                    </div>
+                    <div class="mt-6 border-t border-gray-200 pt-6">
+                      <div>
+                        <dt class="text-lg leading-7">
+                          <button
+                            type="button"
+                            class="flex items-start justify-between w-full text-left text-gray-400 focus:outline-none focus:text-gray-900"
+                          >
+                            <span class="font-medium text-gray-900"
+                              >How is support provided and what does it
+                              include?</span
+                            ><span class="flex items-center ml-6 h-7"
+                              ><svg
+                                style="max-width: 2rem"
+                                class="w-6 h-6 transform rotate-0"
+                                stroke="currentColor"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-width="2"
+                                  d="M19 9l-7 7-7-7"
+                                ></path></svg
+                            ></span>
+                          </button>
+                        </dt>
+                        <dd class="pr-12 mt-2 hidden">
+                          <p class="text-base leading-6 text-gray-500">
+                            You can raise a ticket while your support period is
+                            still valid. Support is provided for issues with
+                            installation, licensing and usage. It does not
+                            include any customization or custom new features.
+                          </p>
+                        </dd>
+                      </div>
+                    </div>
+                    <div class="mt-6 border-t border-gray-200 pt-6">
+                      <div>
+                        <dt class="text-lg leading-7">
+                          <button
+                            type="button"
+                            class="flex items-start justify-between w-full text-left text-gray-400 focus:outline-none focus:text-gray-900"
+                          >
+                            <span class="font-medium text-gray-900"
+                              >What constitutes a user in terms of
+                              pricing?</span
+                            ><span class="flex items-center ml-6 h-7"
+                              ><svg
+                                style="max-width: 2rem"
+                                class="w-6 h-6 transform rotate-0"
+                                stroke="currentColor"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-width="2"
+                                  d="M19 9l-7 7-7-7"
+                                ></path></svg
+                            ></span>
+                          </button>
+                        </dt>
+                        <dd class="pr-12 mt-2 hidden">
+                          <p class="text-base leading-6 text-gray-500">
+                            A user is defined as one Google Account email
+                            address (yourname@domain). Our add-ons are licensed
+                            per user (Google Account) and you can use the
+                            license on any computer as long as you are signed in
+                            with the same email address.
+                          </p>
+                        </dd>
+                      </div>
+                    </div>
+                    <div class="mt-6 border-t border-gray-200 pt-6">
+                      <div>
+                        <dt class="text-lg leading-7">
+                          <button
+                            type="button"
+                            class="flex items-start justify-between w-full text-left text-gray-400 focus:outline-none focus:text-gray-900"
+                          >
+                            <span class="font-medium text-gray-900"
+                              >What is the domain (unlimited) license?</span
+                            ><span class="flex items-center ml-6 h-7"
+                              ><svg
+                                style="max-width: 2rem"
+                                class="w-6 h-6 transform rotate-0"
+                                stroke="currentColor"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-width="2"
+                                  d="M19 9l-7 7-7-7"
+                                ></path></svg
+                            ></span>
+                          </button>
+                        </dt>
+                        <dd class="pr-12 mt-2 hidden">
+                          <p class="text-base leading-6 text-gray-500">
+                            With a domain license, all users in your
+                            organization or school get access to premium
+                            features. The license is compatible with all
+                            editions of GSuite including Basic, Business,
+                            Enterprise and GSuite for Education domains.
+                          </p>
+                        </dd>
+                      </div>
+                    </div>
+                    <div class="mt-6 border-t border-gray-200 pt-6">
+                      <div>
+                        <dt class="text-lg leading-7">
+                          <button
+                            type="button"
+                            class="flex items-start justify-between w-full text-left text-gray-400 focus:outline-none focus:text-gray-900"
+                          >
+                            <span class="font-medium text-gray-900"
+                              >What can I do with Twitter bots?</span
+                            ><span class="flex items-center ml-6 h-7"
+                              ><svg
+                                style="max-width: 2rem"
+                                class="w-6 h-6 transform rotate-0"
+                                stroke="currentColor"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-width="2"
+                                  d="M19 9l-7 7-7-7"
+                                ></path></svg
+                            ></span>
+                          </button>
+                        </dt>
+                        <dd class="pr-12 mt-2 hidden">
+                          <p class="text-base leading-6 text-gray-500">
+                            The bot can auto-reply to tweets, retweet and quote
+                            tweets, send DMs, add users to Twitter lists, follow
+                            users, and more.
+                            <a
+                              href="https://www.labnol.org/twitter-bots-actions-4733"
+                            ></a>
+                            to see the full list.
+                          </p>
+                        </dd>
+                      </div>
+                    </div>
+                    <div class="mt-6 border-t border-gray-200 pt-6">
+                      <div>
+                        <dt class="text-lg leading-7">
+                          <button
+                            type="button"
+                            class="flex items-start justify-between w-full text-left text-gray-400 focus:outline-none focus:text-gray-900"
+                          >
+                            <span class="font-medium text-gray-900"
+                              >What's the difference between free and
+                              premium?</span
+                            ><span class="flex items-center ml-6 h-7"
+                              ><svg
+                                style="max-width: 2rem"
+                                class="w-6 h-6 transform rotate-0"
+                                stroke="currentColor"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-width="2"
+                                  d="M19 9l-7 7-7-7"
+                                ></path></svg
+                            ></span>
+                          </button>
+                        </dt>
+                        <dd class="pr-12 mt-2 hidden">
+                          <p class="text-base leading-6 text-gray-500">
+                            Free plan lets you create a single bot while premium
+                            offers up to 10 bots. Free bots run once per hour,
+                            premium bots run every 15 minutes.
+                          </p>
+                        </dd>
+                      </div>
+                    </div>
+                    <div class="mt-6 border-t border-gray-200 pt-6">
+                      <div>
+                        <dt class="text-lg leading-7">
+                          <button
+                            type="button"
+                            class="flex items-start justify-between w-full text-left text-gray-400 focus:outline-none focus:text-gray-900"
+                          >
+                            <span class="font-medium text-gray-900"
+                              >Are Twitter bots legal?</span
+                            ><span class="flex items-center ml-6 h-7"
+                              ><svg
+                                style="max-width: 2rem"
+                                class="w-6 h-6 transform rotate-0"
+                                stroke="currentColor"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-width="2"
+                                  d="M19 9l-7 7-7-7"
+                                ></path></svg
+                            ></span>
+                          </button>
+                        </dt>
+                        <dd class="pr-12 mt-2 hidden">
+                          <p class="text-base leading-6 text-gray-500">
+                            The Twitter bots use the Twitter API to automate
+                            your Twitter account. The Twitter's
+                            <a
+                              href="https://www.labnol.org/twitter-bots-automation-rules-5066"
+                              >automation rulebook</a
+                            >
+                            specifies criteria that they use to identify
+                            potential spam in the system. As long as your not
+                            using the bot for spamming, it should work.
+                          </p>
+                        </dd>
+                      </div>
+                    </div>
+                    <div class="mt-6 border-t border-gray-200 pt-6">
+                      <div>
+                        <dt class="text-lg leading-7">
+                          <button
+                            type="button"
+                            class="flex items-start justify-between w-full text-left text-gray-400 focus:outline-none focus:text-gray-900"
+                          >
+                            <span class="font-medium text-gray-900"
+                              >How do I stop bots on Twitter</span
+                            ><span class="flex items-center ml-6 h-7"
+                              ><svg
+                                style="max-width: 2rem"
+                                class="w-6 h-6 transform rotate-0"
+                                stroke="currentColor"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-width="2"
+                                  d="M19 9l-7 7-7-7"
+                                ></path></svg
+                            ></span>
+                          </button>
+                        </dt>
+                        <dd class="pr-12 mt-2 hidden">
+                          <p class="text-base leading-6 text-gray-500">
+                            You can suspend or permanently stop your Twitter bot
+                            in one easy step. Open the
+                            <a href="https://digitalinspiration.com/bots"
+                              >bots page</a
+                            >, select any active bot and delete it.
+                          </p>
+                        </dd>
+                      </div>
+                    </div>
+                    <div class="mt-6 border-t border-gray-200 pt-6">
+                      <div>
+                        <dt class="text-lg leading-7">
+                          <button
+                            type="button"
+                            class="flex items-start justify-between w-full text-left text-gray-400 focus:outline-none focus:text-gray-900"
+                          >
+                            <span class="font-medium text-gray-900"
+                              >Why is my Twitter bot not working</span
+                            ><span class="flex items-center ml-6 h-7"
+                              ><svg
+                                style="max-width: 2rem"
+                                class="w-6 h-6 transform rotate-0"
+                                stroke="currentColor"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-width="2"
+                                  d="M19 9l-7 7-7-7"
+                                ></path></svg
+                            ></span>
+                          </button>
+                        </dt>
+                        <dd class="pr-12 mt-2 hidden">
+                          <p class="text-base leading-6 text-gray-500">
+                            Please check the
+                            <a
+                              href="https://www.labnol.org/twitter-bots-troubleshoot-5018"
+                              >bot troubleshooting</a
+                            >
+                            guide. If your Twitter bot is posting spam or
+                            bothering users by sending them unsolicited
+                            messages, Twitter may suspend your bot or restrict
+                            it from performing write actions.
+                          </p>
+                        </dd>
+                      </div>
+                    </div>
+                    <div class="mt-6 border-t border-gray-200 pt-6">
+                      <div>
+                        <dt class="text-lg leading-7">
+                          <button
+                            type="button"
+                            class="flex items-start justify-between w-full text-left text-gray-400 focus:outline-none focus:text-gray-900"
+                          >
+                            <span class="font-medium text-gray-900"
+                              >How can tell a Twitter bot</span
+                            ><span class="flex items-center ml-6 h-7"
+                              ><svg
+                                style="max-width: 2rem"
+                                class="w-6 h-6 transform rotate-0"
+                                stroke="currentColor"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-width="2"
+                                  d="M19 9l-7 7-7-7"
+                                ></path></svg
+                            ></span>
+                          </button>
+                        </dt>
+                        <dd class="pr-12 mt-2 hidden">
+                          <p class="text-base leading-6 text-gray-500">
+                            If you would like to identify if a tweet has been
+                            published by a human or a twitter bot, open the
+                            Twitter and look for the application name that was
+                            used to publish the tweet. If the application source
+                            name is not a known app, it is likely a bot.
+                          </p>
+                        </dd>
+                      </div>
+                    </div>
+                    <div class="mt-6 border-t border-gray-200 pt-6">
+                      <div>
+                        <dt class="text-lg leading-7">
+                          <button
+                            type="button"
+                            class="flex items-start justify-between w-full text-left text-gray-400 focus:outline-none focus:text-gray-900"
+                          >
+                            <span class="font-medium text-gray-900"
+                              >Can I buy the source code of Twitter bots</span
+                            ><span class="flex items-center ml-6 h-7"
+                              ><svg
+                                style="max-width: 2rem"
+                                class="w-6 h-6 transform rotate-0"
+                                stroke="currentColor"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-width="2"
+                                  d="M19 9l-7 7-7-7"
+                                ></path></svg
+                            ></span>
+                          </button>
+                        </dt>
+                        <dd class="pr-12 mt-2 hidden">
+                          <p class="text-base leading-6 text-gray-500">
+                            If you buy the 5-user pro edition(<a
+                              href="https://digitalinspiration.com/buy?edition=E&amp;sku=GA12&amp;users=5"
+                              >link</a
+                            >), we offer the full source code of the Twitter
+                            bots. You can easily deploy bots in your Google
+                            account using
+                            <a
+                              href="https://www.labnol.org/deploy-twitter-bots-768"
+                              >these steps</a
+                            >.
+                          </p>
+                        </dd>
+                      </div>
+                    </div>
+                  </dl>
+                </div>
+              </div>
+            </div>
+            <div
+              class="max-w-screen-xl px-4 py-8 mx-auto sm:px-6 lg:py-8 lg:px-8"
+            >
+              <div
+                class="px-6 py-6 rounded-lg md:py-12 md:px-12 lg:py-16 lg:px-16 xl:flex xl:items-center"
+              >
+                <div class="xl:w-0 xl:flex-1">
+                  <h2
+                    class="text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-4xl sm:leading-9"
+                  >
+                    Can't find an answer to your question?
+                  </h2>
+                  <p
+                    class="max-w-3xl mt-3 text-lg font-semibold leading-8 text-gray-600"
+                  >
+                    <a
+                      href="https://digitalinspiration.support/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="border-b-2 py-1 border-indigo-400"
+                      >Send a message</a
+                    >
+                    <!-- -->and we'll be happy to help you 🙌
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bg-indigo-50">
+            <div
+              class="max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8"
+            >
+              <div
+                class="mx-auto flex items-center justify-center h-12 w-12 rounded-full text-indigo-600"
+              >
+                <svg
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  class="h-12 w-12"
+                  style="max-width: 48px"
+                >
+                  <path
+                    d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  ></path>
+                </svg>
+              </div>
+              <h2
+                class="mt-8 text-2xl font-extrabold leading-9 text-center text-gray-900 sm:text-3xl"
+              >
+                Trusted in 150 countries<!-- -->
+              </h2>
+              <p
+                class="mt-6 mx-auto max-w-3xl text-base leading-6 text-gray-600 text-center mb-16"
+              >
+                Our Google add-ons are used in some of the largest companies,
+                government departments and universities worlwide including
+                Stanford University, PWC, Uber, Zoom, Flipkart, Twilio, Harvard,
+                Khan Academy, gov.uk, PayTm and Disney.
+              </p>
+            </div>
+          </div>
+          <div class="bg-indigo-700">
+            <div
+              class="max-w-screen-xl px-4 py-12 mx-auto sm:px-6 lg:py-16 lg:px-8"
+            >
+              <div
+                class="px-6 py-6 rounded-lg md:py-12 md:px-12 lg:py-16 lg:px-16 xl:flex xl:items-center"
+              >
+                <div class="xl:w-0 xl:flex-1">
+                  <h2
+                    class="text-3xl font-bold leading-8 tracking-tight text-white sm:text-4xl sm:leading-9"
+                  >
+                    Get notified whenever we publish something new
+                  </h2>
+                  <p
+                    class="max-w-3xl mt-3 text-lg leading-6 text-indigo-200"
+                    id="newsletter-headline"
+                  >
+                    Sign up for our newsletter to stay up to date.
+                  </p>
+                </div>
+                <div class="mt-8 sm:w-full sm:max-w-md xl:mt-0 xl:ml-8">
+                  <form
+                    target="_blank"
+                    class="sm:flex"
+                    aria-labelledby="newsletter-headline"
+                    action="https://labnol.us1.list-manage.com/subscribe/post?u=f52af1b2d34e161675d992e00&amp;id=eb043dcd01"
+                    method="POST"
+                  >
+                    <input
+                      type="email"
+                      name="MERGE0"
+                      aria-label="Email address"
+                      required=""
+                      class="w-full px-5 py-3 text-base leading-6 text-gray-900 placeholder-gray-500 transition duration-150 ease-in-out bg-white border border-transparent rounded-md appearance-none focus:outline-none focus:placeholder-gray-400"
+                      placeholder="Enter your email"
+                    />
+                    <div
+                      class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3 sm:flex-shrink-0"
+                    >
+                      <button
+                        type="submit"
+                        class="flex items-center justify-center w-full px-5 py-3 text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-indigo-500 border border-transparent rounded-md hover:bg-indigo-400 focus:outline-none focus:bg-indigo-400"
+                      >
+                        Subscribe
+                      </button>
+                    </div>
+                  </form>
+                  <p class="mt-3 text-sm leading-5 text-indigo-200">
+                    We will never spam. That's our promise .
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bg-gray-50">
+            <div
+              class="max-w-screen-xl px-4 py-12 mx-auto sm:px-6 lg:py-16 lg:px-8"
+            >
+              <div class="xl:grid xl:grid-cols-3 xl:gap-8">
+                <div class="grid grid-cols-2 gap-8 xl:col-span-2">
+                  <div class="md:grid md:grid-cols-2 md:gap-8">
+                    <div>
+                      <h4
+                        class="text-sm font-semibold leading-5 tracking-wider text-gray-400 uppercase"
+                      >
+                        Solutions
+                      </h4>
+                      <ul class="mt-4">
+                        <li>
+                          <a
+                            class="text-base leading-6 text-gray-500 hover:text-gray-900"
+                            href="https://digitalinspiration.com/product/gmail-mail-merge"
+                            >Mail Merge for Gmail</a
+                          >
+                        </li>
+                        <li class="mt-4">
+                          <a
+                            class="text-base leading-6 text-gray-500 hover:text-gray-900"
+                            href="https://digitalinspiration.com/product/document-studio"
+                            >Document Studio</a
+                          >
+                        </li>
+                        <li class="mt-4">
+                          <a
+                            class="text-base leading-6 text-gray-500 hover:text-gray-900"
+                            href="https://digitalinspiration.com/product/google-forms-notifications"
+                            >Form Notifications</a
+                          >
+                        </li>
+                        <li class="mt-4">
+                          <a
+                            class="text-base leading-6 text-gray-500 hover:text-gray-900"
+                            href="https://digitalinspiration.com/#products"
+                            >View All</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="mt-12 md:mt-0">
+                      <h4
+                        class="text-sm font-semibold leading-5 tracking-wider text-gray-400 uppercase"
+                      >
+                        Support
+                      </h4>
+                      <ul class="mt-4">
+                        <li>
+                          <a
+                            href="https://digitalinspiration.support/"
+                            class="text-base leading-6 text-gray-500 hover:text-gray-900"
+                            >Customer Support</a
+                          >
+                        </li>
+                        <li class="mt-4">
+                          <a
+                            href="https://www.youtube.com/labnol/videos"
+                            class="text-base leading-6 text-gray-500 hover:text-gray-900"
+                            >Video Tutorials</a
+                          >
+                        </li>
+                        <li class="mt-4">
+                          <a
+                            href="https://www.labnol.org/"
+                            class="text-base leading-6 text-gray-500 hover:text-gray-900"
+                            >How-to Guides</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="md:grid md:grid-cols-2 md:gap-8">
+                    <div>
+                      <h4
+                        class="text-sm font-semibold leading-5 tracking-wider text-gray-400 uppercase"
+                      >
+                        Company
+                      </h4>
+                      <ul class="mt-4">
+                        <li>
+                          <a
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href="https://www.labnol.org/about/"
+                            class="text-base leading-6 text-gray-500 hover:text-gray-900"
+                            >Google Developer</a
+                          >
+                        </li>
+                        <li class="mt-4">
+                          <a
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href="https://www.labnol.org/"
+                            class="text-base leading-6 text-gray-500 hover:text-gray-900"
+                            >Technology Blog</a
+                          >
+                        </li>
+                        <li class="mt-4">
+                          <a
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href="https://www.labnol.org/topic/google-apps-script"
+                            class="text-base leading-6 text-gray-500 hover:text-gray-900"
+                            >Google Apps Script</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="mt-12 md:mt-0">
+                      <h4
+                        class="text-sm font-semibold leading-5 tracking-wider text-gray-400 uppercase"
+                      >
+                        Legal
+                      </h4>
+                      <ul class="mt-4">
+                        <li>
+                          <a
+                            class="text-base leading-6 text-gray-500 hover:text-gray-900"
+                            href="https://digitalinspiration.com/gdpr/"
+                            >GDPR Compliance</a
+                          >
+                        </li>
+                        <li class="mt-4">
+                          <a
+                            title="View our privacy policy"
+                            class="text-base leading-6 text-gray-500 hover:text-gray-900"
+                            href="https://digitalinspiration.com/privacy/"
+                            >Privacy Policy</a
+                          >
+                        </li>
+                        <li class="mt-4">
+                          <a
+                            class="text-base leading-6 text-gray-500 hover:text-gray-900"
+                            href="https://digitalinspiration.com/privacy#terms"
+                            >Terms of Service</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="pt-8 mt-8 border-t border-gray-200 md:flex md:items-center md:justify-between"
+              >
+                <div class="flex md:order-2">
+                  <a
+                    title="Subscribe to our YouTube channel"
+                    target="_blank"
+                    rel="noreferrer"
+                    href="https://www.youtube.com/labnol"
+                    class="text-gray-400 hover:text-gray-500"
+                    ><span class="sr-only">YouTube</span
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="w-6 h-6"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"
+                        clip-rule="evenodd"
+                        fill-rule="evenodd"
+                      ></path></svg></a
+                  ><a
+                    title="Follow us on Twitter"
+                    target="_blank"
+                    rel="noreferrer"
+                    href="https://twitter.com/labnol"
+                    class="ml-6 text-gray-400 hover:text-gray-500"
+                    ><span class="sr-only">Twitter</span
+                    ><svg
+                      class="w-6 h-6"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"
+                      ></path></svg></a
+                  ><a
+                    title="Open source contributions on Github"
+                    href="https://github.com/labol"
+                    target="_blank"
+                    rel="noreferrer"
+                    class="ml-6 text-gray-400 hover:text-gray-500"
+                    ><span class="sr-only">GitHub</span
+                    ><svg
+                      class="w-6 h-6"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                        clip-rule="evenodd"
+                      ></path></svg
+                  ></a>
+                </div>
+                <p
+                  class="mt-8 text-base leading-6 text-gray-400 md:mt-0 md:order-1"
+                >
+                  © 2020 Digital Inspiration. All rights reserved.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        id="gatsby-announcer"
+        style="
+          position: absolute;
+          top: 0;
+          width: 1px;
+          height: 1px;
+          padding: 0;
+          overflow: hidden;
+          clip: rect(0, 0, 0, 0);
+          white-space: nowrap;
+          border: 0;
+        "
+        aria-live="assertive"
+        aria-atomic="true"
+      ></div>
+    </div>
+  
+  </body>
+</html>
