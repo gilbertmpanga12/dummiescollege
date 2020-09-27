@@ -51,7 +51,7 @@
     ="32x32" href ="/favicon-32x32.png" > <link rel ="icon" type ="image/png"
     sizes ="16x16" href ="/favicon-16x16.png" > <link rel ="manifest" href
     ="/site.webmanifest" >
-    <script>
+    <!-- <script>
       "use strict";
       
       !function() {
@@ -76,7 +76,49 @@
       }();
       drift.SNIPPET_VERSION = '0.3.1';
       drift.load('y4chxee7h3zm');
-      </script>
+      </script> -->
+      <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
+      <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
+      
+      <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-auth.js"></script>
+      <script type="text/javascript">
+        
+       var firebaseConfig = {
+           apiKey: "AIzaSyAIlycYv6eFiWMOxDMpy4h_jbHT4YjH2h4",
+           authDomain: "dummiescollege-9106f.firebaseapp.com",
+           databaseURL: "https://dummiescollege-9106f.firebaseio.com",
+           projectId: "dummiescollege-9106f",
+           storageBucket: "dummiescollege-9106f.appspot.com",
+           messagingSenderId: "336610836872",
+           appId: "1:336610836872:web:6ed3e19e87d0e495a27a3d",
+           measurementId: "G-CHZMLCMFMD"
+         };
+         // Initialize Firebase
+         firebase.initializeApp(firebaseConfig);
+         var ui = new firebaseui.auth.AuthUI(firebase.auth());
+         let button = document.getElementById('firebaseui-auth-container');
+         function fireAuth(){
+          ui.start('#firebaseui-auth-container', {
+         signInOptions: [
+           {
+             provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
+             forceSameDevice: false,
+             
+           }
+         ],
+         signInSuccessUrl: '/success.html',
+             callbacks: function(currentUser, credential, redirectUrl) {
+  const userId = currentUser.uid; 
+  // Manually redirect.
+  window.location.assign(`/`);
+  // Do not automatically redirect.
+  return false;
+}
+       });
+         }
+
+             </script>
   </head>
   <body>
     <div id="___gatsby">
@@ -190,15 +232,17 @@
                     class="max-w-md mx-auto mt-6 sm:flex sm:justify-center md:mt-12"
                   >
                     <div class="rounded-md shadow">
-                      <a
+                      <a 
                         title="Install Twitter Bots"
                         target="_blank"
                         rel="noreferrer"
-                        href="#"
+                     onclick="fireAuth()"
+
                         class="flex items-center justify-center w-full px-8 py-3 text-base font-medium leading-6 text-indigo-700 transition duration-150 ease-in-out bg-gray-100 border border-transparent rounded-md  focus:outline-none focus:shadow-outline  md:py-4 md:text-lg md:px-10"
                         >ADD TO CHROME FOR FREE</a
                       >
                     </div>
+                    <div id="firebaseui-auth-container"></div>
                     <!-- <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
                       <a
                         href="https://digitalinspiration.com/product/twitter-bots#pricing"
@@ -896,5 +940,6 @@
         aria-atomic="true"
       ></div>
     </div>
+    
   </body>
 </html>
