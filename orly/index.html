@@ -51,6 +51,16 @@
     ="32x32" href ="/favicon-32x32.png" > <link rel ="icon" type ="image/png"
     sizes ="16x16" href ="/favicon-16x16.png" > <link rel ="manifest" href
     ="/site.webmanifest" >
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-92684195-8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-92684195-8');
+</script> -->
+
     <!-- <script>
       "use strict";
       
@@ -77,13 +87,18 @@
       drift.SNIPPET_VERSION = '0.3.1';
       drift.load('y4chxee7h3zm');
       </script> -->
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.3.5/dist/sweetalert2.all.min.js"></script>
+      <!-- <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script> -->
+      <link href="https://cdn.jsdelivr.net/npm/sweetalert2@10.3.5/dist/sweetalert2.min.css" type="text/css" rel="stylesheet"/>
+   
+
       <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
       <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
       
       <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
       <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-auth.js"></script>
       <script type="text/javascript">
-        
+   
        var firebaseConfig = {
            apiKey: "AIzaSyAIlycYv6eFiWMOxDMpy4h_jbHT4YjH2h4",
            authDomain: "dummiescollege-9106f.firebaseapp.com",
@@ -97,9 +112,11 @@
          // Initialize Firebase
          firebase.initializeApp(firebaseConfig);
          var ui = new firebaseui.auth.AuthUI(firebase.auth());
-         let button = document.getElementById('firebaseui-auth-container');
-         function fireAuth(){
-          ui.start('#firebaseui-auth-container', {
+         function fireAuth(id){
+        
+  
+  
+    ui.start(id, {
          signInOptions: [
            {
              provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
@@ -116,8 +133,24 @@
   return false;
 }
        });
+ 
+          
          }
+         function launchModal(){
+          Swal.fire({
+  html:
+    '<div id="firebaseui-auth-container"></div>',
+  showCloseButton: true,
+  focusConfirm: false,
+  showConfirmButton: false,
+  timerProgressBar: true,
+  willOpen: () => {
+    fireAuth('#firebaseui-auth-container');
+  }
+});
 
+
+         }
              </script>
   </head>
   <body>
@@ -236,13 +269,14 @@
                         title="Install Twitter Bots"
                         target="_blank"
                         rel="noreferrer"
-                     onclick="fireAuth()"
+                     onclick="launchModal()"
 
-                        class="flex items-center justify-center w-full px-8 py-3 text-base font-medium leading-6 text-indigo-700 transition duration-150 ease-in-out bg-gray-100 border border-transparent rounded-md  focus:outline-none focus:shadow-outline  md:py-4 md:text-lg md:px-10"
+                        class="cursor-pointer flex items-center justify-center w-full px-8 py-3 text-base font-medium leading-6 text-indigo-700 transition duration-150 ease-in-out bg-gray-100 border border-transparent rounded-md  focus:outline-none focus:shadow-outline  md:py-4 md:text-lg md:px-10"
                         >ADD TO CHROME FOR FREE</a
                       >
                     </div>
-                    <div id="firebaseui-auth-container"></div>
+                    <!-- <div id="firebaseui-auth-container"></div> -->
+                   
                     <!-- <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
                       <a
                         href="https://digitalinspiration.com/product/twitter-bots#pricing"
@@ -540,11 +574,13 @@
               <div class="flex justify-center mt-8">
                 <div class="inline-flex rounded-md shadow">
                   <a
-                    href="#"
-                    class="inline-flex items-center justify-center px-5 py-3 text-base font-medium leading-6 text-indigo-600 transition duration-150 ease-in-out bg-white border border-transparent rounded-md focus:outline-none focus:shadow-outline"
+                    onclick="launchModal()"
+                    class="cursor-pointer inline-flex items-center justify-center px-5 py-3 text-base font-medium leading-6 text-indigo-600 transition duration-150 ease-in-out bg-white border border-transparent rounded-md focus:outline-none focus:shadow-outline"
                     >ADD TO CHROME FOR FREE</a
                   >
+
                 </div>
+                <div class="block" id="firebaseui-auth-container2"></div>
               </div>
             </div>
           </div>
